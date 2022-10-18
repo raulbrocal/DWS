@@ -18,6 +18,8 @@
 
     echo ($calculadora->coeficienteBinomial(6, 2) . "<br>");
 
+    echo ($calculadora->convierteBinarioDecimal("1011010"));
+
 
     ?>
 </body>

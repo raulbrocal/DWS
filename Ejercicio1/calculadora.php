@@ -88,4 +88,16 @@ class Calculadora
         }
 
     }
+
+    function sumaMatrices($primeraMatriz, $segundaMatriz){
+        $matrizResultado = [];
+        for ($i=0; $i < count($primeraMatriz); $i++) { 
+            for ($j=0; $j < count($primeraMatriz); $j++) { 
+                $matrizResultado[$i][$j] = $primeraMatriz[$i][$j] + $segundaMatriz[$i][$j];
+                echo($matrizResultado[$i][$j]);
+            }
+            echo("<br>");
+        }
+
+    }
 }

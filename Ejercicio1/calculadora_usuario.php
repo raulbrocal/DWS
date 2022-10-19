@@ -26,6 +26,18 @@
     echo($calculadora->esPalindromo("casa") . "<br>");
     echo($calculadora->esPalindromo("casaasac") . "<br>");
 
+    $matriz1 = array(
+        array(4,0,2),
+        array(6,7,9),
+        array(1,2,2)
+    );
+    $matriz2 = array(
+        array(1,2,3),
+        array(4,5,6),
+        array(7,8,9)
+    );
+    echo($calculadora->sumaMatrices($matriz1, $matriz2));
+
 
     ?>
 </body>

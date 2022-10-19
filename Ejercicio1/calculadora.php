@@ -23,17 +23,25 @@ class Calculadora
     function coeficienteBinomial($n, $k)
     {
         return $this->factorial($n) / $this->factorial($k) * $this->factorial($n - $k);
-
     }
 
-    function convierteBinarioDecimal($cadenaBits){
-        $array = str_split($cadenaBits);
-        for ($i=0; $i < count($array); $i++) { 
-            // echo($array[$i]);
-            // echo(($array[$i])**key($array));
-            echo (array_search($array[$i], $array));
+    function convierteBinarioDecimal($cadenaBits)
+    {
+
+        $array = array_reverse(str_split($cadenaBits));
+        $exponente = 0;
+        $decimal = 0;
+
+        foreach ($array as $value) {
+
+            $decimal = $decimal + $value * pow(2, $exponente);
+
+            $exponente++;
+
         }
-        // echo(bindec($cadenaBits));
-    }
 
+        echo ($decimal . "<br>");
+        // echo (bindec($cadenaBits));
+
+    }
 }

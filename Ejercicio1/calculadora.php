@@ -42,6 +42,22 @@ class Calculadora
 
         echo ($decimal . "<br>");
         // echo (bindec($cadenaBits));
+    }
+
+    function sumaNumerosPares($array)
+    {
+
+        $suma = 0;
+
+        foreach ($array as $value) {
+
+            if ($value%2 == 0) {
+                $suma = $suma + $value;
+            }
+
+        }
+
+        echo($suma);
 
     }
 }

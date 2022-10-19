@@ -37,7 +37,6 @@ class Calculadora
             $decimal = $decimal + $value * pow(2, $exponente);
 
             $exponente++;
-
         }
 
         echo ($decimal . "<br>");
@@ -51,13 +50,42 @@ class Calculadora
 
         foreach ($array as $value) {
 
-            if ($value%2 == 0) {
+            if ($value % 2 == 0) {
                 $suma = $suma + $value;
             }
-
         }
 
-        echo($suma);
+        echo ($suma);
+    }
+
+
+
+    function esPalindromo($cadena)
+    {
+        $cadenaDesordenada = array_reverse(str_split($cadena));
+        $cadenaOrdenada = str_split($cadena);
+
+        echo("<br>");
+        print_r($cadenaOrdenada);
+        echo("<br>");
+        print_r($cadenaDesordenada);
+        echo("<br>");
+
+        $esCapicua = true;
+        
+        for ($i=0; $i < count($cadenaOrdenada); $i++) { 
+
+            if ($cadenaOrdenada[$i] != $cadenaDesordenada[$i]) {
+                $esCapicua = false;
+                break;
+            }
+        }
+
+        if ($esCapicua) {
+            echo("True");
+        } else {
+            echo("False");
+        }
 
     }
 }

@@ -21,7 +21,10 @@
     echo ($calculadora->convierteBinarioDecimal("1000"));
 
     $arrayNumeros = [1,2,3,4,5,6,7,8,9,10];
-    echo($calculadora->sumaNumerosPares($arrayNumeros));
+    echo($calculadora->sumaNumerosPares($arrayNumeros) . "<br>");
+
+    echo($calculadora->esPalindromo("casa") . "<br>");
+    echo($calculadora->esPalindromo("casaasac") . "<br>");
 
 
     ?>

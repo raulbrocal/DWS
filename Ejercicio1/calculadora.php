@@ -16,13 +16,19 @@ class Calculadora
                 }
             }
         } else {
-            echo "El valor de x ha de ser >= 0.";
+            echo "El valor de la variable ha de ser numérica y mayor o igual a 0.";
         }
     }
 
     function coeficienteBinomial($n, $k)
     {
-        return $this->factorial($n) / $this->factorial($k) * $this->factorial($n - $k);
+
+        if ($n < $k) {
+            echo ("El valor del primer número ha de ser mayor que el segundo.");
+            return;
+        }
+
+        return $this->factorial($n) / ($this->factorial($k) * $this->factorial($n - $k));
     }
 
     function convierteBinarioDecimal($cadenaBits)
@@ -39,7 +45,7 @@ class Calculadora
             $exponente++;
         }
 
-        echo ($decimal . "<br>");
+        return $decimal;
         // echo (bindec($cadenaBits));
     }
 
@@ -55,7 +61,7 @@ class Calculadora
             }
         }
 
-        echo ($suma);
+        return $suma;
     }
 
 
@@ -65,15 +71,15 @@ class Calculadora
         $cadenaDesordenada = array_reverse(str_split($cadena));
         $cadenaOrdenada = str_split($cadena);
 
-        echo("<br>");
-        print_r($cadenaOrdenada);
-        echo("<br>");
-        print_r($cadenaDesordenada);
-        echo("<br>");
+        // echo("<br>");
+        // print_r($cadenaOrdenada);
+        // echo("<br>");
+        // print_r($cadenaDesordenada);
+        // echo("<br>");
 
         $esCapicua = true;
-        
-        for ($i=0; $i < count($cadenaOrdenada); $i++) { 
+
+        for ($i = 0; $i < count($cadenaOrdenada); $i++) {
 
             if ($cadenaOrdenada[$i] != $cadenaDesordenada[$i]) {
                 $esCapicua = false;
@@ -82,22 +88,22 @@ class Calculadora
         }
 
         if ($esCapicua) {
-            echo("True");
+            return "True";
         } else {
-            echo("False");
+            return "False";
         }
-
     }
 
-    function sumaMatrices($primeraMatriz, $segundaMatriz){
+    function sumaMatrices($primeraMatriz, $segundaMatriz)
+    {
+
         $matrizResultado = [];
-        for ($i=0; $i < count($primeraMatriz); $i++) { 
-            for ($j=0; $j < count($primeraMatriz); $j++) { 
+        for ($i = 0; $i < count($primeraMatriz); $i++) {
+            for ($j = 0; $j < count($primeraMatriz); $j++) {
                 $matrizResultado[$i][$j] = $primeraMatriz[$i][$j] + $segundaMatriz[$i][$j];
-                echo($matrizResultado[$i][$j]);
             }
-            echo("<br>");
         }
 
+        return $matrizResultado;
     }
 }

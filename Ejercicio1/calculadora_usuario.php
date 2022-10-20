@@ -14,30 +14,40 @@
 
     $calculadora = new Calculadora();
 
-    echo ($calculadora->factorial(5) . "<br>");
+    echo ("FACTORIAL<br>" . $calculadora->factorial(5) . "<br><br>");
 
-    echo ($calculadora->coeficienteBinomial(6, 2) . "<br>");
+    echo ("CALCULAR BINOMIAL<br>" . $calculadora->coeficienteBinomial(10, 2) . "<br><br>");
 
-    echo ($calculadora->convierteBinarioDecimal("1000"));
+    echo ("CONVERSOR BINARIO A DECIMAL<br>" . $calculadora->convierteBinarioDecimal("1000") . "<br><br>");
 
-    $arrayNumeros = [1,2,3,4,5,6,7,8,9,10];
-    echo($calculadora->sumaNumerosPares($arrayNumeros) . "<br>");
+    $arrayNumeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    echo ("SUMA NÚMEROS PARES<br>" . $calculadora->sumaNumerosPares($arrayNumeros) . "<br><br>");
 
-    echo($calculadora->esPalindromo("casa") . "<br>");
-    echo($calculadora->esPalindromo("casaasac") . "<br>");
+    echo ("EJERCICIO CAPICUA<br>".$calculadora->esPalindromo("casa") . "<br>");
+    echo ($calculadora->esPalindromo("casaasac") . "<br>");
+
+    echo ("<br>");
 
     $matriz1 = array(
-        array(4,0,2),
-        array(6,7,9),
-        array(1,2,2)
+        array(4, 0, 2),
+        array(6, 7, 9),
+        array(1, 2, 2)
     );
-    $matriz2 = array(
-        array(1,2,3),
-        array(4,5,6),
-        array(7,8,9)
-    );
-    echo($calculadora->sumaMatrices($matriz1, $matriz2));
 
+    $matriz2 = array(
+        array(1, 2, 3),
+        array(4, 5, 6),
+        array(7, 8, 9)
+    );
+
+    $result = $calculadora->sumaMatrices($matriz1, $matriz2);
+    
+    for ($i=0; $i < count($result); $i++) { 
+        for ($j=0; $j < count($result); $j++) { 
+            echo($result[$i][$j]." ");
+        }
+        echo("<br>");
+    }
 
     ?>
 </body>

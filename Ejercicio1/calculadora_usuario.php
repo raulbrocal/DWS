@@ -41,9 +41,9 @@
     );
 
     $result = $calculadora->sumaMatrices($matriz1, $matriz2);
-    
+
     for ($i=0; $i < count($result); $i++) { 
-        for ($j=0; $j < count($result); $j++) { 
+        for ($j=0; $j < count($result[0]); $j++) { 
             echo($result[$i][$j]." ");
         }
         echo("<br>");

@@ -99,7 +99,7 @@ class Calculadora
 
         $matrizResultado = [];
         for ($i = 0; $i < count($primeraMatriz); $i++) {
-            for ($j = 0; $j < count($primeraMatriz); $j++) {
+            for ($j = 0; $j < count($primeraMatriz[0]); $j++) {
                 $matrizResultado[$i][$j] = $primeraMatriz[$i][$j] + $segundaMatriz[$i][$j];
             }
         }

@@ -24,7 +24,8 @@
                     <li><a href="./6_validar_get.php">7. Ejercicio clase</a></li>
                     <li><a href="./7_try_catch.php">8. Ejercicio 2 clase</a></li>
                     <li><a href="./8_informacion.php">9. Ejercicio 3 clase</a></li>
-                    <li><a href="./Ejercicio1/calculadora_usuario.php">Calculadora</a></li>                    
+                    <li><a href="./Ejercicio1/calculadora_usuario.php">Calculadora</a></li>
+                    <li><a href="./cancion.php">Canción</a></li>
                 </ul>
             </div>
             <div class="segunda_columna"></div>

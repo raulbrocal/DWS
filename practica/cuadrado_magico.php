@@ -54,7 +54,28 @@
             return "true";
         }
 
+        function analizarColumnas($matriz){
+            $suma = 0;
+
+            for ($i=0; $i < count($matriz); $i++) {
+
+                for ($j=0; $j < count($matriz); $j++) { 
+                    $suma = $suma + $matriz[$j][$i];
+                }
+
+                if ($suma != 15) {
+                    return "false";
+                }
+
+                $suma = 0;
+
+            }
+
+            return "true";
+        }
+
         echo(analizarFilas($matriz));
+        echo(analizarColumnas($matriz));
         pintarCuadradoMagico($matriz);
         ?>
     </div>

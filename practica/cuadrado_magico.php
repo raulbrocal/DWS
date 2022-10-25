@@ -74,6 +74,24 @@
             return "true";
         }
 
+        function analizarDiagonalPrimera($matriz)
+        {
+
+            $suma = 0;
+
+            for ($i = count($matriz); $i >= 0; $i--) {
+                $suma = $suma + $matriz[$i][$i];
+            }
+
+            if ($suma != 15) {
+                return "false";
+            }
+
+            $suma = 0;
+
+            return "true";
+        }
+
         function analizarDiagonalSegunda($matriz)
         {
 
@@ -95,6 +113,8 @@
 
         echo (analizarFilas($matriz));
         echo (analizarColumnas($matriz));
+        echo (analizarDiagonalPrimera($matriz));
+        echo (analizarDiagonalSegunda($matriz));
         pintarCuadradoMagico($matriz);
         ?>
     </div>

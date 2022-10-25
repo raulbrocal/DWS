@@ -32,28 +32,37 @@
             </div>
             <div class="segunda_columna">
                 <?php
-
                 ini_set('display_errors', 'On');
                 ini_set('html_errors', 0);
+                $palabras = ["el", "sapo", "no", "se", "lava", "el", "pie."];
+                $vocales = ["a", "e", "i", "o", "u"];
+                ?>
 
-                function escribirFrase($frase, $vocal)
+
+                <?php
+                function escribir($word, $vocal)
                 {
-                    $array = str_split($frase);
-                    for ($i = 0; $i < count($array); $i++) {
-                        if (esVocal($array[$i])) {
-                            echo ($vocal);
-                        } else {
-                            echo ($array[$i]);
-                        }
-                    }
+                    $length = strlen($word);
+                    for ($i = 0; $i < $length; $i++)
+                        if (in_array($word[$i], array("a", "e", "i", "o", "u")))
+                            echo $vocal;
+                        else
+                            echo $word[$i];
                 }
+                ?>
 
-                function esVocal($char)
-                {
-                    return in_array($char, array("a", "e", "i", "o", "u"));
+                <?php
+                echo "<div>";
+                foreach ($palabras as $p)
+                    echo $p . " ";
+                echo "</div>";
+
+                foreach ($vocales as $v) {
+                    echo "<div>";
+                    foreach ($palabras as $p)
+                        echo escribir($p, $v) . " ";
+                    echo "</div>";
                 }
-
-                echo (escribirFrase("el sapo no se lava el pie...", "a"));
                 ?>
             </div>
             <div class="tercera_columna">c</div>

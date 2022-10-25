@@ -30,16 +30,17 @@
             echo ("</table>");
         }
 
-        function analizarCuadradoMagico($matriz){
-
+        function analizarCuadradoMagico($matriz)
+        {
         }
 
-        function analizarFilas($matriz){
+        function analizarFilas($matriz)
+        {
             $suma = 0;
 
-            for ($i=0; $i < count($matriz); $i++) {
+            for ($i = 0; $i < count($matriz); $i++) {
 
-                for ($j=0; $j < count($matriz); $j++) { 
+                for ($j = 0; $j < count($matriz); $j++) {
                     $suma = $suma + $matriz[$i][$j];
                 }
 
@@ -48,18 +49,18 @@
                 }
 
                 $suma = 0;
-
             }
 
             return "true";
         }
 
-        function analizarColumnas($matriz){
+        function analizarColumnas($matriz)
+        {
             $suma = 0;
 
-            for ($i=0; $i < count($matriz); $i++) {
+            for ($i = 0; $i < count($matriz); $i++) {
 
-                for ($j=0; $j < count($matriz); $j++) { 
+                for ($j = 0; $j < count($matriz); $j++) {
                     $suma = $suma + $matriz[$j][$i];
                 }
 
@@ -68,14 +69,32 @@
                 }
 
                 $suma = 0;
-
             }
 
             return "true";
         }
 
-        echo(analizarFilas($matriz));
-        echo(analizarColumnas($matriz));
+        function analizarDiagonalSegunda($matriz)
+        {
+
+            $suma = 0;
+
+            for ($i = 0; $i < count($matriz); $i++) {
+                $suma = $suma + $matriz[$i][$i];
+            }
+
+            if ($suma != 15) {
+                return "false";
+            }
+
+            $suma = 0;
+
+            return "true";
+        }
+
+
+        echo (analizarFilas($matriz));
+        echo (analizarColumnas($matriz));
         pintarCuadradoMagico($matriz);
         ?>
     </div>

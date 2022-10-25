@@ -30,6 +30,31 @@
             echo ("</table>");
         }
 
+        function analizarCuadradoMagico($matriz){
+
+        }
+
+        function analizarFilas($matriz){
+            $suma = 0;
+
+            for ($i=0; $i < count($matriz); $i++) {
+
+                for ($j=0; $j < count($matriz); $j++) { 
+                    $suma = $suma + $matriz[$i][$j];
+                }
+
+                if ($suma != 15) {
+                    return "false";
+                }
+
+                $suma = 0;
+
+            }
+
+            return "true";
+        }
+
+        echo(analizarFilas($matriz));
         pintarCuadradoMagico($matriz);
         ?>
     </div>

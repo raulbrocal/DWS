@@ -9,159 +9,172 @@
     <div>
         <?php
 
-        class Matriz
+        class CuadradoMagico
         {
-            private $matriz;
-            private $columnas;
+            public $boolean;
+            public $array;
+            public $matriz;
 
-            function __construct($matriz, $columnas)
+            function __construct($matriz)
             {
                 $this->matriz = $matriz;
-                $this->columnas = $columnas;
             }
 
-            public function getMatriz()
+            function analizarCuadradoMagico()
             {
-                return $this->matriz;
+                $this->sumaPrimeraFila($this->matriz);
             }
 
-            public function getColumnas(){
-                return $this->columnas;
+            function sumaPrimeraFila($matriz)
+            {
+    
+                $sumaColumna = 0;
+    
+                for ($i = 0; $i < count($matriz[0][$i]); $i++) {
+                    $sumaColumna = $sumaColumna + $matriz[0][$i];
+                }
+    
+                return $sumaColumna;
+
             }
 
         };
 
-        $cuadradoMagico = new Matriz(
-            $matriz = [
-                $array = [4, 9, 2],
-                $array = [3, 5, 7],
-                $array = [8, 1, 6]
-            ],
-            $columnas
-        );
+        $objeto = new CuadradoMagico($matriz = [
+            $array = [4, 9, 2],
+            $array = [3, 5, 7],
+            $array = [8, 1, 6]
+        ]);
 
-        function pintarCuadradoMagico($cuadradoMagico)
-        {
-            pintarMatriz($cuadradoMagico);
-            analizarCuadradoMagico($cuadradoMagico);
-        };
+        echo($objeto->analizarCuadradoMagico());
 
-        function pintarMatriz($matriz)
-        {
-            echo ("<table>");
+        // $matriz = [
+        //     $array = [4, 9, 2],
+        //     $array = [3, 5, 7],
+        //     $array = [8, 1, 6]
+        // ];
 
-            for ($i = 0; $i < count($matriz->getMatriz()); $i++) {
-                echo ("<tr>");
-                for ($j = 0; $j < count($matriz->getMatriz()); $j++) {
-                    echo ("<td>" . $matriz->getMatriz()[$i][$j] . "</td>");
-                }
-                echo ("</tr>");
-            }
+        // function pintarCuadradoMagico($objeto)
+        // {
+        //     pintarMatriz($objeto);
+        //     analizarCuadradoMagico($objeto);
+        // };
 
-            echo ("</table>");
-        }
+        // function pintarMatriz($matriz)
+        // {
+        //     echo ("<table>");
 
-        function analizarCuadradoMagico($matriz)
-        {
-            sumaPrimeraFila($matriz);
-        };
+        //     for ($i = 0; $i < count($matriz->getMatriz()); $i++) {
+        //         echo ("<tr>");
+        //         for ($j = 0; $j < count($matriz->getMatriz()); $j++) {
+        //             echo ("<td>" . $matriz->getMatriz()[$i][$j] . "</td>");
+        //         }
+        //         echo ("</tr>");
+        //     }
 
-        function sumaPrimeraFila($matriz){
+        //     echo ("</table>");
+        // }
 
-            $sumaColumna = 0;
+        // function analizarCuadradoMagico($matriz)
+        // {
+        //     sumaPrimeraFila($matriz);
+        // };
 
-            for ($i=0; $i < count($matriz->getMatriz()[0][$i]); $i++) {
-                $sumaColumna = $sumaColumna + $matriz->getMatriz()[0][$i];
-            }
+        // function sumaPrimeraFila($matriz)
+        // {
 
-            echo ("Respecto a la suma de la primera fila que es "); 
+        //     $sumaColumna = 0;
 
-        }
+        //     for ($i = 0; $i < count($matriz->getMatriz()[0][$i]); $i++) {
+        //         $sumaColumna = $sumaColumna + $matriz->getMatriz()[0][$i];
+        //     }
 
-        function analizarFilas($matriz)
-        {
-            $suma = 0;
+        //     return "Respecto a la suma de la primera fila que es " . $sumaColumna;
+        // }
 
-            for ($i = 0; $i < count($matriz); $i++) {
+        // function analizarFilas($matriz)
+        // {
+        //     $suma = 0;
 
-                for ($j = 0; $j < count($matriz); $j++) {
-                    $suma = $suma + $matriz[$i][$j];
-                }
+        //     for ($i = 0; $i < count($matriz); $i++) {
 
-                if ($suma != 15) {
-                    return "false";
-                }
+        //         for ($j = 0; $j < count($matriz); $j++) {
+        //             $suma = $suma + $matriz[$i][$j];
+        //         }
 
-                $suma = 0;
-            }
+        //         if ($suma != 15) {
+        //             return "false";
+        //         }
 
-            return "true";
-        }
+        //         $suma = 0;
+        //     }
 
-        function analizarColumnas($matriz)
-        {
-            $suma = 0;
+        //     return "true";
+        // }
 
-            for ($i = 0; $i < count($matriz); $i++) {
+        // function analizarColumnas($matriz)
+        // {
+        //     $suma = 0;
 
-                for ($j = 0; $j < count($matriz); $j++) {
-                    $suma = $suma + $matriz[$j][$i];
-                }
+        //     for ($i = 0; $i < count($matriz); $i++) {
 
-                if ($suma != 15) {
-                    return "false";
-                }
+        //         for ($j = 0; $j < count($matriz); $j++) {
+        //             $suma = $suma + $matriz[$j][$i];
+        //         }
 
-                $suma = 0;
-            }
+        //         if ($suma != 15) {
+        //             return "false";
+        //         }
 
-            return "true";
-        }
+        //         $suma = 0;
+        //     }
 
-        function analizarDiagonalPrimera($matriz)
-        {
+        //     return "true";
+        // }
 
-            $suma = 0;
+        // function analizarDiagonalPrimera($matriz)
+        // {
 
-            for ($i = count($matriz); $i >= 0; $i--) {
-                $suma = $suma + $matriz[$i][$i];
-            }
+        //     $suma = 0;
 
-            if ($suma != 15) {
-                return "false";
-            }
+        //     for ($i = count($matriz); $i >= 0; $i--) {
+        //         $suma = $suma + $matriz[$i][$i];
+        //     }
 
-            $suma = 0;
+        //     if ($suma != 15) {
+        //         return "false";
+        //     }
 
-            return "true";
-        }
+        //     $suma = 0;
 
-        function analizarDiagonalSegunda($matriz)
-        {
+        //     return "true";
+        // }
 
-            $suma = 0;
+        // function analizarDiagonalSegunda($matriz)
+        // {
 
-            for ($i = 0; $i < count($matriz); $i++) {
-                $suma = $suma + $matriz[$i][$i];
-            }
+        //     $suma = 0;
 
-            if ($suma != 15) {
-                return "false";
-            }
+        //     for ($i = 0; $i < count($matriz); $i++) {
+        //         $suma = $suma + $matriz[$i][$i];
+        //     }
 
-            $suma = 0;
+        //     if ($suma != 15) {
+        //         return "false";
+        //     }
 
-            return "true";
-        }
+        //     $suma = 0;
+
+        //     return "true";
+        // }
 
 
-        echo (analizarFilas($matriz));
-        echo (analizarColumnas($matriz));
-        echo (analizarDiagonalPrimera($matriz));
-        echo (analizarDiagonalSegunda($matriz));
-        pintarCuadradoMagico($cuadradoMagico);
+        // echo (analizarFilas($matriz));
+        // echo (analizarColumnas($matriz));
+        // echo (analizarDiagonalPrimera($matriz));
+        // echo (analizarDiagonalSegunda($matriz));
+        // pintarCuadradoMagico($cuadradoMagico);
 
-        // dentro del objeto debe haber una matriz, un boolean
         ?>
     </div>
 </body>

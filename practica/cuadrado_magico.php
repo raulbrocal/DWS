@@ -51,7 +51,7 @@
                         if ($suma != $this->arrayList[0]) {
                             $this->arrayList[1] = $i;
                             $this->boolean = false;
-                            return;
+                            break;
                         }
                     }
 
@@ -67,7 +67,7 @@
                 $this->pintarMatriz($this->matriz);
 
                 if ($this->boolean == true) {
-                    echo ("");
+                    echo ("ES UN CUADRADO MÁGICO");
                 } else {
                     echo ("Respecto a la suma de la primera fila que es " . $this->arrayList[0] . "," . "<br>");
 
@@ -78,8 +78,11 @@
                     echo ("Las dia diferentes a " . $this->arrayList[0] . " son" . "<br>");
                 }
 
+                echo("<br>");
+
                 foreach ($this->arrayList as $value) {
                     echo ($value);
+                    echo("espacio");
                 }
             }
 

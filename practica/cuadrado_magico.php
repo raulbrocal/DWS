@@ -12,7 +12,7 @@
         class CuadradoMagico
         {
             public $boolean;
-            public $array;
+            public $arrayList;
             public $matriz;
 
             function __construct($matriz)
@@ -23,21 +23,80 @@
             function analizarCuadradoMagico()
             {
                 $this->sumaPrimeraFila($this->matriz);
+                $this->analizarFilas($this->matriz);
             }
 
             function sumaPrimeraFila($matriz)
             {
-    
+
                 $sumaColumna = 0;
-    
-                for ($i = 0; $i < count($matriz[0][$i]); $i++) {
+
+                for ($i = 0; $i < count($matriz[0]); $i++) {
                     $sumaColumna = $sumaColumna + $matriz[0][$i];
                 }
-    
-                return $sumaColumna;
 
+                return $this->arrayList[0] = $sumaColumna;
             }
 
+            function analizarFilas($matriz)
+            {
+                $suma = 0;
+
+                for ($i = 0; $i < count($matriz); $i++) {
+
+                    for ($j = 0; $j < count($matriz); $j++) {
+
+                        $suma = $suma + $matriz[$i][$j];
+
+                        if ($suma != $this->arrayList[0]) {
+                            $this->arrayList[1] = $i;
+                            $this->boolean = false;
+                            return;
+                        }
+                    }
+
+                    $suma = 0;
+                }
+
+                $this->boolean = true;
+                
+            }
+
+            function pintar()
+            {
+                $this->pintarMatriz($this->matriz);
+
+                if ($this->boolean == true) {
+                    echo ("");
+                } else {
+                    echo ("Respecto a la suma de la primera fila que es " . $this->arrayList[0] . "," . "<br>");
+
+                    echo ("Las filas diferentes a " . $this->arrayList[0] . " son" . "<br>");
+
+                    echo ("Las columnas diferentes a " . $this->arrayList[0] . " son" . "<br>");
+
+                    echo ("Las dia diferentes a " . $this->arrayList[0] . " son" . "<br>");
+                }
+
+                foreach ($this->arrayList as $value) {
+                    echo ($value);
+                }
+            }
+
+            function pintarMatriz($matriz)
+            {
+                echo ("<table>");
+
+                for ($i = 0; $i < count($matriz); $i++) {
+                    echo ("<tr>");
+                    for ($j = 0; $j < count($matriz); $j++) {
+                        echo ("<td>" . $matriz[$i][$j] . "</td>");
+                    }
+                    echo ("</tr>");
+                }
+
+                echo ("</table>");
+            }
         };
 
         $objeto = new CuadradoMagico($matriz = [
@@ -46,13 +105,9 @@
             $array = [8, 1, 6]
         ]);
 
-        echo($objeto->analizarCuadradoMagico());
+        $objeto->analizarCuadradoMagico();
+        $objeto->pintar();
 
-        // $matriz = [
-        //     $array = [4, 9, 2],
-        //     $array = [3, 5, 7],
-        //     $array = [8, 1, 6]
-        // ];
 
         // function pintarCuadradoMagico($objeto)
         // {
@@ -167,13 +222,6 @@
 
         //     return "true";
         // }
-
-
-        // echo (analizarFilas($matriz));
-        // echo (analizarColumnas($matriz));
-        // echo (analizarDiagonalPrimera($matriz));
-        // echo (analizarDiagonalSegunda($matriz));
-        // pintarCuadradoMagico($cuadradoMagico);
 
         ?>
     </div>

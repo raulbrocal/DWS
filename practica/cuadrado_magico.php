@@ -11,7 +11,7 @@
         ini_set('display_errors', 'On');
         ini_set('html_errors', 0);
 
-        class CuadradoMagico
+        class CuadradoMagico 
         {
             public $boolean = "TRUE";
             public $arrayList;
@@ -112,8 +112,9 @@
                     $suma = $suma + $matriz[$i][$i];
                 }
 
-                if ($suma != 15) {
-                    return "false";
+                if ($suma != $this->arrayList[0]) {
+                    $this->arrayList[4] = "Segunda Diagonal";
+                    $this->boolean = "FALSE";
                 }
 
                 $suma = 0;
@@ -167,6 +168,10 @@
 
                 echo ("</table>");
             }
+        };
+
+        class Analizar{
+
         };
 
         $objeto = new CuadradoMagico($matriz = [

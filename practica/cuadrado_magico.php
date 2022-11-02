@@ -88,7 +88,6 @@
 
             function sumaPrimeraFila($matriz)
             {
-
                 $sumaColumna = 0;
 
                 for ($i = 0; $i < count($matriz[0]); $i++) {
@@ -194,6 +193,8 @@
 
         $objeto2->analizarCuadradoMagico();
         $objeto2->pintar();
+
+        require("test_cuadrado_magico.php");
 
         ?>
     </div>

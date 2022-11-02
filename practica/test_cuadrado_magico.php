@@ -2,17 +2,14 @@
 ini_set('display_errors', 'On');
 ini_set('html_errors', 0);
 
-require("cuadrado_magico.php");
-
-
 function test_sumaPrimeraFila_1()
 {
-    $objeto = new CuadradoMagico($matriz = [
+    $matriz1 = new CuadradoMagico($matriz = [
         $array = [4, 9, 2],
         $array = [3, 5, 7],
         $array = [8, 1, 6]
     ]);
-    $x = $objeto->sumaPrimeraFila($objeto);
+    $x = $matriz1->sumaPrimeraFila($matriz1);
 
     return ($x == 15);
 }

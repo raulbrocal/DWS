@@ -176,14 +176,24 @@
             }
         };
 
-        $objeto = new CuadradoMagico($matriz = [
+        $objeto1 = new CuadradoMagico($matriz = [
             $array = [4, 9, 2],
-            $array = [3, 6, 7],
+            $array = [3, 5, 7],
             $array = [8, 1, 6]
         ]);
 
-        $objeto->analizarCuadradoMagico();
-        $objeto->pintar();
+        $objeto2 = new CuadradoMagico($matriz = [
+            $array = [4, 14, 15, 1],
+            $array = [9, 7, 6, 12],
+            $array = [5, 11, 10, 8],
+            $array = [16, 2, 3, 13]
+        ]);
+
+        $objeto1->analizarCuadradoMagico();
+        $objeto1->pintar();
+
+        $objeto2->analizarCuadradoMagico();
+        $objeto2->pintar();
 
         ?>
     </div>

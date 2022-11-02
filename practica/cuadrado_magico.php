@@ -29,7 +29,7 @@
                 if ($this->boolean == "TRUE") {
                     echo ("ES UN CUADRADO MÁGICO");
                 } else {
-                    echo ("NO ES UN CUADRADO MÁGICO<br>");
+                    echo ("<font color='red'>NO ES UN CUADRADO MÁGICO</font><br>");
                     echo ("<br>Respecto a la suma de la primera fila que es " . $this->arrayList[0] . "," . "<br>");
 
                     echo ("<br>Las filas diferentes a " . $this->arrayList[0] . " son" . "<br>");
@@ -44,11 +44,16 @@
                         echo ("<br>Columna " . ($this->arrayList[2][$i] + 1) . "<br>");
                     }
 
-                    echo ("<br>Las dia diferentes a " . $this->arrayList[0] . " son" . "<br><br>");
+                    if (!empty($this->arrayList[3]) || !empty($this->arrayList[4])) {
+                        echo ("<br>Las dia diferentes a " . $this->arrayList[0] . " son" . "<br><br>");
 
-                    echo ($this->arrayList[3]) . "<br>";
-
-                    echo ($this->arrayList[4]) . "<br>";
+                        if (!empty($this->arrayList[3])) {
+                            echo ($this->arrayList[3]) . "<br>";
+                        }
+                        if (!empty($this->arrayList[4])) {
+                            echo ($this->arrayList[4]) . "<br>";
+                        }
+                    }
                 }
 
                 echo ("<br>");
@@ -78,6 +83,7 @@
                 $this->analizarFilas($this->matriz);
                 $this->analizarColumnas($this->matriz);
                 $this->analizarDiagonalPrimera($this->matriz);
+                $this->analizarDiagonalSegunda($this->matriz);
             }
 
             function sumaPrimeraFila($matriz)
@@ -143,8 +149,6 @@
                     $suma = $suma + $matriz[$i][$i];
                 }
 
-
-
                 if ($suma != $this->arrayList[0]) {
                     $this->arrayList[3] = "Primera Diagonal";
                     $this->boolean = "FALSE";
@@ -155,11 +159,12 @@
 
             function analizarDiagonalSegunda($matriz)
             {
-                $posicion = 0;
                 $suma = 0;
 
-                for ($i = count($matriz); $i >= 0; $i--) {
-                    $suma = $suma + $matriz[$i][$i];
+                $j = count($matriz) - 1;
+                for ($i = 0; $i < count($matriz); $i++) {
+                    $suma = $suma + $matriz[$i][$j];
+                    $j--;
                 }
 
                 if ($suma != $this->arrayList[0]) {
@@ -173,8 +178,8 @@
 
         $objeto = new CuadradoMagico($matriz = [
             $array = [4, 9, 2],
-            $array = [3, 5, 7],
-            $array = [8, 2, 6]
+            $array = [3, 6, 7],
+            $array = [8, 1, 6]
         ]);
 
         $objeto->analizarCuadradoMagico();

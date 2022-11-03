@@ -31,7 +31,7 @@
                 $this->arrayList[4] = $this->analizarDiagonalSegunda($this->matriz);
             }
 
-            function pintar()
+            function pintarCuadradoMagico()
             {
                 $this->pintarMatriz($this->matriz);
 
@@ -190,10 +190,10 @@
         // ]);
 
         $objeto1->analizarCuadradoMagico();
-        $objeto1->pintar();
+        $objeto1->pintarCuadradoMagico();
 
         // $objeto2->analizarCuadradoMagico();
-        // $objeto2->pintar();
+        // $objeto2->pintarCuadradoMagico();
 
         // require("test_cuadrado_magico.php");
 

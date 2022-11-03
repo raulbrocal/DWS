@@ -24,14 +24,14 @@
 
             function analizarCuadradoMagico()
             {
-                $this->sumaPrimeraFila($this->matriz);
+                $this->arrayList[0] = $this->sumaPrimeraFila($this->matriz);
                 $this->analizarFilas($this->matriz);
                 $this->analizarColumnas($this->matriz);
-                $this->analizarDiagonalPrimera($this->matriz);
-                $this->analizarDiagonalSegunda($this->matriz);
+                $this->arrayList[3] = $this->analizarDiagonalPrimera($this->matriz);
+                $this->arrayList[4] = $this->analizarDiagonalSegunda($this->matriz);
             }
 
-            function pintar()
+            function pintarCuadradoMagico()
             {
                 $this->pintarMatriz($this->matriz);
 
@@ -95,7 +95,7 @@
                     $sumaColumna = $sumaColumna + $matriz[0][$i];
                 }
 
-                $this->arrayList[0] = $sumaColumna;
+                return $sumaColumna;
             }
 
             function analizarFilas($matriz)
@@ -150,8 +150,8 @@
                 }
 
                 if ($suma != $this->arrayList[0]) {
-                    $this->arrayList[3] = "Primera Diagonal";
                     $this->boolean = "FALSE";
+                    return "Primera Diagonal";
                 }
 
                 $suma = 0;
@@ -168,8 +168,8 @@
                 }
 
                 if ($suma != $this->arrayList[0]) {
-                    $this->arrayList[4] = "Segunda Diagonal";
                     $this->boolean = "FALSE";
+                    return "Segunda Diagonal";
                 }
 
                 $suma = 0;
@@ -178,24 +178,24 @@
 
         $objeto1 = new CuadradoMagico($matriz = [
             $array = [4, 9, 2],
-            $array = [3, 6, 7],
+            $array = [3, 5, 7],
             $array = [8, 1, 6]
         ]);
 
-        $objeto2 = new CuadradoMagico($matriz = [
-            $array = [4, 14, 15, 1],
-            $array = [9, 7, 6, 12],
-            $array = [5, 11, 10, 8],
-            $array = [16, 2, 3, 13]
-        ]);
+        // $objeto2 = new CuadradoMagico($matriz = [
+        //     $array = [4, 14, 15, 1],
+        //     $array = [9, 7, 6, 12],
+        //     $array = [5, 11, 10, 8],
+        //     $array = [16, 2, 3, 13]
+        // ]);
 
         $objeto1->analizarCuadradoMagico();
-        $objeto1->pintar();
+        $objeto1->pintarCuadradoMagico();
 
-        $objeto2->analizarCuadradoMagico();
-        $objeto2->pintar();
+        // $objeto2->analizarCuadradoMagico();
+        // $objeto2->pintarCuadradoMagico();
 
-        require("test_cuadrado_magico.php");
+        // require("test_cuadrado_magico.php");
 
         ?>
     </div>

@@ -178,7 +178,7 @@
 
         $objeto1 = new CuadradoMagico($matriz = [
             $array = [4, 9, 2],
-            $array = [3, 6, 7],
+            $array = [3, 5, 7],
             $array = [8, 1, 6]
         ]);
 

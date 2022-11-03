@@ -195,8 +195,6 @@
         // $objeto2->analizarCuadradoMagico();
         // $objeto2->pintarCuadradoMagico();
 
-        // require("test_cuadrado_magico.php");
-
         ?>
     </div>
 </body>

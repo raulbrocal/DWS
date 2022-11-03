@@ -2,6 +2,8 @@
 ini_set('display_errors', 'On');
 ini_set('html_errors', 0);
 
+require("cuadrado_magico.php");
+
 function test_sumaPrimeraFila_1()
 {
     $matriz1 = new CuadradoMagico($matriz = [
@@ -9,147 +11,140 @@ function test_sumaPrimeraFila_1()
         $array = [3, 5, 7],
         $array = [8, 1, 6]
     ]);
-    
-    $x = $matriz1->sumaPrimeraFila($matriz1);
+
+    $matriz1->analizarCuadradoMagico();
+    $x = $matriz1->sumaPrimeraFila($matriz);
 
     return ($x == 15);
 }
 
-// function test_factorial_2()
-// {
-//     $objeto = new CuadradoMagico();
-//     $x = $objeto->factorial(4);
-//     var_dump($x);
-//     return $x == 24;
-// }
+function test_analizarFilas_1()
+{
+    $matriz1 = new CuadradoMagico($matriz = [
+        $array = [4, 9, 2],
+        $array = [4, 5, 7],
+        $array = [8, 1, 6]
+    ]);
 
+    $matriz1->analizarCuadradoMagico();
+    $matriz1->analizarFilas($matriz);
+    $x = $matriz1->boolean;
 
-// function test_factorial_3()
-// {
-//     $objeto = new CuadradoMagico();
-//     var_dump($objeto->factorial(-1));
-// }
+    return ($x == "FALSE");
+}
 
-// function test_coeficiente_binomial_1()
-// {
-//     $objeto = new CuadradoMagico();
-//     $r = $objeto->coeficienteBinomial(6,4);
+function test_analizarFilas_2()
+{
+    $matriz1 = new CuadradoMagico($matriz = [
+        $array = [4, 9, 2],
+        $array = [3, 5, 7],
+        $array = [8, 1, 6]
+    ]);
 
-//     return ($r==15);
-// }
+    $matriz1->analizarCuadradoMagico();
+    $matriz1->analizarFilas($matriz);
+    $x = $matriz1->boolean;
 
-// function test_coeficiente_binomial_2()
-// {
-//     try
-//     {
-//         $objeto = new CuadradoMagico();
-//         $r = $objeto->coeficienteBinomial(4,4);
-//     }
-//     catch (Exception $e)
-//     {
-//          return $e->getMessage()=="Error n - k = 0";
-//     }
-// }
+    return ($x == "FALSE");
+}
 
-// function test_coeficiente_binomial_3()
-// {
-//     try
-//     {
-//         $objeto = new CuadradoMagico();
-//         $r = $objeto->coeficienteBinomial(4,0);
-//     }
-//     catch (Exception $e)
-//     {
-//          return $e->getMessage()=="k=0";
-//     }
-// }
+function test_analizarColumnas_1()
+{
+    $matriz1 = new CuadradoMagico($matriz = [
+        $array = [4, 9, 2],
+        $array = [4, 5, 7],
+        $array = [8, 1, 6]
+    ]);
 
+    $matriz1->analizarCuadradoMagico();
+    $matriz1->analizarColumnas($matriz);
+    $x = $matriz1->boolean;
 
-// function test_convierte_binario_decimal_1()
-// {
-//     $objeto = new CuadradoMagico();
-//     $cad = "1001";
-   
-//     $r = $objeto->convierteBinarioDecimal($cad);
-//     var_dump($r);
+    return ($x == "FALSE");
+}
 
-//     return ($r== bindec($cad));
-// }
+function test_analizarColumnas_2()
+{
+    $matriz1 = new CuadradoMagico($matriz = [
+        $array = [4, 9, 2],
+        $array = [3, 5, 7],
+        $array = [8, 1, 6]
+    ]);
 
-// function test_palindromo_1()
-// {
-//     $objeto = new CuadradoMagico();
-//     $cad1 = "amor";
-//     $cad2 = "roma";
-   
-//     $r = $objeto->esPalindromo($cad1,$cad2);
-//     var_dump($r);
+    $matriz1->analizarCuadradoMagico();
+    $matriz1->analizarColumnas($matriz);
+    $x = $matriz1->boolean;
 
-//     return $r;
+    return ($x == "FALSE");
+}
 
-// }
+function test_analizarDiagonalPrimera_1()
+{
+    $matriz1 = new CuadradoMagico($matriz = [
+        $array = [4, 9, 2],
+        $array = [3, 5, 7],
+        $array = [8, 1, 6]
+    ]);
 
-// function test_capicua_1()
-// {
-//     $objeto = new CuadradoMagico();
-//     $cad1 = "oso";
+    $matriz1->analizarCuadradoMagico();
+    $x = $matriz1->analizarDiagonalPrimera($matriz);
 
-//     $r = $objeto->esCapicua($cad1);
-//     var_dump($r);
+    return ($x == "Primera Diagonal");
+}
 
-//     return $r;
+function test_analizarDiagonalPrimera_2()
+{
+    $matriz1 = new CuadradoMagico($matriz = [
+        $array = [4, 9, 2],
+        $array = [3, 6, 7],
+        $array = [8, 1, 6]
+    ]);
 
-// }
+    $matriz1->analizarCuadradoMagico();
+    $x = $matriz1->analizarDiagonalPrimera($matriz);
 
-// function test_suma_matrices_cuadradas_1()
-// {
-//     $objeto = new CuadradoMagico();
-//     $m1 = array(
-//         array(2,3),
-//         array(1,4)
-//     );
+    return ($x == "Primera Diagonal");
+}
 
-//     $m2 = array(
-//         array(1,0),
-//         array(1,1)
-//     );
+function test_analizarDiagonalSegunda_1()
+{
+    $matriz1 = new CuadradoMagico($matriz = [
+        $array = [4, 9, 2],
+        $array = [3, 5, 7],
+        $array = [8, 1, 6]
+    ]);
 
-//     $maux = $objeto->sumaMatricesCuadradas($m1,$m2);
+    $matriz1->analizarCuadradoMagico();
+    $x = $matriz1->analizarDiagonalSegunda($matriz);
 
+    return ($x == "Segunda Diagonal");
+}
 
-//     mostrar($m1);
-//     echo "+";
-//     echo "<br>";
-//     mostrar($m2);
-//     echo "=";
-//     echo "<br>";
-//     mostrar($maux);
+function test_analizarDiagonalSegunda_2()
+{
+    $matriz1 = new CuadradoMagico($matriz = [
+        $array = [4, 9, 2],
+        $array = [3, 6, 7],
+        $array = [8, 1, 6]
+    ]);
 
-//     $mtest = array(
-//         array(3,3),
-//         array(2,5)
-//     );
+    $matriz1->analizarCuadradoMagico();
+    $x = $matriz1->analizarDiagonalSegunda($matriz);
 
-//     return $maux==$mtest;
-
-// }
+    return ($x == "Segunda Diagonal");
+}
 
 function test($testEjecutar)
 {
-    try 
-    {
+    try {
         echo "<br>";
         $resultadoTest = $testEjecutar();
-        $mensaje = 'El test: '.$testEjecutar.' ';
+        $mensaje = 'El test: ' . $testEjecutar . ' ';
         $mensajeResultado = $resultadoTest ? 'OK' : 'KO';
-        echo $mensaje.$mensajeResultado;
-
+        echo $mensaje . $mensajeResultado;
+    } catch (Exception $e) {
+        echo "<br>" . "Se ha producido una excepción al ejecutar:" . $testEjecutar . "<br>";
     }
-    catch(Exception $e)
-    {
-        echo "<br>"."Se ha producido una excepción al ejecutar:".$testEjecutar."<br>";
-
-    } 
 }
 
 function mostrar($objeto)
@@ -157,36 +152,31 @@ function mostrar($objeto)
 
     $max_filas = count($objeto);
 
-    for ($fila = 0; $fila < $max_filas; $fila++)
-    {
-        for ($columna = 0; $columna < $max_filas; $columna++)
-        {
-            echo "[".$objeto[$fila][$columna]."],";
+    for ($fila = 0; $fila < $max_filas; $fila++) {
+        for ($columna = 0; $columna < $max_filas; $columna++) {
+            echo "[" . $objeto[$fila][$columna] . "],";
         }
         echo "<br>";
     }
-
 }
 
-echo "<br>Test sumaPrimeraFila<br>";
- test("test_sumaPrimeraFila_1");
-//  test("test_factorial_2");
-//  test("test_factorial_3");
+echo ("<br><br>TESTS UNITARIOS<br>");
 
-// echo "<br>Test coeficiente binomial<br>";
+echo "<br>Test sumaPrimeraFila";
+test("test_sumaPrimeraFila_1");
 
-// test("test_coeficiente_binomial_1");
+echo "<br><br>Test analizarFilas";
+test("test_analizarFilas_1");
+test("test_analizarFilas_2");
 
-// test("test_coeficiente_binomial_2");
+echo "<br><br>Test analizarColumnas";
+test("test_analizarColumnas_1");
+test("test_analizarColumnas_2");
 
-// test("test_coeficiente_binomial_3");
+echo "<br><br>Test analizarDiagonalPrimera";
+test("test_analizarDiagonalPrimera_1");
+test("test_analizarDiagonalPrimera_2");
 
-// echo "<br>Test convierte binario a decimal<br>";
-
-// test("test_convierte_binario_decimal_1");
-
-// test("test_palindromo_1");
-
-// test("test_capicua_1");
-
-// test("test_suma_matrices_cuadradas_1");
+echo "<br><br>Test analizarDiagonalSegunda";
+test("test_analizarDiagonalSegunda_1");
+test("test_analizarDiagonalSegunda_2");

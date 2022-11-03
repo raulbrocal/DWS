@@ -36,7 +36,7 @@
                 $this->pintarMatriz($this->matriz);
 
                 if ($this->boolean == "TRUE") {
-                    echo ("ES UN CUADRADO MÁGICO");
+                    echo ("<font color='green'>ES UN CUADRADO MÁGICO</font>");
                 } else {
                     echo ("<font color='red'>NO ES UN CUADRADO MÁGICO</font><br>");
                     echo ("<br>Respecto a la suma de la primera fila que es " . $this->arrayList[0] . "," . "<br>");

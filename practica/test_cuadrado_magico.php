@@ -2,6 +2,8 @@
 ini_set('display_errors', 'On');
 ini_set('html_errors', 0);
 
+require ("cuadrado_magico.php");
+
 function test_sumaPrimeraFila_1()
 {
     $matriz1 = new CuadradoMagico($matriz = [

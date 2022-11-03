@@ -9,6 +9,7 @@ function test_sumaPrimeraFila_1()
         $array = [3, 5, 7],
         $array = [8, 1, 6]
     ]);
+    
     $x = $matriz1->sumaPrimeraFila($matriz1);
 
     return ($x == 15);
@@ -167,25 +168,25 @@ function mostrar($objeto)
 
 }
 
-echo "<br>Test factorial<br>";
+echo "<br>Test sumaPrimeraFila<br>";
  test("test_sumaPrimeraFila_1");
- test("test_factorial_2");
- test("test_factorial_3");
+//  test("test_factorial_2");
+//  test("test_factorial_3");
 
-echo "<br>Test coeficiente binomial<br>";
+// echo "<br>Test coeficiente binomial<br>";
 
-test("test_coeficiente_binomial_1");
+// test("test_coeficiente_binomial_1");
 
-test("test_coeficiente_binomial_2");
+// test("test_coeficiente_binomial_2");
 
-test("test_coeficiente_binomial_3");
+// test("test_coeficiente_binomial_3");
 
-echo "<br>Test convierte binario a decimal<br>";
+// echo "<br>Test convierte binario a decimal<br>";
 
-test("test_convierte_binario_decimal_1");
+// test("test_convierte_binario_decimal_1");
 
-test("test_palindromo_1");
+// test("test_palindromo_1");
 
-test("test_capicua_1");
+// test("test_capicua_1");
 
-test("test_suma_matrices_cuadradas_1");
+// test("test_suma_matrices_cuadradas_1");

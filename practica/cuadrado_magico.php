@@ -22,6 +22,15 @@
                 $this->matriz = $matriz;
             }
 
+            function analizarCuadradoMagico()
+            {
+                $this->sumaPrimeraFila($this->matriz);
+                $this->analizarFilas($this->matriz);
+                $this->analizarColumnas($this->matriz);
+                $this->analizarDiagonalPrimera($this->matriz);
+                $this->analizarDiagonalSegunda($this->matriz);
+            }
+
             function pintar()
             {
                 $this->pintarMatriz($this->matriz);
@@ -77,14 +86,6 @@
 
         class Analizar
         {
-            function analizarCuadradoMagico()
-            {
-                $this->sumaPrimeraFila($this->matriz);
-                $this->analizarFilas($this->matriz);
-                $this->analizarColumnas($this->matriz);
-                $this->analizarDiagonalPrimera($this->matriz);
-                $this->analizarDiagonalSegunda($this->matriz);
-            }
 
             function sumaPrimeraFila($matriz)
             {
@@ -177,7 +178,7 @@
 
         $objeto1 = new CuadradoMagico($matriz = [
             $array = [4, 9, 2],
-            $array = [3, 5, 7],
+            $array = [3, 6, 7],
             $array = [8, 1, 6]
         ]);
 

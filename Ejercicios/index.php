@@ -1,8 +1,10 @@
 <html>
+
 <head>
     <title>Inicio</title>
     <link rel="stylesheet" href="estilos.css/style.css">
 </head>
+
 <body>
     <div class="contenedor">
         <div class="primera_caja">
@@ -26,6 +28,7 @@
                     <li><a href="./8_informacion.php">9. Ejercicio 3 clase</a></li>
                     <li><a href="./Ejercicio1/calculadora_usuario.php">Calculadora</a></li>
                     <li><a href="./cancion.php">Canción</a></li>
+                    <li><a href="./10_ejerExamen.php">Ejercicio exámen</a></li>
                 </ul>
             </div>
             <div class="segunda_columna"></div>
@@ -33,7 +36,7 @@
 
         </div>
         <div class="tercera_caja">ccc</div>
-    <div>
+        <div>
 </body>
-</html>
 
+</html>

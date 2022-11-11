@@ -18,40 +18,6 @@
     height: 5%;
 }
 
-.primera_columna {
-    float: left;
-    height: 100%;
-    width: 15%;
-    background-color: green;
-
-}
-
-.segunda_columna {
-    float: left;
-    height: 100%;
-    width: 70%;
-    background-color: white;
-}
-
-.tercera_columna {
-    float: left;
-    height: 100%;
-    width: 15%;
-    background-color: red;
-}
-
-ul {
-    text-align: center;
-}
-
-li {
-    padding: 10px;
-}
-
-li:first-child {
-    list-style: none;
-}
-
 .contenedor {
     background-color: black;
     height: 100%;

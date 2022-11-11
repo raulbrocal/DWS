@@ -1,0 +1,25 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.primera_caja {
+    background-color: rgb(255, 255, 255);
+    height: 5%;
+}
+
+.segunda_caja {
+    background-color: blue;
+    height: 90%;
+}
+
+.tercera_caja {
+    background-color: green;
+    height: 5%;
+}
+
+.contenedor {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+}

@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <?php
-    if (!empty($_GET)) $style = $_GET;
-    if (empty($_GET)) $style = "style";
+    if (!empty($_GET["categoria"])) {
+        $style = $_GET["categoria"];
+    }
+    if (empty($_GET["categoria"])) {
+        $style = "style";
+    }
     ?>
     <title>Cartelera</title>
     <link rel="stylesheet" href="css/<?php echo $style ?>.css" type="text/css" media="all">
@@ -23,3 +27,21 @@
 </body>
 
 </html>
+
+<?php
+ini_set('display_errors', 'On');
+ini_set('html_errors', 0);
+
+class Pelicula
+{
+    public $titulo;
+    public $duracion;
+    public $sinopsis;
+    public $votos;
+    public $enlace;
+
+    function pintar()
+    {
+        
+    }
+}

@@ -17,10 +17,17 @@
 <body>
     <div class="contenedor">
         <div class="primera_caja">
-            <p>Menú</p>
+            <ul>
+                <li>
+                    Terror
+                </li>
+                <li>Ciencia Ficción</li>
+            </ul>
         </div>
         <div class="segunda_caja">
-            Estilo de película
+            <div class="listadoPeliculas">
+                <p>Hola</p>
+            </div>
         </div>
         <div class="tercera_caja"></div>
     </div>
@@ -42,6 +49,8 @@ class Pelicula
 
     function pintar()
     {
-        
     }
 }
+
+$wakanda = new Pelicula();
+$wakanda->titulo = "casa";

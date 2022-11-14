@@ -1,11 +1,11 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 .primera_caja {
     background-color: rgb(23, 173, 161);
-    height: 5%;
+    height: 4%;
 }
 
 .segunda_caja {
@@ -15,11 +15,23 @@
 
 .tercera_caja {
     background-color: yellow;
-    height: 5%;
+    height: 6%;
 }
 
 .contenedor {
     background-color: black;
     height: 100%;
     width: 100%;
+}
+
+li{
+    list-style: none;
+    float: left;
+    font-size: max-hei;
+}
+
+.listadoPeliculas{
+    background-color: white;
+    width: 100%;
+    height: 100%;
 }

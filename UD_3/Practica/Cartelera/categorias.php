@@ -1,23 +1,32 @@
-<html lang="es">
+<html>
 
 <head>
-    <meta charset="UTF-8">
     <title>Categorias</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
     <div class="contenedor">
         <div class="primera_caja">
-            <h1>Menú</h1>
+            <h1 class="titulo">CATEGORIAS</h1>
         </div>
         <div class="segunda_caja">
-            <h2>Categorias disponibles:</h2>
-            <p class="terror">Terror</p>
-            <p class="cienciaFiccion"> <a href="peliculas.php">Ciencia ficcion</a></p>
+            <ul>
+                <li>
+                    <div class="categoria">
+                        <p><a href="peliculas.php">TERROR</a></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="categoria">
+                        <p><a href="peliculas.php">CIENCIA<br>FICCIÓN</a></p>
+                    </div>
+                </li>
+            </ul>
         </div>
-        <div class="tercera_caja"></div>
     </div>
+
 </body>
 
 </html>

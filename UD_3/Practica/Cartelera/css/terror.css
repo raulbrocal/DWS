@@ -1,6 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 }
 
 .primera_caja {
@@ -9,17 +10,37 @@
 }
 
 .segunda_caja {
-    background-color: blue;
-    height: 90%;
-}
-
-.tercera_caja {
-    background-color: green;
-    height: 5%;
+    background: url("../imgs/fondoTerror.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 95%;
+    overflow: scroll;
 }
 
 .contenedor {
     background-color: black;
     height: 100%;
     width: 100%;
+}
+
+li {
+    float: left;
+    list-style: none;
+}
+
+.pelicula{
+    margin: 5% auto;
+    width: 60%;
+    height: 35%;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.titulo{
+    position: relative;
+    color: wheat;
+    left: 5%;
+    top: 5%;
 }

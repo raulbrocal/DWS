@@ -23,6 +23,7 @@
 }
 
 .titulo {
+    padding-top: 20px;
     color: red;
 }
 
@@ -55,6 +56,10 @@ p {
     top: 50%;
     text-align: center;
     padding-left: 30%;
+}
+
+a{
+    color: black;
 }
 
 a:link {

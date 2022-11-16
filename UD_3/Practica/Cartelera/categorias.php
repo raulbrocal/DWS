@@ -15,12 +15,12 @@
             <ul>
                 <li>
                     <div class="categoria">
-                        <p><a href="peliculas.php">TERROR</a></p>
+                        <p><a href="peliculas.php?categoria=terror">TERROR</a></p>
                     </div>
                 </li>
                 <li>
                     <div class="categoria">
-                        <p><a href="peliculas.php">CIENCIA<br>FICCIÓN</a></p>
+                        <p><a href="peliculas.php?categoria=cienciaFiccion"">CIENCIA<br>FICCIÓN</a></p>
                     </div>
                 </li>
             </ul>

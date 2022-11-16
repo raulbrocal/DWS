@@ -18,18 +18,19 @@
     <div class="contenedor">
         <div class="primera_caja">
             <ul>
-                <li>
-                    Terror
-                </li>
+                <li>Terror</li>
                 <li>Ciencia Ficción</li>
             </ul>
         </div>
         <div class="segunda_caja">
-            <div class="listadoPeliculas">
-                <p>Hola</p>
+            <div class="pelicula">
+                <p class="titulo">TÍTULO</p>
+                <p class="votos">Votos</p>
+            </div>
+            <div class="pelicula">
+                <p>Adiós</p>
             </div>
         </div>
-        <div class="tercera_caja"></div>
     </div>
 </body>
 

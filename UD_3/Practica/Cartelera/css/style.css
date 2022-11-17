@@ -9,7 +9,6 @@
     text-align: center;
     height: 100%;
     width: 100%;
-    overflow: auto;
 }
 
 .primera_caja {
@@ -20,11 +19,13 @@
 .segunda_caja {
     background-color: yellow;
     height: 90%;
+    overflow: scroll;
 }
 
 .titulo {
     padding-top: 20px;
     color: red;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 ul {
@@ -35,10 +36,12 @@ ul {
 li {
     list-style: none;
     float: left;
-    width: 50%;
-    height: 100%;
+    width: 25%;
+    height: 60%;
     border: 5px black solid;
     position: relative;
+    margin: 4.1%;
+    background: url("../imgs/marco.png");
 }
 
 .categoria {
@@ -58,7 +61,7 @@ p {
     padding-left: 30%;
 }
 
-a{
+a {
     color: black;
 }
 

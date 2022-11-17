@@ -1,0 +1,90 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.primera_caja {
+    background-color: rgb(255, 255, 255);
+    height: 5%;
+}
+
+.segunda_caja {
+    background: url("../imgs/fondoCienciaFiccion.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 95%;
+    overflow: scroll;
+}
+
+.contenedor {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+}
+
+li {
+    float: left;
+    list-style: none;
+}
+
+.pelicula {
+    margin: 5% auto;
+    width: 60%;
+    height: 40%;
+    background-color: rgba(102, 102, 102, 0.808);
+    border-radius: 10px;
+    color: darkblue;
+}
+
+p {
+    display: inline-block;
+}
+
+.titulo {
+    padding-left: 8%;
+    padding-top: 3%;
+    width: fit-content;
+}
+
+.votos {
+    width: fit-content;
+    margin-left: 60%;
+}
+
+.puntos {
+    margin-left: 5%;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.imgs {
+    float: left;
+    margin-top: 2%;
+    margin-left: 7%;
+    width: 15%;
+    height: 60%;
+}
+
+.sinopsis {
+    margin-top: 2.5%;
+    margin-left: 25%;
+    margin-right: 5%;
+}
+
+.duracion {
+    position: relative;
+    margin-top: 2.5%;
+    left: 8%;
+}
+
+.enlace {
+    margin-top: 2.5%;
+    margin-left: 70%;
+}

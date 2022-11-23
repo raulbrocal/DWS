@@ -1,0 +1,80 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.contenedor {
+    background-color: black;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.primera_caja {
+    background-color: rgb(23, 173, 161);
+    height: 10%;
+}
+
+.segunda_caja {
+    background-color: yellow;
+    height: 90%;
+    overflow: scroll;
+}
+
+ul {
+    width: 100%;
+    height: 100%;
+}
+
+li {
+    list-style: none;
+    float: left;
+    position: relative;
+    margin: 2% 44%;
+}
+
+li:first-child {
+    margin: 1% 1%;
+}
+img{
+    float: left;
+    position: relative;
+    margin: 5%;
+}
+
+/*DROP DATABASE IF EXISTS prueba;
+CREATE DATABASE IF NOT EXISTS prueba;
+USE prueba;
+
+CREATE TABLE pelicula (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    duracion INTEGER,
+    votos INTEGER DEFAULT 0
+);
+
+ALTER TABLE prueba.pelicula ;
+INSERT INTO pelicula (duracion) VALUES (120);
+INSERT INTO pelicula (duracion) VALUES (130);
+
+UPDATE pelicula 
+SET 
+    pelicula.votos = pelicula.votos + 1
+WHERE
+    id = 2;
+
+CREATE TABLE categoria (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    peliculaId INTEGER NOT NULL,
+    terror VARCHAR(50),
+    cienciaFiccion VARCHAR(50),
+    FOREIGN KEY (peliculaId)
+        REFERENCES pelicula (id)
+);
+
+SELECT 
+    *
+FROM
+    pelicula
+        INNER JOIN
+    categoria ON pelicula.id = categoria.peliculaId;*/

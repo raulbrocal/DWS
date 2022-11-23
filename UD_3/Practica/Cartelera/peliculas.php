@@ -22,6 +22,7 @@
             </ul>
         </div>
         <div class="segunda_caja">
+            <h1><?php echo $style ?></h1>
             <div class="pelicula">
                 <p class="titulo">Halloween: El final</p>
                 <p class="votos">Votos:</p>

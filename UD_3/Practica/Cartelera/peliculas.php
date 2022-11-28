@@ -1,3 +1,17 @@
+<?php
+ini_set('display_errors', 'On');
+ini_set('html_errors', 0);
+
+class Pelicula
+{
+    public $titulo;
+    public $duracion;
+    public $sinopsis;
+    public $votos;
+    public $enlace;
+}
+?>
+
 <html lang="es">
 
 <head>
@@ -133,23 +147,3 @@
 </body>
 
 </html>
-
-<?php
-ini_set('display_errors', 'On');
-ini_set('html_errors', 0);
-
-class Pelicula
-{
-    public $titulo;
-    public $duracion;
-    public $sinopsis;
-    public $votos;
-    public $enlace;
-
-    function pintar()
-    {
-    }
-}
-
-$wakanda = new Pelicula();
-$wakanda->titulo = "casa";

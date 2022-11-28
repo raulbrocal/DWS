@@ -147,3 +147,4 @@ class Pelicula
 </body>
 
 </html>
+<!--https://code.tutsplus.com/es/tutorials/how-to-use-php-in-html-code--cms-34378

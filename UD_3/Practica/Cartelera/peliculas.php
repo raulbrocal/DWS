@@ -1,15 +1,115 @@
 <?php
 ini_set('display_errors', 'On');
 ini_set('html_errors', 0);
-
 class Pelicula
 {
+    public $id;
     public $titulo;
+    public $anyo;
     public $duracion;
     public $sinopsis;
+    public $imagen;
     public $votos;
+    public $director;
+    public $actor;
     public $enlace;
+
+    function __construct(
+        $id,
+        $titulo,
+        $anyo,
+        $duracion,
+        $sinopsis,
+        $imagen,
+        $votos,
+        $director,
+        $actor,
+        $enlace
+    ) {
+        $this->id = $id;
+        $this->titulo = $titulo;
+        $this->anyo = $anyo;
+        $this->duracion = $duracion;
+        $this->sinopsis = $sinopsis;
+        $this->imagen = $imagen;
+        $this->votos = $votos;
+        $this->director = $director;
+        $this->actor = $actor;
+        $this->enlace = $enlace;
+    }
+
+    function pintar()
+    {
+        echo $this->id . "<br>" . $this->titulo . "<br>";
+    }
 }
+
+/*class Coleccion extends Pelicula
+{
+    public $arrayPeliculas;
+
+    function rellenarDatos()
+    {
+        $conexion = mysqli_connect('localhost', 'root', '12345', 'cartelera');
+        if (mysqli_connect_errno()) {
+            echo "Error al conectarse a MySQL: " . mysqli_connect_errno();
+        }
+        $consulta = "SELECT * FROM T_Pelicula;";
+        $resultado = mysqli_query($conexion, $consulta);
+        if (!$resultado) {
+            $mensaje = 'Consulta inválida: ' . mysqli_error($conexion) . "\n";
+            $mensaje .= 'Consulta realizada: ' . $consulta;
+            die($mensaje);
+        }
+
+        $contador = 0;
+
+        while ($registro = mysqli_fetch_assoc($resultado)) {
+
+            $this->arrayPeliculas[$contador] = new Pelicula($registro['ID'], $registro['titulo'], $registro['anyo'], $registro['duracion'], $registro['sinopsis'], $registro['imagen'], $registro['votos'], $registro['id_director'], $registro['id_actor'], $registro['ID']);
+
+            $contador++;
+        }
+    }
+
+    function pintar()
+    {
+        for ($i = 0; $i < count($this->arrayPeliculas); $i++) {
+            for ($j = 0; $j < count($this->arrayPeliculas[$i]); $j++) {
+                echo $this->arrayPeliculas[$i][$j];
+            }
+        }
+    }
+
+}*/
+
+$arrayPeliculas = [];
+
+$conexion = mysqli_connect('localhost', 'root', '12345', 'cartelera');
+if (mysqli_connect_errno()) {
+    echo "Error al conectarse a MySQL: " . mysqli_connect_errno();
+}
+$consulta = "SELECT * FROM T_Pelicula;";
+$resultado = mysqli_query($conexion, $consulta);
+if (!$resultado) {
+    $mensaje = 'Consulta inválida: ' . mysqli_error($conexion) . "\n";
+    $mensaje .= 'Consulta realizada: ' . $consulta;
+    die($mensaje);
+}
+
+$contador = 0;
+
+while ($registro = mysqli_fetch_assoc($resultado)) {
+
+    $arrayPeliculas[$contador] = new Pelicula($registro['ID'], $registro['titulo'], $registro['anyo'], $registro['duracion'], $registro['sinopsis'], $registro['imagen'], $registro['votos'], $registro['id_director'], $registro['id_actor'], $registro['ID']);
+
+    $contador++;
+}
+
+for ($i = 0; $i < count($arrayPeliculas); $i++) {
+    echo $arrayPeliculas[$i]->pintar();
+}
+
 ?>
 
 <html lang="es">
@@ -37,6 +137,10 @@ class Pelicula
         </div>
         <div class="segunda_caja">
             <h1><?php echo $style ?></h1>
+            <?php while ($i < $total) { ?>
+
+            <?php }  ?>
+
             <div class="pelicula">
                 <p class="titulo">Halloween: El final</p>
                 <p class="votos">Votos:</p>

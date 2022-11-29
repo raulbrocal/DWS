@@ -16,7 +16,7 @@ if (!$resultado) {
 } else {
     echo "conexión OK" . "<br>";
     while ($registro = mysqli_fetch_assoc($resultado)) {
-        echo $registro['titulo'] . "<br>";
+        echo $registro['ID'] . "<br>";
         echo $registro['duracion'] . "<br>";
     }
 }

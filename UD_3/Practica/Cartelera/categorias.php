@@ -13,16 +13,37 @@
         </div>
         <div class="segunda_caja">
             <ul>
-                <li>
-                    <div class="categoria">
-                        <p><a href="peliculas.php?categoria=terror">TERROR</a></p>
-                    </div>
-                </li>
-                <li>
-                    <div class="categoria">
-                        <p><a href="peliculas.php?categoria=cienciaFiccion"">CIENCIA<br>FICCIÓN</a></p>
-                    </div>
-                </li>
+                <?php
+                $arrayCategorias = [];
+
+                $conexion = mysqli_connect('localhost', 'root', '12345', 'cartelera');
+                if (mysqli_connect_errno()) {
+                    echo "Error al conectarse a MySQL: " . mysqli_connect_errno();
+                }
+                $consulta = "SELECT * FROM T_Categoria;";
+                $resultado = mysqli_query($conexion, $consulta);
+                if (!$resultado) {
+                    $mensaje = 'Consulta inválida: ' . mysqli_error($conexion) . "\n";
+                    $mensaje .= 'Consulta realizada: ' . $consulta;
+                    die($mensaje);
+                } else {
+                    if (($resultado->num_rows) > 0) {
+
+                        $contador = 0;
+                        while ($registro = mysqli_fetch_assoc($resultado)) {
+
+                ?>
+                            <li>
+                                <div class="categoria">
+                                    <p><a href="peliculas.php?categoria=<?php echo $registro['estilo'] . "&id=" . $registro['ID'] ?>"><?php echo $registro['genero'] ?></a></p>
+                                </div>
+                            </li>
+                <?php }
+                    } else {
+                        echo "No hay resultados.";
+                    }
+                }
+                ?>
             </ul>
         </div>
     </div>

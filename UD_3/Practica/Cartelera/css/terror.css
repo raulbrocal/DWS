@@ -25,12 +25,18 @@
     width: 100%;
 }
 
+ul{
+    height: 100%;
+    width: auto;
+}
+
 li {
     float: left;
     list-style: none;
+    height: 100%;
 }
 
-h1{
+h1 {
     text-transform: uppercase;
     color: white;
     text-align: center;
@@ -88,4 +94,21 @@ img {
     padding-left: 3%;
     height: fit-content;
     width: 75%;
+}
+
+a {
+    text-decoration: none;
+    color: wheat;
+}
+
+a:visited {
+    color: darkgray;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: darkviolet;
 }

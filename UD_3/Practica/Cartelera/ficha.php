@@ -10,7 +10,7 @@
     <div class="contenedor">
         <div class="primera_caja">
             <ul>
-                <li>Volver</li>
+                <li><a href="peliculas.php">Volver</a></li>
                 <li>Ficha</li>
             </ul>
         </div>

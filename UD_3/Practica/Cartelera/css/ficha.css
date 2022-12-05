@@ -42,44 +42,32 @@ li {
 li:first-child {
     margin: 1% 1%;
 }
-img{
+
+a{
+    text-decoration: none;
+}
+
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+img {
     float: left;
     position: relative;
     margin: 5%;
 }
-
-/*DROP DATABASE IF EXISTS prueba;
-CREATE DATABASE IF NOT EXISTS prueba;
-USE prueba;
-
-CREATE TABLE pelicula (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    duracion INTEGER,
-    votos INTEGER DEFAULT 0
-);
-
-ALTER TABLE prueba.pelicula ;
-INSERT INTO pelicula (duracion) VALUES (120);
-INSERT INTO pelicula (duracion) VALUES (130);
-
-UPDATE pelicula 
-SET 
-    pelicula.votos = pelicula.votos + 1
-WHERE
-    id = 2;
-
-CREATE TABLE categoria (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    peliculaId INTEGER NOT NULL,
-    terror VARCHAR(50),
-    cienciaFiccion VARCHAR(50),
-    FOREIGN KEY (peliculaId)
-        REFERENCES pelicula (id)
-);
-
-SELECT 
-    *
-FROM
-    pelicula
-        INNER JOIN
-    categoria ON pelicula.id = categoria.peliculaId;*/

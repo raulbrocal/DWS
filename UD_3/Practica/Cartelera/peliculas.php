@@ -106,7 +106,7 @@ if (!$resultado) {
                     </div>
                     <br><br>
                     <p class="duracion">Duración: <?php echo $arrayPeliculas[$i]->duracion ?></p>
-                    <p>Ficha</p>
+                    <p><a href="ficha.php?id=<?php echo $arrayPeliculas[$i]->id ?>">Ver Ficha</a></p>
                 </div>
             <?php $i++;
             }  ?>

@@ -10,9 +10,6 @@ class Pelicula
     public $sinopsis;
     public $imagen;
     public $votos;
-    public $director;
-    public $actor;
-    public $enlace;
 
     function __construct(
         $id,
@@ -21,10 +18,7 @@ class Pelicula
         $duracion,
         $sinopsis,
         $imagen,
-        $votos,
-        $director,
-        $actor,
-        $enlace
+        $votos
     ) {
         $this->id = $id;
         $this->titulo = $titulo;
@@ -33,9 +27,6 @@ class Pelicula
         $this->sinopsis = $sinopsis;
         $this->imagen = $imagen;
         $this->votos = $votos;
-        $this->director = $director;
-        $this->actor = $actor;
-        $this->enlace = $enlace;
     }
 }
 
@@ -47,8 +38,9 @@ if (mysqli_connect_errno()) {
 }
 $id_categoria = $_GET['id'];
 $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
-$consulta = "SELECT * FROM T_Pelicula WHERE id_categoria='" . $sanitized_categoria_id . "'
-ORDER BY votos;";
+$consulta = "SELECT tp.*, tc.* FROM T_Pelicula tp INNER JOIN T_Categoria tc WHERE tp.categoriaId = tc.categoria AND categoriaId ='" . $sanitized_categoria_id . "'
+ORDER BY votos DESC;";
+
 $resultado = mysqli_query($conexion, $consulta);
 if (!$resultado) {
     $mensaje = 'Consulta inválida: ' . mysqli_error($conexion) . "\n";
@@ -60,7 +52,7 @@ if (!$resultado) {
 
         while ($registro = mysqli_fetch_assoc($resultado)) {
 
-            $arrayPeliculas[$contador] = new Pelicula($registro['ID'], $registro['titulo'], $registro['anyo'], $registro['duracion'], $registro['sinopsis'], $registro['imagen'], $registro['votos'], $registro['id_director'], $registro['id_actor'], $registro['ID']);
+            $arrayPeliculas[$contador] = new Pelicula($registro['ID'], $registro['titulo'], $registro['anyo'], $registro['duracion'], $registro['sinopsis'], $registro['imagen'], $registro['votos']);
 
             $contador++;
         }

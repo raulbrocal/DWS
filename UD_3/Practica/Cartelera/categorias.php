@@ -16,10 +16,8 @@
                 <?php
                 $arrayCategorias = [];
 
-                $conexion = mysqli_connect('localhost', 'root', '12345', 'cartelera');
-                if (mysqli_connect_errno()) {
-                    echo "Error al conectarse a MySQL: " . mysqli_connect_errno();
-                }
+                require('conexion.php');
+
                 $consulta = "SELECT * FROM T_Categoria;";
                 $resultado = mysqli_query($conexion, $consulta);
                 if (!$resultado) {
@@ -35,7 +33,7 @@
                 ?>
                             <li>
                                 <div class="categoria">
-                                    <p><a href="peliculas.php?categoria=<?php echo $registro['estilo'] . "&id=" . $registro['ID'] ?>"><?php echo $registro['genero'] ?></a></p>
+                                    <p><a href="peliculas.php?categoria=<?php echo $registro['estilo'] . "&id=" . $registro['categoria'] ?>"><?php echo $registro['genero'] ?></a></p>
                                 </div>
                             </li>
                 <?php }

@@ -25,14 +25,21 @@
     width: 100%;
 }
 
+ul{
+    height: 100%;
+    width: auto;
+}
+
 li {
     float: left;
     list-style: none;
+    height: 100%;
 }
 
 h1 {
-    color: white;
     text-transform: uppercase;
+    color: white;
+    text-align: center;
 }
 
 .pelicula {
@@ -49,18 +56,15 @@ p {
 }
 
 .titulo {
-    padding-left: 8%;
+    padding-left: 3%;
     padding-top: 3%;
-    width: fit-content;
+    height: fit-content;
+    width: 60%;
 }
 
 .votos {
-    width: fit-content;
-    margin-left: 60%;
-}
-
-.puntos {
-    margin-left: 5%;
+    height: fit-content;
+    width: 10%;
 }
 
 img {
@@ -71,25 +75,40 @@ img {
 
 .imgs {
     float: left;
-    margin-top: 2%;
-    margin-left: 7%;
+    margin-top: 4%;
+    margin-left: 5%;
     width: 15%;
-    height: 60%;
+    height: 70%;
 }
 
 .sinopsis {
+    width: 70%;
+    height: 55%;
     margin-top: 2.5%;
     margin-left: 25%;
     margin-right: 5%;
+    overflow: scroll;
 }
 
 .duracion {
-    position: relative;
-    margin-top: 2.5%;
-    left: 8%;
+    padding-left: 3%;
+    height: fit-content;
+    width: 75%;
 }
 
-.enlace {
-    margin-top: 2.5%;
-    margin-left: 70%;
+a {
+    text-decoration: none;
+    color: wheat;
+}
+
+a:visited {
+    color: darkgray;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: darkviolet;
 }

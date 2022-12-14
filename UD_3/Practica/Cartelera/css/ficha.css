@@ -17,8 +17,7 @@
 }
 
 .segunda_caja {
-    background-color: black;
-    background: url("../imgs/ticket.png") center center;
+    background: url("../imgs/claqueta.jpg") center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -50,17 +49,14 @@ a:link {
     color: red;
 }
 
-/* visited link */
 a:visited {
     color: green;
 }
 
-/* mouse over link */
 a:hover {
     color: hotpink;
 }
 
-/* selected link */
 a:active {
     color: blue;
 }
@@ -69,4 +65,31 @@ img {
     float: left;
     position: relative;
     margin: 5%;
+}
+
+.ficha{
+    background-color: black;
+    width: 60%;
+    height: 100%;
+    float: right;
+}
+
+.info{
+    background-color: red;
+    width: 50%;
+    height: 50%;
+    display: inline-block;
+}
+
+.imagen{
+    background-color: blue;
+    width: 50%;
+    height: 50%;
+    float: right;
+}
+
+.sinopsis{
+    background-color: yellow;
+    width: 100%;
+    height: 50%;
 }

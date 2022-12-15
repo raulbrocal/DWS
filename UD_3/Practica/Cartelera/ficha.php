@@ -2,9 +2,7 @@
 ini_set('display_errors', 'On');
 ini_set('html_errors', 0);
 
-/*new class Ficha extends Pelicula{
-
-};*/
+require('pelicula.php');
 
 $conexion = mysqli_connect('localhost', 'root', '12345', 'cartelera');
 
@@ -24,14 +22,14 @@ if (!$resultado) {
     die($mensaje);
 } else {
     if (($resultado->num_rows) > 0) {
-
         while ($registro = mysqli_fetch_assoc($resultado)) {
-            $arrayPeliculas[$contador] = new Pelicula($registro['ID'], $registro['titulo'], $registro['anyo'], $registro['duracion'], $registro['sinopsis'], $registro['imagen'], $registro['votos']);
+            $pelicula = new Pelicula($registro['ID'], $registro['titulo'], $registro['anyo'], $registro['duracion'], $registro['sinopsis'], $registro['imagen'], $registro['votos']);
         }
     } else {
         echo "No hay resultados.";
     }
 }
+
 ?>
 
 <html>
@@ -51,11 +49,23 @@ if (!$resultado) {
         </div>
         <div class="segunda_caja">
             <div class="ficha">
-                <div class="info"></div>
-                <div class="imagen"></div>
+                <div class="info">
+                    <h1><?php echo $pelicula->titulo ?></h1>
+                    <br>
+                    <p><?php echo $pelicula->anyo ?></p>
+                    <p><?php echo $pelicula->duracion ?></p>
+                    <p>Directores</p>
+                    <p>Reparto</p>
+                </div>
+                <div class="imagen">
+                    <img src="../Cartelera/imgs/<?php echo $pelicula->imagen ?>" alt="img">
+                </div>
                 <div class="sinopsis">
-                    <form action="ficha.php" method="post">
-                        <input id="id_campo_1" name="nombre_campo_1" type="submit" value="Votar"><br>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quidem quo sapiente aut perferendis a similique iusto, quae impedit eius incidunt blanditiis repudiandae vel architecto labore expedita natus. Repellendus, ipsum!</p>
+
+                    <form action="voto.php" method="POST">
+                        <input id="id_pelicula" name="pelicula" type="hidden" value="<?php echo intval($pelicula->id) ?>"><br>
+                        <input type="submit" value="Aceptar">
                     </form>
                 </div>
             </div>

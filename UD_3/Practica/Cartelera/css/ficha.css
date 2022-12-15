@@ -61,12 +61,6 @@ a:active {
     color: blue;
 }
 
-img {
-    float: left;
-    position: relative;
-    margin: 5%;
-}
-
 .ficha{
     background-color: black;
     width: 60%;
@@ -92,4 +86,12 @@ img {
     background-color: yellow;
     width: 100%;
     height: 50%;
+}
+
+p{
+    text-align: left;
+}
+
+img{
+    height: 100%;
 }

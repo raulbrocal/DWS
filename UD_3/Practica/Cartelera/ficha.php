@@ -30,6 +30,9 @@ if (!$resultado) {
     }
 }
 
+$consulta = "SELECT pelicula, actor, aNombre FROM T_Actor_T_Pelicula INNER JOIN T_Actor ON actor = ID WHERE pelicula = '" . $sanitized_pelicula_id . "';";
+$resultado = mysqli_query($conexion, $consulta);
+
 ?>
 
 <html>
@@ -61,11 +64,11 @@ if (!$resultado) {
                     <img src="../Cartelera/imgs/<?php echo $pelicula->imagen ?>" alt="img">
                 </div>
                 <div class="sinopsis">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo quidem quo sapiente aut perferendis a similique iusto, quae impedit eius incidunt blanditiis repudiandae vel architecto labore expedita natus. Repellendus, ipsum!</p>
+                    <p><?php echo $pelicula->sinopsis ?></p>
 
                     <form action="voto.php" method="POST">
-                        <input id="id_pelicula" name="pelicula" type="hidden" value="<?php echo intval($pelicula->id) ?>"><br>
-                        <input type="submit" value="Aceptar">
+                        <input id="id_pelicula" name="id_pelicula" type="hidden" value="<?php echo intval($pelicula->id) ?>"><br>
+                        <input type="submit" value="Votar">
                     </form>
                 </div>
             </div>

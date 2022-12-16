@@ -10,6 +10,8 @@ class Pelicula
     public $sinopsis;
     public $imagen;
     public $votos;
+    public $directores;
+    public $reparto;
 
     function __construct(
         $id,

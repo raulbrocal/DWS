@@ -1,21 +1,18 @@
 <?php
 
 require('pelicula.php');
+require('conexion.php');
 
 $arrayPeliculas = [];
 
-$conexion = mysqli_connect('localhost', 'root', '12345', 'cartelera');
-if (mysqli_connect_errno()) {
-    echo "Error al conectarse a MySQL: " . mysqli_connect_errno();
-}
 $id_categoria = $_GET['id'];
-$sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
+$sanitized_categoria_id = mysqli_real_escape_string(conexion(), $id_categoria);
 $consulta = "SELECT tp.*, tc.* FROM T_Pelicula tp INNER JOIN T_Categoria tc WHERE tp.categoriaId = tc.categoria AND categoriaId ='" . $sanitized_categoria_id . "'
 ORDER BY votos DESC;";
 
-$resultado = mysqli_query($conexion, $consulta);
+$resultado = mysqli_query(conexion(), $consulta);
 if (!$resultado) {
-    $mensaje = 'Consulta inválida: ' . mysqli_error($conexion) . "\n";
+    $mensaje = 'Consulta inválida: ' . mysqli_error(conexion()) . "\n";
     $mensaje .= 'Consulta realizada: ' . $consulta;
     die($mensaje);
 } else {
@@ -80,3 +77,4 @@ if (!$resultado) {
 
 </html>
 <!--https://code.tutsplus.com/es/tutorials/how-to-use-php-in-html-code--cms-34378
+-- No pueden haber ningún * en las select

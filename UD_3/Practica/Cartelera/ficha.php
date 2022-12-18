@@ -3,21 +3,16 @@ ini_set('display_errors', 'On');
 ini_set('html_errors', 0);
 
 require('pelicula.php');
-
-$conexion = mysqli_connect('localhost', 'root', '12345', 'cartelera');
-
-if (mysqli_connect_errno()) {
-    echo "Error al conectarse a MySQL: " . mysqli_connect_errno();
-}
+require('conexion.php');
 
 $id_pelicula = $_GET['id_pelicula'];
-$sanitized_pelicula_id = mysqli_real_escape_string($conexion, $id_pelicula);
+$sanitized_pelicula_id = mysqli_real_escape_string(conexion(), $id_pelicula);
 
 $consulta = "SELECT * FROM T_Pelicula WHERE ID ='" . $sanitized_pelicula_id . "';";
 
-$resultado = mysqli_query($conexion, $consulta);
+$resultado = mysqli_query(conexion(), $consulta);
 if (!$resultado) {
-    $mensaje = 'Consulta inválida: ' . mysqli_error($conexion) . "\n";
+    $mensaje = 'Consulta inválida: ' . mysqli_error(conexion()) . "\n";
     $mensaje .= 'Consulta realizada: ' . $consulta;
     die($mensaje);
 } else {
@@ -31,7 +26,7 @@ if (!$resultado) {
 }
 
 $consulta = "SELECT pelicula, actor, aNombre FROM T_Actor_T_Pelicula INNER JOIN T_Actor ON actor = ID WHERE pelicula = '" . $sanitized_pelicula_id . "';";
-$resultado = mysqli_query($conexion, $consulta);
+$resultado = mysqli_query(conexion(), $consulta);
 
 ?>
 

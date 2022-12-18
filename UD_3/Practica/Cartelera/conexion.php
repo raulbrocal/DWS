@@ -5,7 +5,7 @@ ini_set('html_errors', 0);
 
 function conexion()
 {
-    $conexion = mysqli_connect('localhost', 'root', '12345', 'cartelera');
+    $conexion = mysqli_connect('localhost', 'root', '1234', 'cartelera');
     
     if (mysqli_connect_errno()) {
         echo "Error al conectarse a MySQL: " . mysqli_connect_errno();

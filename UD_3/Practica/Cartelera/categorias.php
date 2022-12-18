@@ -2,7 +2,7 @@
 
 <head>
     <title>Categorias</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categoria.css">
 </head>
 
 <body>

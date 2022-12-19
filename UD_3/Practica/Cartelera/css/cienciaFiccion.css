@@ -31,11 +31,15 @@ ul{
 }
 
 li {
-    float: left;
+    float: right;
     list-style: none;
     height: 100%;
     margin-left: 1%;
     padding-top: 0.9%;
+}
+
+li:first-child{
+    float: left;
 }
 
 h1 {

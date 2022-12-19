@@ -38,7 +38,7 @@ function leerPeliculas()
 
     $id_categoria = $_GET['id_pelicula'];
     $sanitized_categoria_id = mysqli_real_escape_string(conexion(), $id_categoria);
-    $consulta = "SELECT tp.*, tc.* FROM T_Pelicula tp INNER JOIN T_Categoria tc WHERE tp.categoriaId = tc.categoria AND categoriaId ='" . $sanitized_categoria_id . "' ORDER BY votos DESC;";
+    $consulta = "SELECT tp.*, tc.* FROM T_Pelicula tp INNER JOIN T_Categoria tc WHERE tp.categoriaId = tc.categoria AND categoriaId ='" . $sanitized_categoria_id . "';";
 
     $resultado = mysqli_query(conexion(), $consulta);
     if (!$resultado) {

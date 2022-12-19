@@ -10,11 +10,6 @@
 }
 
 .segunda_caja {
-    background: url("../imgs/fondoTerror.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     height: 95%;
     overflow: scroll;
 }
@@ -52,9 +47,9 @@ h1 {
     margin: 5% auto;
     width: 60%;
     height: 40%;
-    background-color: black;
+    background-color: rgba(102, 102, 102, 0.808);
     border-radius: 10px;
-    color: wheat;
+    color: darkblue;
 }
 
 p {
@@ -104,7 +99,7 @@ img {
 
 a {
     text-decoration: none;
-    color: darkmagenta;
+    color: darkviolet;
 }
 
 a:visited {
@@ -116,5 +111,5 @@ a:hover {
 }
 
 a:active {
-    color: darkred;
+    color: wheat;
 }

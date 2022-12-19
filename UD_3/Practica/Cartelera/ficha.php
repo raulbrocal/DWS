@@ -9,6 +9,8 @@ $id_pelicula = $_GET['id_pelicula'];
 $sanitized_pelicula_id = mysqli_real_escape_string(conexion(), $id_pelicula);
 
 $consulta = "SELECT * FROM T_Pelicula WHERE ID ='" . $sanitized_pelicula_id . "';";
+$consultaAutores = "SELECT aNombre FROM T_Actor_T_Pelicula INNER JOIN T_Actor ON actor = ID WHERE pelicula = '" . $sanitized_pelicula_id . "';";
+$consultaDirectores = "SELECT dNombre FROM T_Director_T_Pelicula INNER JOIN T_Director ON director = ID WHERE pelicula = '" . $sanitized_pelicula_id . "';";
 
 $resultado = mysqli_query(conexion(), $consulta);
 if (!$resultado) {
@@ -25,8 +27,39 @@ if (!$resultado) {
     }
 }
 
-$consulta = "SELECT pelicula, actor, aNombre FROM T_Actor_T_Pelicula INNER JOIN T_Actor ON actor = ID WHERE pelicula = '" . $sanitized_pelicula_id . "';";
-$resultado = mysqli_query(conexion(), $consulta);
+$resultadoActores = mysqli_query(conexion(), $consultaAutores);
+if (!$resultadoActores) {
+    $mensaje = 'Consulta inválida: ' . mysqli_error(conexion()) . "\n";
+    $mensaje .= 'Consulta realizada: ' . $consultaAutores;
+    die($mensaje);
+} else {
+    if (($resultadoActores->num_rows) > 0) {
+        $contador = 0;
+        while ($registro = mysqli_fetch_assoc($resultadoActores)) {
+            $actores[$contador] = $registro['aNombre'];
+            $contador++;
+        }
+    } else {
+        echo "No hay resultados.";
+    }
+}
+
+$consultaDirectores = mysqli_query(conexion(), $consultaDirectores);
+if (!$consultaDirectores) {
+    $mensaje = 'Consulta inválida: ' . mysqli_error(conexion()) . "\n";
+    $mensaje .= 'Consulta realizada: ' . $consultaAutores;
+    die($mensaje);
+} else {
+    if (($consultaDirectores->num_rows) > 0) {
+        $contador = 0;
+        while ($registro = mysqli_fetch_assoc($consultaDirectores)) {
+            $directores[$contador] = $registro['dNombre'];
+            $contador++;
+        }
+    } else {
+        echo "No hay resultados.";
+    }
+}
 
 ?>
 
@@ -52,8 +85,16 @@ $resultado = mysqli_query(conexion(), $consulta);
                     <br>
                     <p><?php echo $pelicula->anyo ?></p>
                     <p><?php echo $pelicula->duracion ?></p>
-                    <p>Directores</p>
-                    <p>Reparto</p>
+                    <p><?php
+                        foreach ($directores as $value) {
+                            echo $value . " ";
+                        }
+                        ?></p>
+                    <p><?php
+                        foreach ($actores as $value) {
+                            echo $value . " ";
+                        }
+                        ?></p>
                 </div>
                 <div class="imagen">
                     <img src="../Cartelera/imgs/<?php echo $pelicula->imagen ?>" alt="img">

@@ -36,7 +36,7 @@ function leerPeliculas()
 {
     $arrayPeliculas = [];
 
-    $id_categoria = $_GET['id'];
+    $id_categoria = $_GET['id_pelicula'];
     $sanitized_categoria_id = mysqli_real_escape_string(conexion(), $id_categoria);
     $consulta = "SELECT tp.*, tc.* FROM T_Pelicula tp INNER JOIN T_Categoria tc WHERE tp.categoriaId = tc.categoria AND categoriaId ='" . $sanitized_categoria_id . "' ORDER BY votos DESC;";
 
@@ -73,7 +73,7 @@ function pintar($arrayPeliculas)
             <p class="titulo"><?php echo $arrayPeliculas[$i]->titulo ?></p>
             <p class="votos">Votos: <?php echo $arrayPeliculas[$i]->votos ?></p>
             <div class="imgs">
-                <img src="imgs/<?php echo $arrayPeliculas[$i]->imagen ?>" alt="halloween">
+                <img src="imgs/<?php echo $arrayPeliculas[$i]->imagen ?>" alt="imagen">
             </div>
             <div class="sinopsis">
                 <h2>Sinopsis</h2>

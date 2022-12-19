@@ -12,20 +12,16 @@
 }
 
 .primera_caja {
-    background-color: rgb(23, 173, 161);
-    height: 10%;
-}
-
-.segunda_caja {
-    background-color: yellow;
-    height: 90%;
+    background: url("../imgs/fondoCategorias.jpg") center center;
+    background-size: cover;
     overflow: scroll;
 }
 
 .titulo {
-    padding-top: 20px;
-    color: red;
-    font-family: 'Courier New', Courier, monospace;
+    padding-top: 0.75%;
+    color: burlywood;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
 }
 
 ul {
@@ -39,19 +35,14 @@ li {
     width: 25%;
     height: 60%;
     border: 5px black solid;
+    border-radius: 20%;
     position: relative;
     margin: 4.1%;
-    background: url("../imgs/puertasCine.jpg") center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
 
 .categoria {
     width: 50%;
     height: 52%;
-    background-color: blue;
     position: absolute;
     top: 35%;
     left: 24%;

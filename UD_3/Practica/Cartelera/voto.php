@@ -28,10 +28,10 @@ if (!$resultado) {
     <body>
         <div class="contenedor">
             <div class="primera_caja">
-                <p><a href="categorias.php">Volver</a></p>
+                <p class="link"><a href="categorias.php">Volver</a></p>
             </div>
             <div class="segunda_caja">
-                <p class="texto">Todo a salido correctamente.</p>
+                <p class="texto">Todo ha salido correctamente.</p>
             </div>
         </div>
     </body>

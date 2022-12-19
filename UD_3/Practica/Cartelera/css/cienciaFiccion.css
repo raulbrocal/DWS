@@ -34,6 +34,8 @@ li {
     float: left;
     list-style: none;
     height: 100%;
+    margin-left: 1%;
+    padding-top: 0.9%;
 }
 
 h1 {
@@ -98,11 +100,11 @@ img {
 
 a {
     text-decoration: none;
-    color: wheat;
+    color: darkviolet;
 }
 
 a:visited {
-    color: darkgray;
+    text-decoration: none;
 }
 
 a:hover {
@@ -110,5 +112,5 @@ a:hover {
 }
 
 a:active {
-    color: darkviolet;
+    color: wheat;
 }

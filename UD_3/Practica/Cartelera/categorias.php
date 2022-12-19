@@ -49,7 +49,8 @@ function pintarCategorias($listaCategorias)
     while ($i < $total) { ?>
         <li>
             <div class="categoria">
-                <p><img src="../imgs/terror.png" alt="miedo"><br><a href="peliculas.php?categoria=<?php echo $listaCategorias[$i]->estilo . "&id_pelicula=" . $listaCategorias[$i]->categoria ?>"><?php echo $listaCategorias[$i]->genero ?></a></p>
+                <h2><a href="peliculas.php?categoria=<?php echo $listaCategorias[$i]->estilo . "&id_pelicula=" . $listaCategorias[$i]->categoria ?>"><?php echo $listaCategorias[$i]->genero ?></a></h2><br><img class='imagen' src="imgs/<?php echo $listaCategorias[$i]->estilo ?>.png" alt="Sin imagen disponible.">
+
             </div>
         </li>
 <?php $i++;
@@ -69,6 +70,8 @@ function pintarCategorias($listaCategorias)
     <div class="contenedor">
         <div class="primera_caja">
             <h1 class="titulo">CATEGORIAS</h1>
+        </div>
+        <div class="segunda_caja">
             <ul>
                 <?php
                 pintarCategorias(leerCategorias());

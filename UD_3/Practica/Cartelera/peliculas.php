@@ -16,10 +16,10 @@
         <div class="segunda_caja">
             <h1><?php echo $_GET["categoria"] ?></h1>
             <?php
-                require('conexion.php'); 
-                require('pelicula.php');
-                
-                pintar(leerPeliculas());  
+            require('conexion.php');
+            require('pelicula.php');
+
+            pintar(leerPeliculas());
             ?>
         </div>
     </div>

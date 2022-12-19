@@ -62,36 +62,54 @@ a:active {
 }
 
 .ficha{
-    background-color: black;
     width: 60%;
     height: 100%;
     float: right;
+    padding-top: 5%;
 }
 
 .info{
-    background-color: red;
     width: 50%;
     height: 50%;
     display: inline-block;
+    padding-top: 4%;
 }
 
 .imagen{
-    background-color: blue;
-    width: 50%;
-    height: 50%;
+    position: relative;
+    top: 5%;
+    right: 2.5%;
+    width: 40%;
+    height: 40%;
     float: right;
 }
 
 .sinopsis{
-    background-color: yellow;
-    width: 100%;
+    width: 85%;
     height: 50%;
 }
 
 p{
     text-align: left;
+    line-height: 200%;
 }
 
 img{
     height: 100%;
+}
+
+h1{
+    font-size: 350%;
+}
+
+.votar{
+    display: inline;
+    width: fit-content;
+}
+
+form{
+    display: inline;
+    position: relative;
+    float: right;
+    bottom: 4.5%;
 }

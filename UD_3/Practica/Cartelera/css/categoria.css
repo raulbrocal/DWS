@@ -5,15 +5,20 @@
 }
 
 .contenedor {
-    background-color: black;
+    background: url("../imgs/fondoCategorias.jpg") center center;
+    background-size: cover;
     text-align: center;
     height: 100%;
     width: 100%;
 }
 
-.primera_caja {
-    background: url("../imgs/fondoCategorias.jpg") center center;
-    background-size: cover;
+.primera_caja{
+    background-color: rgb(27, 13, 13);
+    height: 10%;
+}
+
+.segunda_caja {
+    height: 90%;
     overflow: scroll;
 }
 
@@ -34,8 +39,6 @@ li {
     float: left;
     width: 25%;
     height: 60%;
-    border: 5px black solid;
-    border-radius: 20%;
     position: relative;
     margin: 4.1%;
 }
@@ -44,8 +47,13 @@ li {
     width: 50%;
     height: 52%;
     position: absolute;
-    top: 35%;
+    top: 5%;
     left: 24%;
+}
+
+.imagen{
+    width: auto;
+    height: 100%;
 }
 
 p {

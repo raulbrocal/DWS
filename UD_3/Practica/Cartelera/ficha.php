@@ -75,40 +75,43 @@ if (!$consultaDirectores) {
     <div class="contenedor">
         <div class="primera_caja">
             <ul>
-                <li><a href="peliculas.php?categoria=terror&id=1">Volver</a></li>
+                <li><a href="categorias.php">Volver</a></li>
             </ul>
         </div>
         <div class="segunda_caja">
             <div class="ficha">
+                <h1><?php echo $pelicula->titulo ?></h1>
                 <div class="info">
-                    <h1><?php echo $pelicula->titulo ?></h1>
                     <br>
-                    <p><?php echo $pelicula->anyo ?></p>
-                    <p><?php echo $pelicula->duracion ?></p>
-                    <p><?php
-                        foreach ($directores as $value) {
-                            echo $value . " ";
-                        }
-                        ?></p>
-                    <p><?php
-                        foreach ($actores as $value) {
-                            echo $value . " ";
-                        }
-                        ?></p>
+                    <p>Año: <?php echo $pelicula->anyo ?></p>
+                    <p>Duración: <?php echo $pelicula->duracion ?> min</p>
+                    <p>Directores: <?php
+                                    foreach ($directores as $value) {
+                                        echo $value . " ";
+                                    }
+                                    ?></p>
+                    <p>Actores: <?php
+                                foreach ($actores as $value) {
+                                    echo $value . " ";
+                                }
+                                ?></p><br>
+                    <p>Sinopsis: <br><?php echo $pelicula->sinopsis ?></p>
+
+                    <br>
+                    <div class="votar">
+                        ¿Quieres votar esta película como tu favorita?  
+                        <form action="voto.php" method="POST">
+                            <input id="id_pelicula" name="id_pelicula" type="hidden" value="<?php echo intval($pelicula->id) ?>"><br>
+                            <input type="submit" value="Votar">
+                        </form>
+                    </div>
                 </div>
                 <div class="imagen">
                     <img src="../Cartelera/imgs/<?php echo $pelicula->imagen ?>" alt="img">
                 </div>
-                <div class="sinopsis">
-                    <p><?php echo $pelicula->sinopsis ?></p>
-
-                    <form action="voto.php" method="POST">
-                        <input id="id_pelicula" name="id_pelicula" type="hidden" value="<?php echo intval($pelicula->id) ?>"><br>
-                        <input type="submit" value="Votar">
-                    </form>
-                </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 

@@ -4,22 +4,49 @@
     box-sizing: border-box;
 }
 
-a {
-    color: black;
+.primera_caja {
+    width: auto;
+    height: 5%;
+}
+
+.link {
+    margin-left: 1%;
+    padding-top: 0.9%;
+}
+
+.segunda_caja  {
+    width: auto;
+    height: 95%;
+    background: url('../imgs/notificacion.jpg') center center;
+    background-size: cover;
+}
+
+.texto {
+    
+    color: darkblue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    position: relative;
+    top: 55%;
+    font-size: 300%;
+}
+
+a{
+    text-decoration: none;
 }
 
 a:link {
-    text-decoration: none;
+    color: red;
 }
 
 a:visited {
-    text-decoration: none;
+    color: green;
 }
 
 a:hover {
-    text-decoration: none;
+    color: hotpink;
 }
 
 a:active {
-    text-decoration: none;
+    color: blue;
 }

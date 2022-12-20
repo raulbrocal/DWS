@@ -26,7 +26,7 @@ function leerCategorias()
     if (!$resultado) {
         $mensaje = 'Consulta inválida: ' . mysqli_error(conexion()) . "\n";
         $mensaje .= 'Consulta realizada: ' . $consulta;
-        die($mensaje);
+        return($mensaje);
     } else {
         if (($resultado->num_rows) > 0) {
             $contador = 0;
@@ -35,7 +35,7 @@ function leerCategorias()
                 $contador++;
             }
         } else {
-            echo "No hay resultados.";
+            return "No hay resultados.";
         }
     }
     return $listaCategorias;

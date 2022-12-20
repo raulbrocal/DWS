@@ -11,6 +11,24 @@ function test_conexion_1()
     return ($x == conexion());
 }
 
+function test_leerCategorias_1()
+{
+    require('categotias.php');
+
+    $x = leerCategorias();
+
+    return ($x == leerCategorias());
+}
+
+function test_pintarCategorias_1()
+{
+    require('categotias.php');
+
+    $listaCategorias = leerCategorias();
+    $x = pintarCategorias($listaCategorias);
+
+    return ($x == pintarCategorias(leerCategorias()));
+}
 
 function test($testEjecutar)
 {
@@ -43,13 +61,11 @@ echo ("<br><br>TESTS UNITARIOS<br>");
 echo "<br>Test conexion()";
 test("test_conexion_1");
 
-echo "<br><br>Test analizarFilas";
-test("test_conexion_1");
-test("test_analizarFilas_2");
+echo "<br><br>Test leerCategorias";
+test("test_leerCategorias_1");
 
-echo "<br><br>Test analizarColumnas";
-test("test_analizarColumnas_1");
-test("test_analizarColumnas_2");
+echo "<br><br>Test pintarCategorias";
+test("test_pintarCategorias_1");
 
 echo "<br><br>Test analizarDiagonalPrimera";
 test("test_analizarDiagonalPrimera_1");

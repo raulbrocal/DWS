@@ -44,7 +44,7 @@ function leerPeliculas()
     if (!$resultado) {
         $mensaje = 'Consulta inválida: ' . mysqli_error(conexion()) . "\n";
         $mensaje .= 'Consulta realizada: ' . $consulta;
-        return($mensaje);
+        return ($mensaje);
     } else {
         if (($resultado->num_rows) > 0) {
             $contador = 0;
@@ -78,7 +78,10 @@ function pintar($arrayPeliculas)
             <div class="sinopsis">
                 <h2>Sinopsis</h2>
                 <br>
-                <p><?php echo $arrayPeliculas[$i]->sinopsis ?></p>
+                <p><?php $cadena = $arrayPeliculas[$i]->sinopsis;
+                    $caracteres = 250;
+                    echo substr($cadena, 0, $caracteres) . '...';
+                    ?></p>
             </div>
             <br><br>
             <p class="duracion">Duración: <?php echo $arrayPeliculas[$i]->duracion ?> min</p>

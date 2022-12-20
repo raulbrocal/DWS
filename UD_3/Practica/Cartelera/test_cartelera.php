@@ -13,7 +13,7 @@ function test_conexion_1()
 
 function test_leerCategorias_1()
 {
-    require('categotias.php');
+    require('categorias.php');
 
     $x = leerCategorias();
 
@@ -22,12 +22,31 @@ function test_leerCategorias_1()
 
 function test_pintarCategorias_1()
 {
-    require('categotias.php');
+    require('categorias.php');
 
     $listaCategorias = leerCategorias();
     $x = pintarCategorias($listaCategorias);
 
     return ($x == pintarCategorias(leerCategorias()));
+}
+
+function test_leerPeliculas_1()
+{
+    require('pelicula.php');
+
+    $x = leerPeliculas();
+
+    return ($x == leerPeliculas());
+}
+
+function test_pintar_1()
+{
+    require('pelicula.php');
+
+    $arrayPeliculas = leerPeliculas();
+    $x = pintar($arrayPeliculas);
+
+    return ($x == pintar(leerPeliculas()));
 }
 
 function test($testEjecutar)
@@ -67,10 +86,8 @@ test("test_leerCategorias_1");
 echo "<br><br>Test pintarCategorias";
 test("test_pintarCategorias_1");
 
-echo "<br><br>Test analizarDiagonalPrimera";
-test("test_analizarDiagonalPrimera_1");
-test("test_analizarDiagonalPrimera_2");
+echo "<br><br>Test pintarPeliculas";
+test("test_pintarPeliculas_1");
 
-echo "<br><br>Test analizarDiagonalSegunda";
-test("test_analizarDiagonalSegunda_1");
-test("test_analizarDiagonalSegunda_2");
+echo "<br><br>Test test_pintar_1";
+test("test_pintar_1");

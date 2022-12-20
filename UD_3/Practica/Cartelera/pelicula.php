@@ -44,7 +44,7 @@ function leerPeliculas()
     if (!$resultado) {
         $mensaje = 'Consulta inválida: ' . mysqli_error(conexion()) . "\n";
         $mensaje .= 'Consulta realizada: ' . $consulta;
-        die($mensaje);
+        return($mensaje);
     } else {
         if (($resultado->num_rows) > 0) {
             $contador = 0;
@@ -56,7 +56,7 @@ function leerPeliculas()
                 $contador++;
             }
         } else {
-            echo "No hay resultados.";
+            return "No hay resultados.";
         }
     }
 

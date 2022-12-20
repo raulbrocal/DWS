@@ -7,7 +7,7 @@
                                         $categoria = $_GET["categoria"];
 
                                         if (empty($categoria) || $categoria == 'null'  ) {
-                                            echo 'default';
+                                            throw new Exception('No existe ese tipo de categoria.');
                                         } else {
                                             echo $categoria;
                                         }

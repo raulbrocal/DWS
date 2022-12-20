@@ -14,3 +14,4 @@ function conexion()
     }
 }
 
+var_dump(conexion());

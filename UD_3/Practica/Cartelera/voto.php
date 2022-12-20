@@ -31,7 +31,7 @@ if (!$resultado) {
                 <p class="link"><a href="categorias.php">Volver</a></p>
             </div>
             <div class="segunda_caja">
-                <p class="texto">Todo ha salido correctamente.</p>
+                <p class="texto">Tu voto ha sido enviado correctamente.</p>
             </div>
         </div>
     </body>

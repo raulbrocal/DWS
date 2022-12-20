@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/<?php
                                         $categoria = $_GET["categoria"];
 
-                                        if (empty($categoria)) {
+                                        if (empty($categoria) || $categoria == 'null'  ) {
                                             echo 'default';
                                         } else {
                                             echo $categoria;

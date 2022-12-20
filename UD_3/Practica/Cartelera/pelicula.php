@@ -81,7 +81,7 @@ function pintar($arrayPeliculas)
                 <p><?php echo $arrayPeliculas[$i]->sinopsis ?></p>
             </div>
             <br><br>
-            <p class="duracion">Duración: <?php echo $arrayPeliculas[$i]->duracion ?></p>
+            <p class="duracion">Duración: <?php echo $arrayPeliculas[$i]->duracion ?> min</p>
             <p><a href="ficha.php?id_pelicula=<?php echo $arrayPeliculas[$i]->id ?>">Ver Ficha</a></p>
         </div>
 <?php $i++;

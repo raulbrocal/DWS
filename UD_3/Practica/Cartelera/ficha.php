@@ -8,7 +8,7 @@ require('conexion.php');
 $id_pelicula = $_GET['id_pelicula'];
 $sanitized_pelicula_id = mysqli_real_escape_string(conexion(), $id_pelicula);
 
-$consulta = "SELECT * FROM T_Pelicula WHERE ID ='" . $sanitized_pelicula_id . "';";
+$consulta = "SELECT ID, titulo, anyo, duracion, sinopsis, imagen, votos FROM T_Pelicula WHERE ID ='" . $sanitized_pelicula_id . "';";
 $consultaAutores = "SELECT aNombre FROM T_Actor_T_Pelicula INNER JOIN T_Actor ON actor = ID WHERE pelicula = '" . $sanitized_pelicula_id . "';";
 $consultaDirectores = "SELECT dNombre FROM T_Director_T_Pelicula INNER JOIN T_Director ON director = ID WHERE pelicula = '" . $sanitized_pelicula_id . "';";
 

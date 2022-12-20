@@ -39,5 +39,3 @@
 </body>
 
 </html>
-<!--https://code.tutsplus.com/es/tutorials/how-to-use-php-in-html-code--cms-34378
--- No pueden haber ningún * en las select

@@ -21,7 +21,7 @@ function leerCategorias()
     $listaCategorias = [];
     require('conexion.php');
 
-    $consulta = "SELECT * FROM T_Categoria;";
+    $consulta = "SELECT estilo, categoria, genero FROM T_Categoria;";
     $resultado = mysqli_query(conexion(), $consulta);
     if (!$resultado) {
         $mensaje = 'Consulta inválida: ' . mysqli_error(conexion()) . "\n";

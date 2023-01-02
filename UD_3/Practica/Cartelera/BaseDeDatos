@@ -1,0 +1,191 @@
+DROP DATABASE IF EXISTS cartelera;
+CREATE DATABASE IF NOT EXISTS cartelera;
+USE cartelera;
+
+CREATE TABLE T_Categoria (
+    categoria INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    genero VARCHAR(50) DEFAULT NULL,
+    estilo VARCHAR(50) DEFAULT NULL
+);
+
+CREATE TABLE T_Director (
+    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    dNombre VARCHAR(50) DEFAULT NULL
+);
+
+CREATE TABLE T_Actor (
+    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    aNombre VARCHAR(50) DEFAULT NULL
+);
+
+CREATE TABLE T_Pelicula (
+    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) DEFAULT NULL,
+    anyo INT DEFAULT NULL,
+    duracion INT DEFAULT NULL,
+    sinopsis VARCHAR(750) DEFAULT NULL,
+    imagen VARCHAR(100) DEFAULT NULL,
+    votos INT DEFAULT 0,
+    categoriaId INT DEFAULT NULL,
+    CONSTRAINT T_Pelicula_ibfk_1 FOREIGN KEY (categoriaId)
+        REFERENCES T_Categoria (categoria)
+);
+
+CREATE TABLE T_Director_T_Pelicula (
+    director INT,
+    pelicula INT,
+    PRIMARY KEY (director , pelicula),
+    FOREIGN KEY (director)
+        REFERENCES T_Director (ID),
+    FOREIGN KEY (pelicula)
+        REFERENCES T_Pelicula (ID)
+);
+
+CREATE TABLE T_Actor_T_Pelicula (
+    actor INT,
+    pelicula INT,
+    PRIMARY KEY (actor , pelicula),
+    FOREIGN KEY (actor)
+        REFERENCES T_Actor (ID),
+    FOREIGN KEY (pelicula)
+        REFERENCES T_Pelicula (ID)
+);
+
+INSERT INTO T_Categoria VALUES (1, "Terror", "terror");
+INSERT INTO T_Categoria VALUES (2, "Ciencia Ficción", "cienciaFiccion");
+
+INSERT INTO T_Director (dNombre) VALUES ("Peter Grundy");
+INSERT INTO T_Director (dNombre) VALUES ("Andrés Muschietti");
+INSERT INTO T_Director (dNombre) VALUES ("James Wan");
+INSERT INTO T_Director (dNombre) VALUES ("Michael Chaves");
+INSERT INTO T_Director (dNombre) VALUES ("Christopher Nolan");
+INSERT INTO T_Director (dNombre) VALUES ("Denis Villeneuve");
+INSERT INTO T_Director (dNombre) VALUES ("Jon Favreau");
+INSERT INTO T_Director (dNombre) VALUES ("Shane Black");
+
+INSERT INTO T_Actor (aNombre) VALUES ("Bill Skarsgård");
+INSERT INTO T_Actor (aNombre) VALUES ("Jaeden Martell");
+INSERT INTO T_Actor (aNombre) VALUES ("Finn Wolfhard");
+INSERT INTO T_Actor (aNombre) VALUES ("Lili Taylor");
+INSERT INTO T_Actor (aNombre) VALUES ("Vera Farmiga");
+INSERT INTO T_Actor (aNombre) VALUES ("Patrick Wilson");
+INSERT INTO T_Actor (aNombre) VALUES ("Matthew McConaughey");
+INSERT INTO T_Actor (aNombre) VALUES ("Anne Hathaway");
+INSERT INTO T_Actor (aNombre) VALUES ("David Gyasi");
+INSERT INTO T_Actor (aNombre) VALUES ("Timothée Chalamet");
+INSERT INTO T_Actor (aNombre) VALUES ("Rebecca Ferguson");
+INSERT INTO T_Actor (aNombre) VALUES ("Oscar Isaac");
+INSERT INTO T_Actor (aNombre) VALUES ("Robert Downey Jr.");
+INSERT INTO T_Actor (aNombre) VALUES ("Gwyneth Paltrow");
+INSERT INTO T_Actor (aNombre) VALUES ("Stan Lee");
+
+INSERT INTO T_Pelicula (titulo, anyo, duracion, sinopsis, imagen, categoriaId)
+VALUES ("It", 2017, 135, "Cuando empiezan a desaparecer niños en el pueblo de Derry (Maine),
+ un pandilla de amigos lidia con sus mayores miedos al enfrentarse a un malvado payaso 
+ llamado Pennywise, cuya historia de asesinatos y violencia data de siglos. Adaptación 
+ cinematográfica de la conocida novela de Stephen King", "it.jpg", 1);
+ 
+INSERT INTO T_Pelicula (titulo, anyo, duracion, sinopsis, imagen, categoriaId)
+VALUES ("It. Capítulo 2", 2019, 169, "Han pasado casi 30 años desde que el 'Club de los 
+Perdedores', se enfrentaran al macabro y despiadado Pennywise. En cuanto tuvieron 
+oportunidad, abandonaron el pueblo de Derry, que tantos problemas les había ocasionado.
+Sin embargo, ahora, siendo adultos, parece que no pueden escapar de su pasado.
+Todos deberán enfrentarse de nuevo al temible payaso para descubrir si de verdad están 
+preparados para superar sus traumas de la infancia.", "it2.jpg", 1);
+ 
+INSERT INTO T_Pelicula (titulo, anyo, duracion, sinopsis, imagen, categoriaId)
+VALUES ("Expediente Warren: The Conjuring", 2013, 112, "Basada en una historia real 
+documentada por los reputados demonólogos Ed y Lorraine Warren. Narra los encuentros 
+sobrenaturales que vivió la familia Perron en su casa de Rhode Island a principios de 
+los 70. El matrimonio Warren, investigadores de renombre en el mundo de los fenómenos 
+paranormales, acudieron a la llamada de esta familia aterrorizada por la presencia en 
+su granja de un ser maligno.", "expedienteWarren1.jpg", 1);
+ 
+INSERT INTO T_Pelicula (titulo, anyo, duracion, sinopsis, imagen, categoriaId)
+VALUES ("Expediente Warren: El caso Enfield", 2016, 133, "Secuela de la exitosa 'Expediente Warren' que presenta un caso real de los 
+renombrados demonólogos Ed y Lorraine Warren. Para resolverlo viajan al norte de Londres
+para ayudar a una madre soltera que vive con sus cuatro hijos en una casa plagada de 
+espíritus malignos.", "expedienteWarren2.jpg", 1);
+ 
+INSERT INTO T_Pelicula (titulo, anyo, duracion, sinopsis, imagen, categoriaId)
+VALUES ("Expediente Warren: Obligado por el demonio", 2021, 112, "Ambientada en los años 80.
+Ed y Lorraine Warren deberán afrontar un nuevo caso que se presenta con un hombre, Arne 
+Cheyne Johnson, que es acusado de asesinato tras haber sido poseído por un demonio.",
+"expedienteWarren3.jpg", 1);
+
+INSERT INTO T_Pelicula (titulo, anyo, duracion, sinopsis, imagen, categoriaId)
+VALUES ("Interstellar", 2014, 169, "Al ver que la vida en la Tierra está llegando a su fin, 
+un grupo de exploradores dirigidos por el piloto Cooper (McConaughey) y la científica 
+Amelia (Hathaway) emprende una misión que puede ser la más importante de la historia de la 
+humanidad: viajar más allá de nuestra galaxia para descubrir algún planeta en otra que 
+pueda garantizar el futuro de la raza humana.", "interstellar.jpg", 2);
+
+INSERT INTO T_Pelicula (titulo, anyo, duracion, sinopsis, imagen, categoriaId)
+VALUES ("Dune", 2021, 155, "En el Año 10191 el desértico planeta Arrakis, feudo de la 
+familia Harkonnen desde hace generaciones, queda en manos de la Casa de los Atreides por 
+orden del emperador. Con ello les cede la explotación de las reservas de especia, la 
+materia prima más valiosa de la galaxia, necesaria para los viajes interestelares y también 
+una droga capaz de amplificar la conciencia y extender la vida.", "dune.jpg", 2);
+
+INSERT INTO T_Pelicula (titulo, anyo, duracion, sinopsis, imagen, categoriaId)
+VALUES ("Iron Man", 2008, 126, "El multimillonario fabricante de armas Tony Stark 
+(Robert Downey Jr.) debe enfrentarse a su turbio pasado después de sufrir un accidente 
+con una de sus armas. Equipado con una armadura de última generación tecnológica, se 
+convierte en 'El hombre de hierro', un héroe que se dedica a combatir el mal en todo el 
+mundo.", "ironman1.jpg", 2);
+
+INSERT INTO T_Pelicula (titulo, anyo, duracion, sinopsis, imagen, categoriaId)
+VALUES ("Iron Man 2", 2010, 124, "El mundo ya sabe que el multimillonario Tony Stark 
+(Robert Downey Jr.) es Iron Man, el superhéroe enmascarado. A pesar de las presiones del 
+gobierno, la prensa y la opinión pública para que comparta su tecnología con el ejército, 
+Tony es reacio a desvelar los secretos de la armadura de Iron Man, porque teme que esa 
+información caiga en en manos de irresponsables. ", "ironman2.jpg", 2);
+
+INSERT INTO T_Pelicula (titulo, anyo, duracion, sinopsis, imagen, categoriaId)
+VALUES ("IronMan3", 2013, 130, "El descarado y brillante empresario Tony Stark/Iron Man 
+se enfrentará a un enemigo cuyo poder no conoce límites. Cuando Stark comprende que su 
+enemigo ha destruido su universo personal, se embarca en una angustiosa búsqueda para 
+encontrar a los responsables. Este viaje pondrá a prueba su entereza una y otra vez. ",
+"ironman3.jpg", 2);
+
+INSERT INTO T_Director_T_Pelicula VALUES (1,1);
+INSERT INTO T_Director_T_Pelicula VALUES (2,2);
+INSERT INTO T_Director_T_Pelicula VALUES (3,3);
+INSERT INTO T_Director_T_Pelicula VALUES (3,4);
+INSERT INTO T_Director_T_Pelicula VALUES (4,5);
+INSERT INTO T_Director_T_Pelicula VALUES (5,6);
+INSERT INTO T_Director_T_Pelicula VALUES (6,7);
+INSERT INTO T_Director_T_Pelicula VALUES (7,8);
+INSERT INTO T_Director_T_Pelicula VALUES (7,9);
+INSERT INTO T_Director_T_Pelicula VALUES (8,10);
+
+INSERT INTO T_Actor_T_Pelicula VALUES (1,1);
+INSERT INTO T_Actor_T_Pelicula VALUES (2,1);
+INSERT INTO T_Actor_T_Pelicula VALUES (3,1);
+INSERT INTO T_Actor_T_Pelicula VALUES (1,2);
+INSERT INTO T_Actor_T_Pelicula VALUES (2,2);
+INSERT INTO T_Actor_T_Pelicula VALUES (3,2);
+INSERT INTO T_Actor_T_Pelicula VALUES (4,3);
+INSERT INTO T_Actor_T_Pelicula VALUES (5,3);
+INSERT INTO T_Actor_T_Pelicula VALUES (6,3);
+INSERT INTO T_Actor_T_Pelicula VALUES (4,4);
+INSERT INTO T_Actor_T_Pelicula VALUES (5,4);
+INSERT INTO T_Actor_T_Pelicula VALUES (6,4);
+INSERT INTO T_Actor_T_Pelicula VALUES (4,5);
+INSERT INTO T_Actor_T_Pelicula VALUES (5,5);
+INSERT INTO T_Actor_T_Pelicula VALUES (6,5);
+INSERT INTO T_Actor_T_Pelicula VALUES (7,6);
+INSERT INTO T_Actor_T_Pelicula VALUES (8,6);
+INSERT INTO T_Actor_T_Pelicula VALUES (9,6);
+INSERT INTO T_Actor_T_Pelicula VALUES (10,7);
+INSERT INTO T_Actor_T_Pelicula VALUES (11,7);
+INSERT INTO T_Actor_T_Pelicula VALUES (12,7);
+INSERT INTO T_Actor_T_Pelicula VALUES (13,8);
+INSERT INTO T_Actor_T_Pelicula VALUES (14,8);
+INSERT INTO T_Actor_T_Pelicula VALUES (15,8);
+INSERT INTO T_Actor_T_Pelicula VALUES (13,9);
+INSERT INTO T_Actor_T_Pelicula VALUES (14,9);
+INSERT INTO T_Actor_T_Pelicula VALUES (15,9);
+INSERT INTO T_Actor_T_Pelicula VALUES (13,10);
+INSERT INTO T_Actor_T_Pelicula VALUES (14,10);
+INSERT INTO T_Actor_T_Pelicula VALUES (15,10);

@@ -10,21 +10,73 @@
 
 <body>
     <div class="contenedor">
+
         <div class="menu">
             <p class="titulo">Este es el torneo de ping pong</p>
         </div>
-        <div class="cuadroIzq"></div>
+
+        <div class="cuadroIzq">
+            <div class="rondaIzq">
+                <?php for ($i = 0; $i < 8; $i++) { ?>
+                    <div class="octavos">
+                        <table class="participantes">
+                            <tr>
+                                <th>Local</th>
+                                <td>Score</td>
+                            </tr>
+                            <tr>
+                                <th>Visitante</th>
+                                <td>Score</td>
+                            </tr>
+                        </table>
+                    </div>
+                <?php } ?>
+            </div>
+            <div class="rondaIzq">
+                <?php for ($i = 0; $i < 4; $i++) { ?>
+                    <div class="cuartos">
+                        <table class="participantes">
+                            <tr>
+                                <th>Local</th>
+                                <td>Score</td>
+                            </tr>
+                            <tr>
+                                <th>Visitante</th>
+                                <td>Score</td>
+                            </tr>
+                        </table>
+                    </div>
+                <?php } ?>
+            </div>
+            <div class="rondaIzq">
+                <?php for ($i = 0; $i < 2; $i++) { ?>
+                    <div class="semi">
+                        <table class="participantes">
+                            <tr>
+                                <th>Local</th>
+                                <td>Score</td>
+                            </tr>
+                            <tr>
+                                <th>Visitante</th>
+                                <td>Score</td>
+                            </tr>
+                        </table>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+
         <div class="cuadroDer">
             <div class="rondaDer">
                 <?php for ($i = 0; $i < 8; $i++) { ?>
                     <div class="octavos">
                         <table class="participantes">
                             <tr>
-                                <td>Local</td>
+                                <th>Local</th>
                                 <td>Score</td>
                             </tr>
                             <tr>
-                                <td>Visitante</td>
+                                <th>Visitante</th>
                                 <td>Score</td>
                             </tr>
                         </table>
@@ -36,11 +88,11 @@
                     <div class="cuartos">
                         <table class="participantes">
                             <tr>
-                                <td>Local</td>
+                                <th>Local</th>
                                 <td>Score</td>
                             </tr>
                             <tr>
-                                <td>Visitante</td>
+                                <th>Visitante</th>
                                 <td>Score</td>
                             </tr>
                         </table>
@@ -52,33 +104,34 @@
                     <div class="semi">
                         <table class="participantes">
                             <tr>
-                                <td>Local</td>
+                                <th>Local</th>
                                 <td>Score</td>
                             </tr>
                             <tr>
-                                <td>Visitante</td>
+                                <th>Visitante</th>
                                 <td>Score</td>
                             </tr>
                         </table>
                     </div>
                 <?php } ?>
             </div>
-            <div class="rondaDer">
-                <div class="final">
-                    <table class="participantes">
-                        <tr>
-                            <td>Local</td>
-                            <td>Score</td>
-                        </tr>
-                        <tr>
-                            <td>Visitante</td>
-                            <td>Score</td>
-                        </tr>
-                    </table>
-                </div>
+        </div>
 
+        <div class="cuadroFinal">
+            <div class="final">
+                <table class="participantes">
+                    <tr>
+                        <th>Local</th>
+                        <td>Score</td>
+                    </tr>
+                    <tr>
+                        <th>Visitante</th>
+                        <td>Score</td>
+                    </tr>
+                </table>
             </div>
         </div>
+
     </div>
 </body>
 

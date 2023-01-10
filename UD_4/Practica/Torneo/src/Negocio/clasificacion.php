@@ -12,7 +12,7 @@
     <div class="contenedor">
 
         <div class="menu">
-            <p class="titulo">Este es el torneo de ping pong</p>
+            <p class="titulo">Torneo de tenis de mesa.</p>
         </div>
 
         <div class="cuadroIzq">

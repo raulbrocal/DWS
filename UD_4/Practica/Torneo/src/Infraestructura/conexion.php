@@ -9,7 +9,7 @@ if (mysqli_connect_errno()) {
 }
 $id_categoria = 1;
 $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
-$consulta = mysqli_prepare($conexion, "SELECT * FROM T_Torneos WHERE ID = ?");
+$consulta = mysqli_prepare($conexion, "SELECT * FROM T_Torneo WHERE ID = ?");
 $consulta->bind_param("s", $sanitized_categoria_id);
 $consulta->execute();
 

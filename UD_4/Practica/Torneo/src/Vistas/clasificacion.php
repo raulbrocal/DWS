@@ -15,38 +15,18 @@
             <p class="titulo">Torneo de tenis de mesa.</p>
         </div>
 
-        <div class="clasificaion">
+        <div class="clasificacion">
 
             <div class="ronda">
-                <p>Octavos</p>
+                <p>Cuartos</p>
                 <?php for ($i = 0; $i < 8; $i++) { ?>
                     <div class="octavos">
                         <table class="participantes">
                             <tr>
-                                <th><input type="button" value="Local"></th>
-                                <td>Score</td>
+                                <td><input class="local" type="button" value="Local"></td>
                             </tr>
                             <tr>
-                                <th>Visitante</th>
-                                <td>Score</td>
-                            </tr>
-                        </table>
-                    </div>
-                <?php } ?>
-            </div>
-
-            <div class="ronda">
-                <p>Cuartos</p>
-                <?php for ($i = 0; $i < 4; $i++) { ?>
-                    <div class="cuartos">
-                        <table class="participantes">
-                            <tr>
-                                <th>Local</th>
-                                <td>Score</td>
-                            </tr>
-                            <tr>
-                                <th>Visitante</th>
-                                <td>Score</td>
+                                <td><input class="visitante" type="button" value="Visitante"></td>
                             </tr>
                         </table>
                     </div>
@@ -55,16 +35,14 @@
 
             <div class="ronda">
                 <p>Semifinal</p>
-                <?php for ($i = 0; $i < 2; $i++) { ?>
-                    <div class="semi">
+                <?php for ($i = 0; $i < 4; $i++) { ?>
+                    <div class="cuartos">
                         <table class="participantes">
                             <tr>
-                                <th>Local</th>
-                                <td>Score</td>
+                                <td><input class="local" type="button" value="Local"></td>
                             </tr>
                             <tr>
-                                <th>Visitante</th>
-                                <td>Score</td>
+                                <td><input class="visitante" type="button" value="Visitante"></td>
                             </tr>
                         </table>
                     </div>
@@ -72,18 +50,24 @@
             </div>
 
             <div class="ronda">
-                <p>Ganador</p>
+                <p>Final</p>
+                <?php for ($i = 0; $i < 2; $i++) { ?>
+                    <div class="semi">
+                        <table class="participantes">
+                            <tr>
+                                <td><input type="button" value="Jugador"></td>
+                            </tr>
+                        </table>
+                    </div>
+                <?php } ?>
+            </div>
+
+            <div class="ronda">
+                <p>Campeón</p>
                 <div class="final">
-                    <table class="participantes">
-                        <tr>
-                            <th>Local</th>
-                            <td>Score</td>
-                        </tr>
-                        <tr>
-                            <th>Visitante</th>
-                            <td>Score</td>
-                        </tr>
-                    </table>
+                    <div class="participantes">
+                        <input value="Jugador"></td>
+                    </div>
                 </div>
             </div>
         </div>

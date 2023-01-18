@@ -22,6 +22,8 @@
                 <th>Estado</th>
                 <th>Jugadores</th>
                 <th>Campeón</th>
+                <th></th>
+                <th></th>
             </tr>
             <?php
             ini_set('display_errors', 'On');
@@ -52,10 +54,14 @@
                 echo "<td>";
                 print($torneo->getCampeon());
                 echo "</td>";
-                echo "</tr>";
+                echo "<td>";
+                echo "<a href='gestionTorneosVista.php'>Editar</a>";
+                echo "</td>";
+                echo "<td>";
+                echo "<a href='#' onclick='torneosBL->borrar();'>Borrar</a>";
+                echo "</td>";
             }
             ?>
-
         </table>
     </div>
 </body>

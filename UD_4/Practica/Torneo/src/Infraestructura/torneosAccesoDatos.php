@@ -1,5 +1,6 @@
 <?php
-
+ini_set('display_errors', 'On');
+ini_set('html_errors', 0);
 class TorneosAccesoDatos
 {
     function __construct()
@@ -12,7 +13,7 @@ class TorneosAccesoDatos
         if (mysqli_connect_errno()) {
             echo "Error al conectar a MySQL: " . mysqli_connect_error();
         }
-        $consulta = mysqli_prepare($conexion, "SELECT ID FROM T_Torneo");
+        $consulta = mysqli_prepare($conexion, "SELECT ID, nombreTorneo, fecha, estado, numJugadores, campeon FROM T_Torneo");
         $consulta->execute();
         $result = $consulta->get_result();
         $torneos = array();

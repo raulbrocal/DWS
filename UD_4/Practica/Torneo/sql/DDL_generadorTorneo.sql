@@ -21,11 +21,16 @@ CREATE TABLE T_Partido (
 
 CREATE TABLE T_Torneo (
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nombreTorneo VARCHAR(50) DEFAULT NULL,
-    fecha DATE,
-    estado ENUM('No finalizado', 'En proceso', 'Finalizado') DEFAULT 'No finalizado',
+    nombreTorneo VARCHAR(100) DEFAULT NULL,
+    fecha DATE NULL,
+    estado ENUM('No finalizado', 'Finalizado') DEFAULT 'No finalizado',
     numJugadores INT DEFAULT 0,
-    campeon ENUM('True', 'False') NOT NULL
+    campeon VARCHAR(100) DEFAULT NULL
 );
 
-INSERT INTO T_Torneo (nombreTorneo, numJugadores, fecha) VALUES ('Torne tenis mesa IES Son Ferrer', 8, '2020-03-25');
+INSERT INTO T_Torneo (nombreTorneo, fecha, estado, numJugadores, campeon) VALUES 
+('Torneo IES Son Ferrer','2023-03-25', 'No finalizado', '8', 'Jugador 1');
+INSERT INTO T_Torneo (nombreTorneo, estado, numJugadores, campeon) VALUES 
+('Torneo 2021', 'Finalizado', '8', 'Carlos Sogorb');
+INSERT INTO T_Torneo (nombreTorneo, fecha, estado, numJugadores, campeon) VALUES 
+('Torneo navidad 2022','2022-12-22', 'Finalizado', '8', 'Carlos Acedo');

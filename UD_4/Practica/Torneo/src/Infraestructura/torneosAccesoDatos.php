@@ -7,12 +7,18 @@ class TorneosAccesoDatos
     {
     }
 
-    function obtener()
+    function conexion()
     {
         $conexion = mysqli_connect('localhost', 'root', '12345', 'torneosTenisMesaDB');
         if (mysqli_connect_errno()) {
             echo "Error al conectar a MySQL: " . mysqli_connect_error();
         }
+        return $conexion;
+    }
+
+    function obtener()
+    {
+        $conexion = $this->conexion();
         $consulta = mysqli_prepare($conexion, "SELECT ID, nombreTorneo, fecha, estado, numJugadores, campeon FROM T_Torneo");
         $consulta->execute();
         $result = $consulta->get_result();
@@ -21,5 +27,14 @@ class TorneosAccesoDatos
             array_push($torneos, $myrow);
         }
         return $torneos;
+    }
+
+    function obtenerNumTorneos()
+    {
+        $conexion = $this->conexion();
+        $consulta = mysqli_prepare($conexion, "SELECT COUNT(*) FROM T_Torneo;");
+        $consulta->execute();
+        $result = $consulta->get_result();
+        return $result;
     }
 }

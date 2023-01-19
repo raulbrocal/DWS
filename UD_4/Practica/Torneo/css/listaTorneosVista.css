@@ -17,6 +17,15 @@ h1{
     padding: 2.5%;
 }
 
+.informacion{
+    margin: 0 auto;
+    width: 25%;
+}
+
+p{
+    float: right;
+}
+
 
 table {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;

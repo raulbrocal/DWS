@@ -14,6 +14,13 @@
 <body>
     <div class="contenedor">
         <h1>Listado de Torneos</h1>
+        <div class="informacion">
+            <a href="gestionTorneosVista.php">Crear torneo</a>
+            <p>Número de registros: <?php require("../Negocio/torneosReglasNegocio.php");
+                                    $torneosBL = new TorneosReglasNegocio();
+                                    $datosTorneos = $torneosBL->numTorneos(); ?></p>
+        </div>
+        <br>
         <table class="torneos">
             <tr>
                 <th>ID</th>
@@ -26,8 +33,6 @@
                 <th></th>
             </tr>
             <?php
-            ini_set('display_errors', 'On');
-            ini_set('html_errors', 0);
 
             require("../Negocio/torneosReglasNegocio.php");
 

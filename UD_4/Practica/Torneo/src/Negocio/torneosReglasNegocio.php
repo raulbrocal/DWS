@@ -73,7 +73,15 @@ class TorneosReglasNegocio
         return $listaTorneos;
     }
 
-    function borrar(){
+    function numTorneos()
+    {
+        $oTorneosReglasNegocio = new TorneosAccesoDatos();
+        $numTorneos = $oTorneosReglasNegocio->obtenerNumTorneos();
+        return $numTorneos;
+    }
+
+    function borrar()
+    {
         var_dump("casa");
     }
 }

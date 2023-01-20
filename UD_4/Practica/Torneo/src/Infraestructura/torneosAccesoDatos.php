@@ -16,7 +16,7 @@ class TorneosAccesoDatos
         return $conexion;
     }
 
-    function obtener()
+    function obtenerTorneos()
     {
         $conexion = $this->conexion();
         $consulta = mysqli_prepare($conexion, "SELECT ID, nombreTorneo, fecha, estado, numJugadores, campeon FROM T_Torneo");
@@ -32,9 +32,39 @@ class TorneosAccesoDatos
     function obtenerNumTorneos()
     {
         $conexion = $this->conexion();
-        $consulta = mysqli_prepare($conexion, "SELECT COUNT(*) FROM T_Torneo;");
+        $consulta = mysqli_prepare($conexion, "SELECT COUNT(ID) FROM T_Torneo;");
         $consulta->execute();
         $result = $consulta->get_result();
-        return $result;
+        $torneos = array();
+        while ($myrow = $result->fetch_assoc()) {
+            $torneos = $myrow;
+        }
+        return $torneos;
+    }
+
+    function obtenerNumPartidos()
+    {
+        $conexion = $this->conexion();
+        $consulta = mysqli_prepare($conexion, "SELECT COUNT(partidoId) FROM T_Partido;");
+        $consulta->execute();
+        $result = $consulta->get_result();
+        $partidos = array();
+        while ($myrow = $result->fetch_assoc()) {
+            $partidos = $myrow;
+        }
+        return $partidos;
+    }
+
+    function obtenerPartido()
+    {
+        $conexion = $this->conexion();
+        $consulta = mysqli_prepare($conexion, "SELECT ID, jugadorA, jugadorB, ronda, ganador FROM T_Torneo INNER JOIN T_Torneo_T_Partido ON ID = torneo INNER JOIN T_Partido ON partidoId = partido;");
+        $consulta->execute();
+        $result = $consulta->get_result();
+        $partidos = array();
+        while ($myrow = $result->fetch_assoc()) {
+            $partidos = $myrow;
+        }
+        return $partidos;
     }
 }

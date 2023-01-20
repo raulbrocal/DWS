@@ -10,20 +10,21 @@ class TorneosReglasNegocio
     private $_NombreTorneo;
     private $_Fecha;
     private $_Estado;
-    private $_Jugadores;
+    private $_NumJugadores;
     private $_Campeon;
+
 
     function __construct()
     {
     }
 
-    function init($id, $nombre, $fecha, $estado, $jugadores, $campeon)
+    function init($id, $nombre, $fecha, $estado, $numJugadores, $campeon)
     {
         $this->_ID = $id;
         $this->_NombreTorneo = $nombre;
         $this->_Fecha = $fecha;
         $this->_Estado = $estado;
-        $this->_Jugadores = $jugadores;
+        $this->_NumJugadores = $numJugadores;
         $this->_Campeon = $campeon;
     }
 
@@ -49,7 +50,7 @@ class TorneosReglasNegocio
 
     function getJugadores()
     {
-        return $this->_Jugadores;
+        return $this->_NumJugadores;
     }
 
     function getCampeon()
@@ -57,10 +58,10 @@ class TorneosReglasNegocio
         return $this->_Campeon;
     }
 
-    function obtener()
+    function listaTorneos()
     {
         $torneosDAL = new TorneosAccesoDatos();
-        $rs = $torneosDAL->obtener();
+        $rs = $torneosDAL->obtenerTorneos();
 
         $listaTorneos =  array();
 
@@ -77,11 +78,82 @@ class TorneosReglasNegocio
     {
         $oTorneosReglasNegocio = new TorneosAccesoDatos();
         $numTorneos = $oTorneosReglasNegocio->obtenerNumTorneos();
-        return $numTorneos;
+        return implode($numTorneos);
+    }
+
+    function numPartidos()
+    {
+        $oTorneosReglasNegocio = new TorneosAccesoDatos();
+        $numPartidos = $oTorneosReglasNegocio->obtenerNumPartidos();
+        return implode($numPartidos);
     }
 
     function borrar()
     {
         var_dump("casa");
+    }
+}
+
+class PartidosReglasNegocio
+{
+    private $_ID;
+    private $_JugadorA;
+    private $_JugadorB;
+    private $_Ronda;
+    private $_Ganador;
+
+
+    function __construct()
+    {
+    }
+
+    function getID()
+    {
+        return $this->_ID;
+    }
+
+    function getJugadorA()
+    {
+        return $this->_JugadorA;
+    }
+
+    function getJugadorB()
+    {
+        return $this->_JugadorB;
+    }
+
+    function getRonda()
+    {
+        return $this->_Ronda;
+    }
+
+    function getGanador()
+    {
+        return $this->_Ganador;
+    }
+
+    function init($id, $jugadorA, $jugadorB, $ronda, $ganador)
+    {
+        $this->_ID = $id;
+        $this->_JugadorA = $jugadorA;
+        $this->_JugadorB = $jugadorB;
+        $this->_Ronda = $ronda;
+        $this->_Ganador = $ganador;
+    }
+
+    function datosPartido()
+    {
+        $partidosDAL = new TorneosAccesoDatos();
+        $rs = $partidosDAL->obtenerPartido();
+
+        $datosPartido =  array();
+
+        foreach ($rs as $torneo) {
+            $oTorneosReglasNegocio = new PartidosReglasNegocio();
+            $oTorneosReglasNegocio->Init($torneo['ID'], $torneo['nombreTorneo'], $torneo['fecha'], $torneo['estado'], $torneo['numJugadores'], $torneo['campeon']);
+            array_push($datosPartido, $oTorneosReglasNegocio);
+        }
+
+        return $datosPartido;
     }
 }

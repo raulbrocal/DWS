@@ -1,3 +1,7 @@
+<?php
+require("../Negocio/torneosReglasNegocio.php");
+?>
+
 <html lang="en">
 
 <head>
@@ -16,9 +20,10 @@
         <h1>Listado de Torneos</h1>
         <div class="informacion">
             <a href="gestionTorneosVista.php">Crear torneo</a>
-            <p>Número de registros: <?php require("../Negocio/torneosReglasNegocio.php");
+            <p>Número de registros: <?php
                                     $torneosBL = new TorneosReglasNegocio();
-                                    $datosTorneos = $torneosBL->numTorneos(); ?></p>
+                                    $nTorneos = $torneosBL->numTorneos();
+                                    echo $nTorneos; ?></p>
         </div>
         <br>
         <table class="torneos">
@@ -34,15 +39,13 @@
             </tr>
             <?php
 
-            require("../Negocio/torneosReglasNegocio.php");
-
-            $torneosBL = new TorneosReglasNegocio();
-            $datosTorneos = $torneosBL->obtener();
+            $datosTorneos = $torneosBL->listaTorneos();
 
             foreach ($datosTorneos as $torneo) {
+                $id = $torneo->getID();
                 echo "<tr>";
                 echo "<td>";
-                print($torneo->getID());
+                print($id);
                 echo "</td>";
                 echo "<td>";
                 print($torneo->getNombreTorneo());
@@ -60,7 +63,7 @@
                 print($torneo->getCampeon());
                 echo "</td>";
                 echo "<td>";
-                echo "<a href='gestionTorneosVista.php'>Editar</a>";
+                echo "<a href='gestionTorneosVista.php?id=$id'>Editar</a>";
                 echo "</td>";
                 echo "<td>";
                 echo "<a href='#' onclick='torneosBL->borrar();'>Borrar</a>";

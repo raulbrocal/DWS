@@ -1,6 +1,6 @@
 <?php
 require("../Negocio/torneosReglasNegocio.php");
-$torneosBL = new TorneosReglasNegocio();
+$partidosBL = new PartidosReglasNegocio();
 ?>
 
 <html lang="en">
@@ -22,54 +22,44 @@ $torneosBL = new TorneosReglasNegocio();
         <div class="informacion">
             <a href="resultadoPartidaVista.php">Nuevo partido</a>
             <p>Número de registros: <?php
-                                    $nPartidos = $torneosBL->numPartidos();
+                                    $nPartidos = $partidosBL->numPartidos();
                                     echo $nPartidos; ?></p>
         </div>
         <br>
         <table class="torneos">
             <tr>
                 <th>ID</th>
-                <th>Nombre del torneo</th>
-                <th>Fecha</th>
-                <th>Estado</th>
-                <th>Jugadores</th>
-                <th>Campeón</th>
+                <th>Jugador A</th>
+                <th>Jugador B</th>
+                <th>Ronda</th>
+                <th>Ganador</th>
                 <th></th>
                 <th></th>
             </tr>
             <?php
 
-            $datosTorneos = $torneosBL->listaTorneos();
+            $datosPartidos = $partidosBL->datosPartido();
 
-            foreach ($datosTorneos as $torneo) {
-                if ($torneo->getID() == $_GET['id']) {
-                    echo "<tr>";
-                    echo "<td>";
-                    print($torneo->getID());
-                    echo "</td>";
-                    echo "<td>";
-                    print($torneo->getNombreTorneo());
-                    echo "</td>";
-                    echo "<td>";
-                    print($torneo->getFecha());
-                    echo "</td>";
-                    echo "<td>";
-                    print($torneo->getEstado());
-                    echo "</td>";
-                    echo "<td>";
-                    print($torneo->getJugadores());
-                    echo "</td>";
-                    echo "<td>";
-                    print($torneo->getCampeon());
-                    echo "</td>";
-                    echo "<td>";
-                    echo "<a href='gestionTorneosVista.php'>Editar</a>";
-                    echo "</td>";
-                    echo "<td>";
-                    echo "<a href='#' onclick='torneosBL->borrar();'>Borrar</a>";
-                    echo "</td>";
-                }
+            foreach ($datosPartidos as $partido) {
+                echo "<tr>";
+                echo "<td>";
+                print($partido->getID());
+                echo "</td>";
+                echo "<td>";
+                print($partido->getJugadorA());
+                echo "</td>";
+                echo "<td>";
+                print($partido->getJugadorB());
+                echo "</td>";
+                echo "<td>";
+                print($partido->getRonda());
+                echo "</td>";
+                echo "<td>";
+                print($partido->getGanador());
+                echo "</td>";
+                echo "</tr>";
             }
+
             ?>
         </table>
     </div>

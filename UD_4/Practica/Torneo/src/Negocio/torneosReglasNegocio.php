@@ -81,13 +81,6 @@ class TorneosReglasNegocio
         return implode($numTorneos);
     }
 
-    function numPartidos()
-    {
-        $oTorneosReglasNegocio = new TorneosAccesoDatos();
-        $numPartidos = $oTorneosReglasNegocio->obtenerNumPartidos();
-        return implode($numPartidos);
-    }
-
     function borrar()
     {
         var_dump("casa");
@@ -144,16 +137,23 @@ class PartidosReglasNegocio
     function datosPartido()
     {
         $partidosDAL = new TorneosAccesoDatos();
-        $rs = $partidosDAL->obtenerPartido();
+        $rs = $partidosDAL->obtenerPartidos();
 
         $datosPartido =  array();
 
-        foreach ($rs as $torneo) {
-            $oTorneosReglasNegocio = new PartidosReglasNegocio();
-            $oTorneosReglasNegocio->Init($torneo['ID'], $torneo['nombreTorneo'], $torneo['fecha'], $torneo['estado'], $torneo['numJugadores'], $torneo['campeon']);
-            array_push($datosPartido, $oTorneosReglasNegocio);
+        foreach ($rs as $torneos) {
+            $oPartidososReglasNegocio = new PartidosReglasNegocio();
+            $oPartidososReglasNegocio->Init($torneos['ID'], $torneos['jugadorA'], $torneos['jugadorB'], $torneos['ronda'], $torneos['ganador']);
+            array_push($datosPartido, $oPartidososReglasNegocio);
         }
 
         return $datosPartido;
+    }
+
+    function numPartidos()
+    {
+        $oPartidososReglasNegocio = new TorneosAccesoDatos();
+        $numPartidos = $oPartidososReglasNegocio->obtenerNumPartidos();
+        return implode($numPartidos);
     }
 }

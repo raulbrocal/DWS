@@ -55,15 +55,16 @@ class TorneosAccesoDatos
         return $partidos;
     }
 
-    function obtenerPartido()
+    function obtenerPartidos()
     {
         $conexion = $this->conexion();
         $consulta = mysqli_prepare($conexion, "SELECT ID, jugadorA, jugadorB, ronda, ganador FROM T_Torneo INNER JOIN T_Torneo_T_Partido ON ID = torneo INNER JOIN T_Partido ON partidoId = partido;");
         $consulta->execute();
+        var_dump($consulta);
         $result = $consulta->get_result();
         $partidos = array();
         while ($myrow = $result->fetch_assoc()) {
-            $partidos = $myrow;
+            array_push($partidos, $myrow);
         }
         return $partidos;
     }

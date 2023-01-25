@@ -7,15 +7,19 @@ class UsuarioAccesoDatos
     {
     }
 
-    function insertar($usuario, $perfil, $clave)
+    function conexion()
     {
-        $conexion = mysqli_connect('localhost', 'root', '');
+        $conexion = mysqli_connect('localhost', 'root', '12345', 'torneosTenisMesaDB');
         if (mysqli_connect_errno()) {
             echo "Error al conectar a MySQL: " . mysqli_connect_error();
         }
+        return $conexion;
+    }
 
-        mysqli_select_db($conexion, 'torneosTenisMesaDB');
-        $consulta = mysqli_prepare($conexion, "insert into t_usuarios(usuario,clave,perfil) values (?,?,?);");
+    function insertar($usuario, $perfil, $clave)
+    {
+        $conexion = $this->conexion();
+        $consulta = mysqli_prepare($conexion, "INSERT INTO T_Usuario (usuario, clave, perfil) VALUES (?,?,?);");
         $hash = password_hash($clave, PASSWORD_DEFAULT);
         $consulta->bind_param("sss", $usuario, $hash, $perfil);
         $res = $consulta->execute();
@@ -25,11 +29,7 @@ class UsuarioAccesoDatos
 
     function verificar($usuario, $clave)
     {
-        $conexion = mysqli_connect('localhost', 'root', '');
-        if (mysqli_connect_errno()) {
-            echo "Error al conectar a MySQL: " . mysqli_connect_error();
-        }
-        mysqli_select_db($conexion, 'torneosTenisMesaDB');
+        $conexion = $this->conexion();
         $consulta = mysqli_prepare($conexion, "select usuario,clave,perfil from t_usuarios where usuario = ?;");
         $sanitized_usuario = mysqli_real_escape_string($conexion, $usuario);
         $consulta->bind_param("s", $sanitized_usuario);

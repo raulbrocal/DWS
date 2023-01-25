@@ -11,10 +11,10 @@
 <body>
     <h1>Listado de torneos</h1>
     <?php
-    require("torneosReglasNegocio.php");
+    require("../Negocio/torneosReglasNegocio.php");
 
     $torneosBL = new TorneosReglasNegocio();
-    $datosTorneos = $torneosBL->obtener();
+    $datosTorneos = $torneosBL->listaTorneos();
 
     foreach ($datosTorneos as $torneo) {
         echo "<div>";

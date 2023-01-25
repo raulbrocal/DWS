@@ -5,6 +5,7 @@ class UsuarioAccesoDatos
 
     function __construct()
     {
+        $this->insertar('raul', 'administrador', '1234');
     }
 
     function conexion()

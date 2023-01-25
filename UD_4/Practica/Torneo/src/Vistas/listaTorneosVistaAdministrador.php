@@ -1,4 +1,8 @@
 <?php
+session_start(); // reanudamos la sesión
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+}
 require("../Negocio/torneosReglasNegocio.php");
 ?>
 
@@ -18,6 +22,9 @@ require("../Negocio/torneosReglasNegocio.php");
 <body>
     <div class="contenedor">
         <h1>Listado de Torneos</h1>
+        <?php echo "Bienvenido: " . $_SESSION['usuario']; ?>
+        <br>
+        <a href="logout.php"> Cerrar sesión </a>
         <div class="informacion">
             <a href="gestionTorneosVista.php">Crear torneo</a>
             <p>Número de registros: <?php

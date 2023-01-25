@@ -1,44 +1,46 @@
 <?php
+
+require ("../Negocio/usuarioReglasNegocio.php");
+
+if ($_SERVER["REQUEST_METHOD"]=="POST")
+{
+    $usuarioBL = new UsuarioReglasNegocio();
+    $perfil =  $usuarioBL->verificar($_POST['usuario'],$_POST['clave']);
+
+    if ($perfil==="administrador" || $perfil==="jugador")
+    {
+        session_start(); //inicia o reinicia una sesión
+        $_SESSION['usuario'] = $_POST['usuario'];
+        header("Location: torneosVista.php");
+    }
+    else
+    {
+        $error = true;
+    }
+}
 ?>
-
-<html lang="es">
-
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/loginVista.css">
     <title>Login</title>
+    <meta charset = "UTF-8">
 </head>
-
 <body>
 
-    <div class="contenedor">
-        <br><br><br>
-        <div class="titulo">Crea tu propio torneo</div>
-        <br><br><br>
-        <div class="informacion"><div class="form">
 
-            <form method="post" action="" name="signin-form">
+    <form method = "POST" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <label for = "usuario"> Usuario: </label>
+        <input id="usuario" name = "usuario" type = "text">
+        <label for = "usuario"> Contraseña: </label>
+        <input id = "clave" name = "clave" type = "password">
+        <input type = "submit">
+    </form>
 
-                <div class="form-element">
-                    <label>Usuario:</label>
-                    <input type="text" name="username" required />
-                </div>
-
-                <div class="form-element">
-                    <label>Contraseña:</label>
-                    <input type="password" name="password" required />
-                </div>
-
-                <button type="submit" name="login" value="login">Enviar</button>
-
-            </form>
-
-        </div></div>
-        
-    </div>
-
+    <?php
+        if (isset($error))
+        {
+            print("<div> No tienes acceso </div>");
+        }
+    ?>
 </body>
-
 </html>

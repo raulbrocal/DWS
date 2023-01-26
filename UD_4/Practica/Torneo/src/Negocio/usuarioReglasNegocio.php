@@ -7,6 +7,7 @@ class UsuarioReglasNegocio
 
     function __construct()
     {
+        $this->altaJugadores();
     }
 
     function altaJugadores()

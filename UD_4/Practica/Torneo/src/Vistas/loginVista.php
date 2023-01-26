@@ -1,8 +1,21 @@
 <?php
+require("../Negocio/usuarioReglasNegocio.php");
 
-$registroUsuarios = new UsuarioReglasNegocio();
-if (empty($res)) {
-    $res = $registroUsuarios->altaJugadores();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $usuarioBL = new UsuarioReglasNegocio();
+    $perfil =  $usuarioBL->verificar($_POST['usuario'], $_POST['clave']);
+
+    if ($perfil === "administrador") {
+        session_start(); //inicia o reinicia una sesión
+        $_SESSION['usuario'] = $_POST['usuario'];
+        header("Location: listaTorneosVistaAdministrador.php");
+    } elseif ($perfil === "jugador") {
+        session_start(); //inicia o reinicia una sesión
+        $_SESSION['usuario'] = $_POST['usuario'];
+        header("Location: listaTorneosVistaJugador.php");
+    } else {
+        $error = true;
+    }
 }
 
 ?>
@@ -31,24 +44,6 @@ if (empty($res)) {
 </html>
 
 <?php
-require("../Negocio/usuarioReglasNegocio.php");
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuarioBL = new UsuarioReglasNegocio();
-    $perfil =  $usuarioBL->verificar($_POST['usuario'], $_POST['clave']);
-
-    if ($perfil === "administrador") {
-        session_start(); //inicia o reinicia una sesión
-        $_SESSION['usuario'] = $_POST['usuario'];
-        header("Location: listaTorneosVistaAdministrador.php");
-    } elseif ($perfil === "jugador") {
-        session_start(); //inicia o reinicia una sesión
-        $_SESSION['usuario'] = $_POST['usuario'];
-        header("Location: listaTorneosVistaJugador.php");
-    } else {
-        $error = true;
-    }
-}
-
 if (isset($error)) {
     print("<div> No tienes acceso </div>");
 }

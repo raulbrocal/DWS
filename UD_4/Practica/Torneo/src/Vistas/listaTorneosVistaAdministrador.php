@@ -24,7 +24,7 @@ require("../Negocio/torneosReglasNegocio.php");
         <h1>Listado de Torneos</h1>
         <?php echo "Bienvenido: " . $_SESSION['usuario']; ?>
         <br>
-        <a href="logout.php"> Cerrar sesión </a>
+        <a href="logoutVista.php"> Cerrar sesión </a>
         <div class="informacion">
             <a href="gestionTorneosVista.php">Crear torneo</a>
             <p>Número de registros: <?php

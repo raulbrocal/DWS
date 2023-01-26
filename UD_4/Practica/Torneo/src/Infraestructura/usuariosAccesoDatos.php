@@ -22,7 +22,12 @@ class UsuarioAccesoDatos
         $consulta = mysqli_prepare($conexion, "INSERT INTO T_Usuario (usuario, clave, perfil) VALUES (?,?,?);");
         $hash = password_hash($clave, PASSWORD_DEFAULT);
         $consulta->bind_param("sss", $usuario, $hash, $perfil);
-        $res = $consulta->execute();
+
+        if (mysqli_errno($conexion) != 0) {
+            $res = $consulta->execute();
+        } else {
+            echo $consulta->error;
+        }
 
         return $res;
     }

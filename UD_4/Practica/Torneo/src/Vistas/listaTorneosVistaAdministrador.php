@@ -1,7 +1,7 @@
 <?php
 session_start(); // reanudamos la sesión
 if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
+    header("Location: loginVista.php");
 }
 require("../Negocio/torneosReglasNegocio.php");
 ?>

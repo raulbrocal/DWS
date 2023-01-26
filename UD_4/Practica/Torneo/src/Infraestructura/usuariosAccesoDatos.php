@@ -9,7 +9,7 @@ class UsuarioAccesoDatos
 
     function conexion()
     {
-        $conexion = mysqli_connect('localhost', 'root', '12345', 'torneosTenisMesaDB');
+        $conexion = mysqli_connect('localhost', 'root', '1234', 'torneosTenisMesaDB');
         if (mysqli_connect_errno()) {
             echo "Error al conectar a MySQL: " . mysqli_connect_error();
         }
@@ -30,7 +30,7 @@ class UsuarioAccesoDatos
     function verificar($usuario, $clave)
     {
         $conexion = $this->conexion();
-        $consulta = mysqli_prepare($conexion, "select usuario,clave,perfil from t_usuarios where usuario = ?;");
+        $consulta = mysqli_prepare($conexion, "SELECT usuario, clave, perfil FROM T_Usuario where usuario = ?;");
         $sanitized_usuario = mysqli_real_escape_string($conexion, $usuario);
         $consulta->bind_param("s", $sanitized_usuario);
         $consulta->execute();

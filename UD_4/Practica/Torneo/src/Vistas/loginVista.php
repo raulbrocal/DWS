@@ -1,3 +1,12 @@
+<?php
+
+$registroUsuarios = new UsuarioReglasNegocio();
+if (empty($res)) {
+    $res = $registroUsuarios->altaJugadores();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,9 +31,7 @@
 </html>
 
 <?php
-
 require("../Negocio/usuarioReglasNegocio.php");
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuarioBL = new UsuarioReglasNegocio();
     $perfil =  $usuarioBL->verificar($_POST['usuario'], $_POST['clave']);

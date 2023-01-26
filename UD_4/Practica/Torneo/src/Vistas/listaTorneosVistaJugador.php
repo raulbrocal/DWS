@@ -14,6 +14,9 @@
 <body>
     <div class="contenedor">
         <h1>Listado de Torneos</h1>
+        <?php echo "Bienvenido: " . $_SESSION['usuario']; ?>
+        <br>
+        <a href="logoutVista.php"> Cerrar sesión </a>
         <table class="torneos">
             <tr>
                 <th>ID</th>
@@ -31,28 +34,16 @@
 
             $torneosBL = new TorneosReglasNegocio();
             $datosTorneos = $torneosBL->listaTorneos();
-
             foreach ($datosTorneos as $torneo) {
-                echo "<tr>";
-                echo "<td>";
-                print($torneo->getID());
-                echo "</td>";
-                echo "<td>";
-                print($torneo->getNombreTorneo());
-                echo "</td>";
-                echo "<td>";
-                print($torneo->getFecha());
-                echo "</td>";
-                echo "<td>";
-                print($torneo->getEstado());
-                echo "</td>";
-                echo "<td>";
-                print($torneo->getJugadores());
-                echo "</td>";
-                echo "<td>";
-                print($torneo->getCampeon());
-                echo "</td>";
-                echo "</tr>";
+                $id = $torneo->getID();
+                echo "<tr>
+                        <td>" . $id . "</td>
+                        <td>" . $torneo->getNombreTorneo() . "</td>
+                        <td>" . $torneo->getFecha() . "</td>
+                        <td>" . $torneo->getEstado() . "</td>
+                        <td>" . $torneo->getJugadores() . "</td>
+                        <td>" . $torneo->getCampeon() . "</td>
+                   </tr>";
             }
             ?>
 

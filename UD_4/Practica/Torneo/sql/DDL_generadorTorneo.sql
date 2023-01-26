@@ -36,7 +36,7 @@ CREATE TABLE T_Torneo (
     fecha DATE NULL,
     estado ENUM('No finalizado', 'Finalizado') DEFAULT 'No finalizado',
     numJugadores INT DEFAULT 0,
-    campeon VARCHAR(100) DEFAULT NULL
+    campeon VARCHAR(100) DEFAULT 'Por decidir ...'
 );
 
 CREATE TABLE T_Torneo_T_Partido (
@@ -63,8 +63,8 @@ INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Jaume Altazona', 'jaume
 INSERT INTO T_Partido (ronda, jugadorA, jugadorB, ganador) VALUES ('cuartos', '1', '2', '2');
 INSERT INTO T_Partido (ronda, jugadorA, jugadorB, ganador) VALUES ('cuartos', '3', '4', '3');
 
-INSERT INTO T_Torneo (nombreTorneo, fecha, numJugadores, campeon) VALUES 
-('Torneo IES Son Ferrer','2023-03-25', '8', 'Jugador 1');
+INSERT INTO T_Torneo (nombreTorneo, fecha, numJugadores) VALUES 
+('Torneo IES Son Ferrer','2023-03-25', '8');
 INSERT INTO T_Torneo (nombreTorneo, estado, numJugadores, campeon) VALUES 
 ('Torneo 2021', 'Finalizado', '8', 'Carlos Sogorb');
 INSERT INTO T_Torneo (nombreTorneo, fecha, estado, numJugadores, campeon) VALUES 
@@ -72,23 +72,3 @@ INSERT INTO T_Torneo (nombreTorneo, fecha, estado, numJugadores, campeon) VALUES
 
 INSERT INTO T_Torneo_T_Partido VALUES (1, 1);
 INSERT INTO T_Torneo_T_Partido VALUES (1, 2);
-
-SELECT 
-    ID, jugadorA, jugadorB, ronda, ganador
-FROM
-    T_Torneo
-        INNER JOIN
-    T_Torneo_T_Partido ON ID = torneo
-        INNER JOIN
-    T_Partido ON partidoId = partido;
-
-SELECT 
-    ID, nombreCompleto, nombreCompleto, ronda, ganador
-FROM
-    T_Torneo
-        INNER JOIN
-    T_Torneo_T_Partido ON ID = torneo
-        INNER JOIN
-    T_Partido ON partidoId = partido
-        INNER JOIN
-    T_Jugador ON jugadorId = jugadorA;

@@ -1,4 +1,12 @@
-<html lang="en">
+<?php
+session_start(); // reanudamos la sesión
+if (!isset($_SESSION['usuario'])) {
+    header("Location: loginVista.php");
+}
+require("../Negocio/torneosReglasNegocio.php");
+?>
+
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -27,10 +35,6 @@
                 <th>Campeón</th>
             </tr>
             <?php
-            ini_set('display_errors', 'On');
-            ini_set('html_errors', 0);
-
-            require("../Negocio/torneosReglasNegocio.php");
 
             $torneosBL = new TorneosReglasNegocio();
             $datosTorneos = $torneosBL->listaTorneos();

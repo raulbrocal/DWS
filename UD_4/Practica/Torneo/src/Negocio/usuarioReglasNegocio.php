@@ -9,6 +9,10 @@ class UsuarioReglasNegocio
     {
     }
 
+    function altaJugadores(){
+        
+    }
+
     function verificar($usuario, $clave)
     {
         $usuariosDAL = new UsuarioAccesoDatos();

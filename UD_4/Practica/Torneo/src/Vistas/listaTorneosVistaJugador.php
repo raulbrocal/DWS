@@ -30,7 +30,7 @@
             require("../Negocio/torneosReglasNegocio.php");
 
             $torneosBL = new TorneosReglasNegocio();
-            $datosTorneos = $torneosBL->obtener();
+            $datosTorneos = $torneosBL->listaTorneos();
 
             foreach ($datosTorneos as $torneo) {
                 echo "<tr>";

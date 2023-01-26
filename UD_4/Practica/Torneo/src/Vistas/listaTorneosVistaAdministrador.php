@@ -50,31 +50,16 @@ require("../Negocio/torneosReglasNegocio.php");
 
             foreach ($datosTorneos as $torneo) {
                 $id = $torneo->getID();
-                echo "<tr>";
-                echo "<td>";
-                print($id);
-                echo "</td>";
-                echo "<td>";
-                print($torneo->getNombreTorneo());
-                echo "</td>";
-                echo "<td>";
-                print($torneo->getFecha());
-                echo "</td>";
-                echo "<td>";
-                print($torneo->getEstado());
-                echo "</td>";
-                echo "<td>";
-                print($torneo->getJugadores());
-                echo "</td>";
-                echo "<td>";
-                print($torneo->getCampeon());
-                echo "</td>";
-                echo "<td>";
-                echo "<a href='gestionTorneosVista.php?id=$id'>Editar</a>";
-                echo "</td>";
-                echo "<td>";
-                echo "<a href='#' onclick='torneosBL->borrar();'>Borrar</a>";
-                echo "</td>";
+                echo "<tr>
+                        <td>" . $id . "</td>
+                        <td>" . $torneo->getNombreTorneo() . "</td>
+                        <td>" . $torneos->getFecha() . "</td>
+                        <td>" . $torneos->getEstado() . "</td>
+                        <td>" . $torneos->getJugadores() . "</td>
+                        <td>" . $torneos->getCampeon() . "</td>
+                        <td><a href='gestionTorneosVista.php?id=$id'>Editar</a></td>
+                        <td><a href='#' onclick='torneosBL->borrar();'>Borrar</a></td>
+                    </tr>";
             }
             ?>
         </table>

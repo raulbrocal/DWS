@@ -9,7 +9,7 @@ class UsuarioAccesoDatos
 
     function conexion()
     {
-        $conexion = mysqli_connect('localhost', 'root', '1234', 'torneosTenisMesaDB');
+        $conexion = mysqli_connect('localhost', 'root', '12345', 'torneosTenisMesaDB');
         if (mysqli_connect_errno()) {
             echo "Error al conectar a MySQL: " . mysqli_connect_error();
         }
@@ -22,12 +22,7 @@ class UsuarioAccesoDatos
         $consulta = mysqli_prepare($conexion, "INSERT INTO T_Usuario (usuario, clave, perfil) VALUES (?,?,?);");
         $hash = password_hash($clave, PASSWORD_DEFAULT);
         $consulta->bind_param("sss", $usuario, $hash, $perfil);
-
-        if (mysqli_errno($conexion) != 0) {
-            $res = $consulta->execute();
-        } else {
-            echo $consulta->error;
-        }
+        $res = $consulta->execute();
 
         return $res;
     }

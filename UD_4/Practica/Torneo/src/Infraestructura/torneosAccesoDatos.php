@@ -9,7 +9,7 @@ class TorneosAccesoDatos
 
     function conexion()
     {
-        $conexion = mysqli_connect('localhost', 'root', '1234', 'torneosTenisMesaDB');
+        $conexion = mysqli_connect('localhost', 'root', '12345', 'torneosTenisMesaDB');
         if (mysqli_connect_errno()) {
             echo "Error al conectar a MySQL: " . mysqli_connect_error();
         }
@@ -60,7 +60,6 @@ class TorneosAccesoDatos
         $conexion = $this->conexion();
         $consulta = mysqli_prepare($conexion, "SELECT ID, jugadorA, jugadorB, ronda, ganador FROM T_Torneo INNER JOIN T_Torneo_T_Partido ON ID = torneo INNER JOIN T_Partido ON partidoId = partido;");
         $consulta->execute();
-        var_dump($consulta);
         $result = $consulta->get_result();
         $partidos = array();
         while ($myrow = $result->fetch_assoc()) {

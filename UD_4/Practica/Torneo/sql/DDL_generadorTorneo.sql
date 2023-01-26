@@ -49,16 +49,16 @@ CREATE TABLE T_Torneo_T_Partido (
         REFERENCES T_Partido (partidoId)
 );
 
-INSERT INTO T_Usuario (usuario, clave, perfil) VALUES ('raul', '1234', 'administrador');
-INSERT INTO T_Usuario (usuario, clave, perfil) VALUES ('javi', '1234', 'jugador');
-INSERT INTO T_Usuario (usuario, clave, perfil) VALUES ('sergio', '1234', 'jugador');
-INSERT INTO T_Usuario (usuario, clave, perfil) VALUES ('okolo', '1234', 'jugador');
-INSERT INTO T_Usuario (usuario, clave, perfil) VALUES ('yeray', '1234', 'jugador');
+-- Ejecutar test.php
 
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Javi Abandono', 'javi');
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Sergio Serrano', 'sergio');
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Daniel Okolo', 'okolo');
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Yeray Rus', 'yeray');
+INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Stewart Jordi', 'stewart');
+INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Adrián Castillo', 'castillo');
+INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Fernando Alonso', 'fernando');
+INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Jaume Altazona', 'jaume');
 
 INSERT INTO T_Partido (ronda, jugadorA, jugadorB, ganador) VALUES ('cuartos', '1', '2', '2');
 INSERT INTO T_Partido (ronda, jugadorA, jugadorB, ganador) VALUES ('cuartos', '3', '4', '3');

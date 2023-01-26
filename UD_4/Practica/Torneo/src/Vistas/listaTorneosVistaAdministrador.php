@@ -53,10 +53,10 @@ require("../Negocio/torneosReglasNegocio.php");
                 echo "<tr>
                         <td>" . $id . "</td>
                         <td>" . $torneo->getNombreTorneo() . "</td>
-                        <td>" . $torneos->getFecha() . "</td>
-                        <td>" . $torneos->getEstado() . "</td>
-                        <td>" . $torneos->getJugadores() . "</td>
-                        <td>" . $torneos->getCampeon() . "</td>
+                        <td>" . $torneo->getFecha() . "</td>
+                        <td>" . $torneo->getEstado() . "</td>
+                        <td>" . $torneo->getJugadores() . "</td>
+                        <td>" . $torneo->getCampeon() . "</td>
                         <td><a href='gestionTorneosVista.php?id=$id'>Editar</a></td>
                         <td><a href='#' onclick='torneosBL->borrar();'>Borrar</a></td>
                     </tr>";

@@ -21,12 +21,10 @@ CREATE TABLE T_Partido (
     ronda ENUM('Cuartos', 'Semifinal', 'Final') NOT NULL,
     jugadorA INT,
     jugadorB INT,
-    ganador INT,
+    ganador INT DEFAULT NULL,
     CONSTRAINT T_Partido_ibfk_1 FOREIGN KEY (jugadorA)
         REFERENCES T_Jugador (jugadorId),
     CONSTRAINT T_Partido_ibfk_2 FOREIGN KEY (jugadorB)
-        REFERENCES T_Jugador (jugadorId),
-    CONSTRAINT T_Partido_ibfk_3 FOREIGN KEY (ganador)
         REFERENCES T_Jugador (jugadorId)
 );
 
@@ -60,7 +58,7 @@ INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Adrián Castillo', 'cas
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Fernando Alonso', 'fernando');
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Jaume Altazona', 'jaume');
 
-INSERT INTO T_Partido (ronda, jugadorA, jugadorB, ganador) VALUES ('Cuartos', '1', '2', '2');
+INSERT INTO T_Partido (ronda, jugadorA, jugadorB) VALUES ('Cuartos', '1', '2');
 INSERT INTO T_Partido (ronda, jugadorA, jugadorB, ganador) VALUES ('Cuartos', '3', '4', '3');
 
 INSERT INTO T_Torneo (nombreTorneo, fecha, numJugadores) VALUES 
@@ -72,3 +70,12 @@ INSERT INTO T_Torneo (nombreTorneo, fecha, estado, numJugadores, campeon) VALUES
 
 INSERT INTO T_Torneo_T_Partido VALUES (1, 1);
 INSERT INTO T_Torneo_T_Partido VALUES (1, 2);
+
+SELECT 
+    *
+FROM
+    T_Partido;
+
+DELETE FROM T_Partido 
+WHERE
+    partidoId = 1;

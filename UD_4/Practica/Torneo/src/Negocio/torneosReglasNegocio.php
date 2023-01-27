@@ -2,8 +2,6 @@
 ini_set('display_errors', 'On');
 ini_set('html_errors', 0);
 
-require("../Infraestructura/torneosAccesoDatos.php");
-
 class TorneosReglasNegocio
 {
     private $_ID;
@@ -16,6 +14,7 @@ class TorneosReglasNegocio
 
     function __construct()
     {
+        require("../Infraestructura/torneosAccesoDatos.php");
     }
 
     function init($id, $nombre, $fecha, $estado, $numJugadores, $campeon)
@@ -98,6 +97,7 @@ class PartidosReglasNegocio
 
     function __construct()
     {
+        require("../Infraestructura/partidosAccesoDatos.php");
     }
 
     function getID()
@@ -136,15 +136,15 @@ class PartidosReglasNegocio
 
     function datosPartido()
     {
-        $partidosDAL = new TorneosAccesoDatos();
+        $partidosDAL = new PartidosAccesoDatos();
         $rs = $partidosDAL->obtenerPartidos();
 
         $datosPartido =  array();
 
         foreach ($rs as $torneos) {
-            $oPartidososReglasNegocio = new PartidosReglasNegocio();
-            $oPartidososReglasNegocio->Init($torneos['ID'], $torneos['jugadorA'], $torneos['jugadorB'], $torneos['ronda'], $torneos['ganador']);
-            array_push($datosPartido, $oPartidososReglasNegocio);
+            $oPartidosReglasNegocio = new PartidosReglasNegocio();
+            $oPartidosReglasNegocio->Init($torneos['ID'], $torneos['jugadorA'], $torneos['jugadorB'], $torneos['ronda'], $torneos['ganador']);
+            array_push($datosPartido, $oPartidosReglasNegocio);
         }
 
         return $datosPartido;
@@ -152,8 +152,32 @@ class PartidosReglasNegocio
 
     function numPartidos()
     {
-        $oPartidososReglasNegocio = new TorneosAccesoDatos();
-        $numPartidos = $oPartidososReglasNegocio->obtenerNumPartidos();
+        $oPartidosReglasNegocio = new PartidosAccesoDatos();
+        $numPartidos = $oPartidosReglasNegocio->obtenerNumPartidos();
         return implode($numPartidos);
+    }
+
+    function insertarPartido($ronda)
+    {
+        $jugadoresDAL = new JugadoresAccesoDatos();
+        $listaJugadores = $jugadoresDAL->listaJugadores();
+
+        $oPartidosReglasNegocio = new PartidosAccesoDatos();
+
+        $jugadorA = 0;
+        $jugadorB = 0;
+        $contador = 1;
+
+        for ($i = 0; $i < count($listaJugadores); $i++) {
+            if ($contador == 1) {
+                $jugadorA = $listaJugadores[$i];
+                $contador++;
+                break;
+            } else {
+                $jugadorB = $listaJugadores[$i];
+                $oPartidosReglasNegocio->crearPartido($ronda, $jugadorA, $jugadorB);
+                $contador = 1;
+            }
+        }
     }
 }

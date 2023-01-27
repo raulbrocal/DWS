@@ -2,6 +2,7 @@
 require("../Negocio/torneosReglasNegocio.php");
 $partidosBL = new PartidosReglasNegocio();
 $datosPartidos = $partidosBL->datosPartido();
+/* Añadir crear torneo antes de iniciar la página con los $_POST de crearTorneo */
 ?>
 
 <html lang="en">

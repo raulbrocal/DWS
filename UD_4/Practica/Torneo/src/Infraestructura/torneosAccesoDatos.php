@@ -1,10 +1,19 @@
 <?php
 ini_set('display_errors', 'On');
 ini_set('html_errors', 0);
-class TorneosAccesoDatos extends ConexionAccesoDatos
+class TorneosAccesoDatos
 {
     function __construct()
     {
+    }
+
+    function conexion()
+    {
+        $conexion = mysqli_connect('localhost', 'root', '12345', 'torneosTenisMesaDB');
+        if (mysqli_connect_errno()) {
+            echo "Error al conectar a MySQL: " . mysqli_connect_error();
+        }
+        return $conexion;
     }
 
     function obtenerTorneos()
@@ -16,18 +25,6 @@ class TorneosAccesoDatos extends ConexionAccesoDatos
         $torneos = array();
         while ($myrow = $result->fetch_assoc()) {
             array_push($torneos, $myrow);
-        }
-        return $torneos;
-    }
-
-    function insertarTorneo($fecha, $nombre){
-        $conexion = $this->conexion();
-        $consulta = mysqli_prepare($conexion, "SELECT COUNT(ID) FROM T_Torneo;");
-        $consulta->execute();
-        $result = $consulta->get_result();
-        $torneos = array();
-        while ($myrow = $result->fetch_assoc()) {
-            $torneos = $myrow;
         }
         return $torneos;
     }
@@ -45,29 +42,13 @@ class TorneosAccesoDatos extends ConexionAccesoDatos
         return $torneos;
     }
 
-    function obtenerNumPartidos()
+    function insertarTorneo($fecha, $nombre)
     {
         $conexion = $this->conexion();
-        $consulta = mysqli_prepare($conexion, "SELECT COUNT(partidoId) FROM T_Partido;");
-        $consulta->execute();
-        $result = $consulta->get_result();
-        $partidos = array();
-        while ($myrow = $result->fetch_assoc()) {
-            $partidos = $myrow;
-        }
-        return $partidos;
-    }
+        $consulta = mysqli_prepare($conexion, "INSERT INTO T_Torneo (nombreTorneo, fecha, numJugadores) VALUES (?,?,?);");
+        $consulta->bind_param("sss", $nombre, $fecha, 8);
+        $res = $consulta->execute();
 
-    function obtenerPartidos()
-    {
-        $conexion = $this->conexion();
-        $consulta = mysqli_prepare($conexion, "SELECT ID, jugadorA, jugadorB, ronda, ganador FROM T_Torneo INNER JOIN T_Torneo_T_Partido ON ID = torneo INNER JOIN T_Partido ON partidoId = partido;");
-        $consulta->execute();
-        $result = $consulta->get_result();
-        $partidos = array();
-        while ($myrow = $result->fetch_assoc()) {
-            array_push($partidos, $myrow);
-        }
-        return $partidos;
+        return $res;
     }
 }

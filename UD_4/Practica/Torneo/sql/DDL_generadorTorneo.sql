@@ -18,7 +18,7 @@ CREATE TABLE T_Jugador (
 
 CREATE TABLE T_Partido (
     partidoId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    ronda ENUM('cuartos', 'semifinal', 'final') NOT NULL,
+    ronda ENUM('Cuartos', 'Semifinal', 'Final') NOT NULL,
     jugadorA INT,
     jugadorB INT,
     ganador INT,
@@ -60,8 +60,8 @@ INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Adrián Castillo', 'cas
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Fernando Alonso', 'fernando');
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Jaume Altazona', 'jaume');
 
-INSERT INTO T_Partido (ronda, jugadorA, jugadorB, ganador) VALUES ('cuartos', '1', '2', '2');
-INSERT INTO T_Partido (ronda, jugadorA, jugadorB, ganador) VALUES ('cuartos', '3', '4', '3');
+INSERT INTO T_Partido (ronda, jugadorA, jugadorB, ganador) VALUES ('Cuartos', '1', '2', '2');
+INSERT INTO T_Partido (ronda, jugadorA, jugadorB, ganador) VALUES ('Cuartos', '3', '4', '3');
 
 INSERT INTO T_Torneo (nombreTorneo, fecha, numJugadores) VALUES 
 ('Torneo IES Son Ferrer','2023-03-25', '8');

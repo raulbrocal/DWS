@@ -37,8 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input id="usuario" name="usuario" type="text">
         <label for="usuario"> Contraseña: </label>
         <input id="clave" name="clave" type="password">
-        <input type="submit">
+        <button>Iniciar sesión</button>
     </form>
+
 </body>
 
 </html>

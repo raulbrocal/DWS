@@ -1,6 +1,7 @@
 <?php
 require("../Negocio/torneosReglasNegocio.php");
 $partidosBL = new PartidosReglasNegocio();
+$datosPartidos = $partidosBL->datosPartido();
 ?>
 
 <html lang="en">
@@ -20,7 +21,7 @@ $partidosBL = new PartidosReglasNegocio();
     <div class="contenedor">
         <h1>Gestionador de Torneos</h1>
         <div class="informacion">
-            <a href="resultadoPartidaVista.php">Nuevo partido</a>
+            <a href="resultadoPartidoVista.php">Nuevo partido</a>
             <p>Número de registros: <?php
                                     $nPartidos = $partidosBL->numPartidos();
                                     echo $nPartidos; ?></p>
@@ -38,27 +39,19 @@ $partidosBL = new PartidosReglasNegocio();
             </tr>
             <?php
 
-            $datosPartidos = $partidosBL->datosPartido();
-
             foreach ($datosPartidos as $partido) {
-                echo "<tr>";
-                echo "<td>";
-                print($partido->getID());
-                echo "</td>";
-                echo "<td>";
-                print($partido->getJugadorA());
-                echo "</td>";
-                echo "<td>";
-                print($partido->getJugadorB());
-                echo "</td>";
-                echo "<td>";
-                print($partido->getRonda());
-                echo "</td>";
-                echo "<td>";
-                print($partido->getGanador());
-                echo "</td>";
-                echo "</tr>";
+                $id = $partido->getID();
+                echo "<tr>
+                        <td>" . $id . "</td>
+                        <td>" . $partido->getJugadorA() . "</td>
+                        <td>" . $partido->getJugadorB() . "</td>
+                        <td>" . $partido->getRonda() . "</td>
+                        <td>" . $partido->getGanador() . "</td>
+                        <td><a href='gestionTorneosVista.php?id=$id'>Editar</a></td>
+                        <td><a href='#' onclick='torneosBL->borrar();'>Borrar</a></td>
+                   </tr>";
             }
+            ?>
 
             ?>
         </table>

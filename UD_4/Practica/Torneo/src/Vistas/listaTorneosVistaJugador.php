@@ -21,10 +21,11 @@ require("../Negocio/torneosReglasNegocio.php");
 
 <body>
     <div class="contenedor">
+        <div class="sesion">
+            <?php echo "<p>Bienvenido: " . $_SESSION['usuario'] . "</p>"; ?>
+            <a href="logoutVista.php"> Cerrar sesión </a>
+        </div>
         <h1>Listado de Torneos</h1>
-        <?php echo "Bienvenido: " . $_SESSION['usuario']; ?>
-        <br>
-        <a href="logoutVista.php"> Cerrar sesión </a>
         <table class="torneos">
             <tr>
                 <th>ID</th>
@@ -33,6 +34,8 @@ require("../Negocio/torneosReglasNegocio.php");
                 <th>Estado</th>
                 <th>Jugadores</th>
                 <th>Campeón</th>
+                <th></th>
+                <th></th>
             </tr>
             <?php
 
@@ -40,14 +43,14 @@ require("../Negocio/torneosReglasNegocio.php");
             $datosTorneos = $torneosBL->listaTorneos();
             foreach ($datosTorneos as $torneo) {
                 $id = $torneo->getID();
-                echo "<tr>
+                echo "<tr onclick=window.location.href='torneosVista.php?ID=" . $id . "'>
                         <td>" . $id . "</td>
                         <td>" . $torneo->getNombreTorneo() . "</td>
                         <td>" . $torneo->getFecha() . "</td>
                         <td>" . $torneo->getEstado() . "</td>
                         <td>" . $torneo->getJugadores() . "</td>
                         <td>" . $torneo->getCampeon() . "</td>
-                   </tr>";
+                   </a> </tr>";
             }
             ?>
 

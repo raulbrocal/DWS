@@ -17,13 +17,19 @@ h1{
     padding: 2.5%;
 }
 
-.informacion{
-    margin: 0 auto;
-    width: 25%;
+.sesion{
+    padding: 1%;
+    width: 100%;
+    height: fit-content;
 }
 
-p{
-    float: right;
+.sesion p{
+    width: fit-content;
+}
+
+.sesion a{
+    float: left;
+    width: fit-content;
 }
 
 

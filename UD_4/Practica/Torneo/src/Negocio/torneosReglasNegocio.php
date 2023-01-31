@@ -14,7 +14,7 @@ class TorneosReglasNegocio
 
     function __construct()
     {
-        require("../Infraestructura/torneosAccesoDatos.php");
+        require_once("../Infraestructura/torneosAccesoDatos.php");
     }
 
     function init($id, $nombre, $fecha, $estado, $numJugadores, $campeon)

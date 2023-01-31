@@ -2,14 +2,14 @@
 if (isset($_POST['submit'])) {
     require("../Negocio/torneosReglasNegocio.php");
     $partidosBL = new PartidosReglasNegocio();
-    $datosPartidos = $partidosBL->datosPartido();
+
 
     $torneosBL = new TorneosReglasNegocio();
     $torneosBL->insertarTorneo($_POST['fecha'], $_POST['nombre']);
 
     $partidosBL->insertarPartido('Cuartos');
 
-
+    $datosPartidos = $partidosBL->datosPartido();
 ?>
 
     <html lang="en">

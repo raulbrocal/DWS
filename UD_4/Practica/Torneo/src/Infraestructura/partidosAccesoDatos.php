@@ -30,7 +30,7 @@ class PartidosAccesoDatos
     function obtenerPartidos()
     {
         $conexion = $this->conexion();
-        $consulta = mysqli_prepare($conexion, "SELECT ID, jugadorA, jugadorB, ronda, ganador FROM T_Torneo INNER JOIN T_Torneo_T_Partido ON ID = torneo INNER JOIN T_Partido ON partidoId = partido;");
+        $consulta = mysqli_prepare($conexion, "SELECT partidoId, jugadorA, jugadorB, ronda, ganador FROM T_Partido;");
         $consulta->execute();
         $result = $consulta->get_result();
         $partidos = array();
@@ -40,11 +40,11 @@ class PartidosAccesoDatos
         return $partidos;
     }
 
-    function crearPartido($ronda, $jugadorA, $jugadorB)
+    function crearPartido($ronda, $torneoId, $jugadorA, $jugadorB)
     {
         $conexion = $this->conexion();
-        $consulta = mysqli_prepare($conexion, "INSERT INTO T_Partido (ronda, jugadorA, jugadorB) VALUES (?,?,?);");
-        $consulta->bind_param("sss", $ronda, $jugadorA, $jugadorB);
+        $consulta = mysqli_prepare($conexion, "INSERT INTO T_Partido (ronda,  torneoId, jugadorA, jugadorB) VALUES (?,?,?,?);");
+        $consulta->bind_param("ssss", $ronda, $torneoId, $jugadorA, $jugadorB);
         $res = $consulta->execute();
 
         return $res;

@@ -42,11 +42,23 @@ class TorneosAccesoDatos
         return $torneos;
     }
 
+    function obtenerIdUltimoTorneo()
+    {
+        $conexion = $this->conexion();
+        $consulta = mysqli_prepare($conexion, "SELECT MAX(ID) FROM T_Torneo;");
+        $consulta->execute();
+        $result = $consulta->get_result();
+        while ($myrow = $result->fetch_assoc()) {
+            $partidoId = $myrow;
+        }
+        return implode($partidoId);
+    }
+
     function insertarTorneo($fecha, $nombre)
     {
         $conexion = $this->conexion();
-        $consulta = mysqli_prepare($conexion, "INSERT INTO T_Torneo (nombreTorneo, fecha, numJugadores) VALUES (?,?,?);");
-        $consulta->bind_param("sss", $nombre, $fecha, 8);
+        $consulta = mysqli_prepare($conexion, "INSERT INTO T_Torneo (nombreTorneo, fecha, numJugadores) VALUES (?,?,8);");
+        $consulta->bind_param("ss", $nombre, $fecha);
         $res = $consulta->execute();
 
         return $res;

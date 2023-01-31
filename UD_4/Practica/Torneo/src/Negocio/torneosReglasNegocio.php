@@ -80,6 +80,13 @@ class TorneosReglasNegocio
         return implode($numTorneos);
     }
 
+    function insertarTorneo($fecha, $nombre)
+    {
+        $oTorneosReglasNegocio = new TorneosAccesoDatos();
+        $insertarTorneo = $oTorneosReglasNegocio->insertarTorneo($fecha, $nombre);
+        return $insertarTorneo;
+    }
+
     function borrar()
     {
         var_dump("casa");
@@ -97,7 +104,7 @@ class PartidosReglasNegocio
 
     function __construct()
     {
-        require("../Infraestructura/partidosAccesoDatos.php");
+        require_once("../Infraestructura/partidosAccesoDatos.php");
     }
 
     function getID()
@@ -143,7 +150,7 @@ class PartidosReglasNegocio
 
         foreach ($rs as $torneos) {
             $oPartidosReglasNegocio = new PartidosReglasNegocio();
-            $oPartidosReglasNegocio->Init($torneos['ID'], $torneos['jugadorA'], $torneos['jugadorB'], $torneos['ronda'], $torneos['ganador']);
+            $oPartidosReglasNegocio->Init($torneos['partidoId'], $torneos['jugadorA'], $torneos['jugadorB'], $torneos['ronda'], $torneos['ganador']);
             array_push($datosPartido, $oPartidosReglasNegocio);
         }
 
@@ -159,6 +166,12 @@ class PartidosReglasNegocio
 
     function insertarPartido($ronda)
     {
+        require_once("../Infraestructura/jugadoresAccesoDatos.php");
+        require_once("../Infraestructura/torneosAccesoDatos.php");
+
+        $torneosDAL = new TorneosAccesoDatos();
+        $idTorneo = $torneosDAL->obtenerIdUltimoTorneo();
+
         $jugadoresDAL = new JugadoresAccesoDatos();
         $listaJugadores = $jugadoresDAL->listaJugadores();
 
@@ -172,12 +185,14 @@ class PartidosReglasNegocio
             if ($contador == 1) {
                 $jugadorA = $listaJugadores[$i];
                 $contador++;
-                break;
             } else {
                 $jugadorB = $listaJugadores[$i];
-                $oPartidosReglasNegocio->crearPartido($ronda, $jugadorA, $jugadorB);
+                $oPartidosReglasNegocio->crearPartido($ronda, $idTorneo, $jugadorA, $jugadorB);
                 $contador = 1;
             }
         }
     }
 }
+
+$prueba = new PartidosReglasNegocio();
+$prueba->insertarPartido('Cuartos');

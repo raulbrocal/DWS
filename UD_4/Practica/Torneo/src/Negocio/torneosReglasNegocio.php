@@ -183,16 +183,13 @@ class PartidosReglasNegocio
 
         for ($i = 0; $i < count($listaJugadores); $i++) {
             if ($contador == 1) {
-                $jugadorA = $listaJugadores[$i];
+                $jugadorA = implode($listaJugadores[$i]);
                 $contador++;
             } else {
-                $jugadorB = $listaJugadores[$i];
+                $jugadorB = implode($listaJugadores[$i]);
                 $oPartidosReglasNegocio->crearPartido($ronda, $idTorneo, $jugadorA, $jugadorB);
                 $contador = 1;
             }
         }
     }
 }
-
-$prueba = new PartidosReglasNegocio();
-$prueba->insertarPartido('Cuartos');

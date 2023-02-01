@@ -174,7 +174,7 @@ class PartidosReglasNegocio
     }
 
 
-    function insertarPartido($ronda)
+    function crearPartidos($ronda)
     {
         require_once("../Infraestructura/jugadoresAccesoDatos.php");
         require_once("../Infraestructura/torneosAccesoDatos.php");
@@ -197,7 +197,7 @@ class PartidosReglasNegocio
                 $contador++;
             } else {
                 $jugadorB = implode($listaJugadores[$i]);
-                $oPartidosReglasNegocio->crearPartido($ronda, $idTorneo, $jugadorA, $jugadorB);
+                $oPartidosReglasNegocio->crearPartidos($ronda, $idTorneo, $jugadorA, $jugadorB);
                 $contador = 1;
             }
         }

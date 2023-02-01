@@ -1,9 +1,10 @@
 <?php
+// $_GET torneoId partidoId
 if (isset($_POST['submit'])) {
     // TODO comprobar si se está modificando o se quiere insertar otro partido
     require("../Negocio/torneosReglasNegocio.php");
     $partidosBL = new PartidosReglasNegocio();
-    $partidosBL->insertarPartido($_POST['ronda']);
+    $partidosBL->crearPartidos($_POST['ronda']);
     header("Location: gestionTorneosVista.php?torneoId=" . $_GET['torneoId'] . "");
 } else { ?>
     <!DOCTYPE html>

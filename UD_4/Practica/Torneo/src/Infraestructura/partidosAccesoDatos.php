@@ -41,7 +41,7 @@ class PartidosAccesoDatos
         return $partidos;
     }
 
-    function crearPartido($ronda, $torneoId, $jugadorA, $jugadorB)
+    function crearPartidos($ronda, $torneoId, $jugadorA, $jugadorB)
     {
         $conexion = $this->conexion();
         $consulta = mysqli_prepare($conexion, "INSERT INTO T_Partido (ronda,  torneoId, jugadorA, jugadorB) VALUES (?,?,?,?);");
@@ -49,6 +49,10 @@ class PartidosAccesoDatos
         $res = $consulta->execute();
 
         return $res;
+    }
+
+    function insertarPartido(){
+
     }
 
     function eliminarPartido($id)

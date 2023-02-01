@@ -6,7 +6,7 @@ if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
     if (isset($_POST['submit'])) {
         $torneosBL = new TorneosReglasNegocio();
         $torneosBL->insertarTorneo($_POST['fecha'], $_POST['nombre']);
-        $partidosBL->insertarPartido('Cuartos');
+        $partidosBL->crearPartidos('Cuartos');
         $torneoId = $torneosBL->ultimoId();
     } else {
         $torneoId = $_GET['torneoId'];

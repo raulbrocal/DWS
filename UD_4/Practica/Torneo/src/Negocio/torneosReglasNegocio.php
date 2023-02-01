@@ -93,6 +93,12 @@ class TorneosReglasNegocio
         $eliminarTorneo = $oTorneosReglasNegocio->eliminarTorneo($id);
         return $eliminarTorneo;
     }
+
+    function ultimoId(){
+        $oTorneosReglasNegocio = new TorneosAccesoDatos();
+        $torneoId = $oTorneosReglasNegocio->obtenerIdUltimoTorneo();
+        return $torneoId;
+    }
 }
 
 class PartidosReglasNegocio
@@ -165,6 +171,7 @@ class PartidosReglasNegocio
         $numPartidos = $oPartidosReglasNegocio->obtenerNumPartidos();
         return implode($numPartidos);
     }
+
 
     function insertarPartido($ronda)
     {

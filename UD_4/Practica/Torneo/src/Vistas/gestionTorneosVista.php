@@ -58,8 +58,7 @@ if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
                         <td>" . $partido->getJugadorB() . "</td>
                         <td>" . $partido->getRonda() . "</td>
                         <td>" . $partido->getGanador() . "</td>
-                        " ./*Todo esto funcionaria si se da solo a editar, pero al crearse después del post. :s*/ "
-                        <td><a href='resultadoPartidoVista.php?torneoId=" . $torneoId . "&partidoId=" . $id . ">Editar</a></td>
+                        <td><a href='resultadoPartidoVista.php?torneoId=" . $torneoId . "&partidoId=" . $id . "'>Editar</a></td>
                         <td><a href='eliminarPartidoVista.php?partidoId=" . $id . "'>Borrar</a></td>
                    </tr>";
                 }

@@ -64,8 +64,6 @@ if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
                    </tr>";
                 }
                 ?>
-
-                ?>
             </table>
         </div>
     </body>

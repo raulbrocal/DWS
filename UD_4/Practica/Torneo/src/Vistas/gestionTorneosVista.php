@@ -52,9 +52,9 @@ if (isset($_POST['submit'])) {
                         <td>" . $partido->getJugadorB() . "</td>
                         <td>" . $partido->getRonda() . "</td>
                         <td>" . $partido->getGanador() . "</td>
-                        "./*Todo esto funcionaria si se da solo a editar, pero al crearse después del post. :s*/"
+                        " ./*Todo esto funcionaria si se da solo a editar, pero al crearse después del post. :s*/ "
                         <td><a href='resultadoPartidoVista.php?torneoId=" . $_GET['torneoId'] . "&partidoId=" . $id . ">Editar</a></td>
-                        <td><a href=" . $enlace . "onclick='torneosBL->borrar();'>Borrar</a></td>
+                        <td><a href='eliminarTorneoVista.php?id=" . $id . "'>Borrar</a></td>
                    </tr>";
                 }
                 ?>

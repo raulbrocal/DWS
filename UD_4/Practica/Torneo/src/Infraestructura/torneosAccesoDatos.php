@@ -63,4 +63,14 @@ class TorneosAccesoDatos
 
         return $res;
     }
+
+    function eliminarTorneo($id)
+    {
+        $conexion = $this->conexion();
+        $consulta = mysqli_prepare($conexion, "DELETE FROM T_Torneo WHERE ID = ?;");
+        $consulta->bind_param("s", $id);
+        $res = $consulta->execute();
+
+        return $res;
+    }
 }

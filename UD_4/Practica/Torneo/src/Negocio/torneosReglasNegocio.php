@@ -87,9 +87,11 @@ class TorneosReglasNegocio
         return $insertarTorneo;
     }
 
-    function borrar()
+    function eliminarTorneo($id)
     {
-        var_dump("casa");
+        $oTorneosReglasNegocio = new TorneosAccesoDatos();
+        $eliminarTorneo = $oTorneosReglasNegocio->eliminarTorneo($id);
+        return $eliminarTorneo;
     }
 }
 

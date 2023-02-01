@@ -4,7 +4,7 @@ require("../Negocio/usuarioReglasNegocio.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuarioBL = new UsuarioReglasNegocio();
     $perfil =  $usuarioBL->verificar($_POST['usuario'], $_POST['clave']);
-
+    // TODO si es una contraseña menor de 8 caracteres, no te deja acceder.
     if ($perfil === "administrador") {
         session_start(); //inicia o reinicia una sesión
         $_SESSION['usuario'] = $_POST['usuario'];

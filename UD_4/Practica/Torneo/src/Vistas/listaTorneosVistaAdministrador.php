@@ -50,7 +50,7 @@ require("../Negocio/torneosReglasNegocio.php");
 
             foreach ($datosTorneos as $torneo) {
                 $id = $torneo->getID();
-                echo "<tr>
+                echo "<tr onclick=window.location.href='torneosVista.php?ID=" . $id . "'>
                         <td>" . $id . "</td>
                         <td>" . $torneo->getNombreTorneo() . "</td>
                         <td>" . $torneo->getFecha() . "</td>

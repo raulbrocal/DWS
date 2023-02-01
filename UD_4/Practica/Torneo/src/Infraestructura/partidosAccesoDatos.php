@@ -27,10 +27,11 @@ class PartidosAccesoDatos
         return $partidos;
     }
 
-    function obtenerPartidos()
+    function obtenerPartidos($torneoId)
     {
         $conexion = $this->conexion();
-        $consulta = mysqli_prepare($conexion, "SELECT partidoId, jugadorA, jugadorB, ronda, ganador FROM T_Partido;");
+        $consulta = mysqli_prepare($conexion, "SELECT partidoId, jugadorA, jugadorB, ronda, ganador FROM T_Partido WHERE torneoId = ?;");
+        $consulta->bind_param("s", $torneoId);
         $consulta->execute();
         $result = $consulta->get_result();
         $partidos = array();

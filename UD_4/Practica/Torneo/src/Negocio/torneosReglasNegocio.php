@@ -94,7 +94,8 @@ class TorneosReglasNegocio
         return $eliminarTorneo;
     }
 
-    function ultimoId(){
+    function ultimoId()
+    {
         $oTorneosReglasNegocio = new TorneosAccesoDatos();
         $torneoId = $oTorneosReglasNegocio->obtenerIdUltimoTorneo();
         return $torneoId;
@@ -149,10 +150,10 @@ class PartidosReglasNegocio
         $this->_Ganador = $ganador;
     }
 
-    function datosPartido()
+    function datosPartido($torneoId)
     {
         $partidosDAL = new PartidosAccesoDatos();
-        $rs = $partidosDAL->obtenerPartidos();
+        $rs = $partidosDAL->obtenerPartidos($torneoId);
 
         $datosPartido =  array();
 

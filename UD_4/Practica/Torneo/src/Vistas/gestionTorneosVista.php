@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
                         <td>" . $partido->getJugadorB() . "</td>
                         <td>" . $partido->getRonda() . "</td>
                         <td>" . $partido->getGanador() . "</td>
-                        <td><a href='gestionTorneosVista.php?id=$id'>Editar</a></td>
+                        <td><a href='resultadoPartidoVista.php'>Editar</a></td>
                         <td><a href='#' onclick='torneosBL->borrar();'>Borrar</a></td>
                    </tr>";
                 }

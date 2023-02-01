@@ -59,7 +59,7 @@ if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
                         <td>" . $partido->getRonda() . "</td>
                         <td>" . $partido->getGanador() . "</td>
                         <td><a href='resultadoPartidoVista.php?torneoId=" . $torneoId . "&partidoId=" . $id . "'>Editar</a></td>
-                        <td><a href='eliminarPartidoVista.php?partidoId=" . $id . "'>Borrar</a></td>
+                        <td><a href='eliminarPartidoVista.php?torneoId=" . $torneoId . "&partidoId=" . $id . "'>Borrar</a></td>
                    </tr>";
                 }
                 ?>

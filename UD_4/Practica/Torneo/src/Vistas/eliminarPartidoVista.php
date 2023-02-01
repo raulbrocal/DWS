@@ -1,5 +1,7 @@
 <?php
 require("../Negocio/torneosReglasNegocio.php");
 $partidosBL = new PartidosReglasNegocio();
-$partidosBL->eliminarPartido($_GET['partidoId']);
-header("Location: listaTorneosVistaAdministrador.php");
+$torneoId = $_GET['torneoId'];
+$partidoId = $_GET['partidoId'];
+$partidosBL->eliminarPartido($partidoId);
+header("Location: gestionTorneosVista.php?torneoId=" . $torneoId . "");

@@ -57,7 +57,7 @@ require("../Negocio/torneosReglasNegocio.php");
                         <td>" . $torneo->getEstado() . "</td>
                         <td>" . $torneo->getJugadores() . "</td>
                         <td>" . $torneo->getCampeon() . "</td>
-                        <td><a href='gestionTorneosVista.php?id=$id'>Editar</a></td>
+                        <td><a href='gestionTorneosVista.php?torneoId=$id'>Editar</a></td>
                         <td><a href='#' onclick='torneosBL->borrar();'>Borrar</a></td>
                     </tr>";
             }

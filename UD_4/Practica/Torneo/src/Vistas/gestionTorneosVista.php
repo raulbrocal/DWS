@@ -3,10 +3,8 @@ if (isset($_POST['submit'])) {
     require("../Negocio/torneosReglasNegocio.php");
     $partidosBL = new PartidosReglasNegocio();
 
-
     $torneosBL = new TorneosReglasNegocio();
     $torneosBL->insertarTorneo($_POST['fecha'], $_POST['nombre']);
-
     $partidosBL->insertarPartido('Cuartos');
 
     $datosPartidos = $partidosBL->datosPartido();
@@ -45,7 +43,7 @@ if (isset($_POST['submit'])) {
                     <th></th>
                 </tr>
                 <?php
-
+                $enlace = $_SERVER['QUERY_STRING'];
                 foreach ($datosPartidos as $partido) {
                     $id = $partido->getID();
                     echo "<tr>
@@ -54,8 +52,9 @@ if (isset($_POST['submit'])) {
                         <td>" . $partido->getJugadorB() . "</td>
                         <td>" . $partido->getRonda() . "</td>
                         <td>" . $partido->getGanador() . "</td>
-                        <td><a href='resultadoPartidoVista.php'>Editar</a></td>
-                        <td><a href='#' onclick='torneosBL->borrar();'>Borrar</a></td>
+                        "./*Todo esto funcionaria si se da solo a editar, pero al crearse después del post. :s*/"
+                        <td><a href='resultadoPartidoVista.php?torneoId=" . $_GET['torneoId'] . "&partidoId=" . $id . ">Editar</a></td>
+                        <td><a href=" . $enlace . "onclick='torneosBL->borrar();'>Borrar</a></td>
                    </tr>";
                 }
                 ?>
@@ -91,4 +90,4 @@ if (isset($_POST['submit'])) {
 
     </html>
 
-<?php } ?>
+<?php };

@@ -1,5 +1,10 @@
 <?php
 if (isset($_POST['submit'])) {
+    // TODO comprobar si se está modificando o se quiere insertar otro partido
+    require("../Negocio/torneosReglasNegocio.php");
+    $partidosBL = new PartidosReglasNegocio();
+    $partidosBL->insertarPartido($_POST['ronda']);
+    header("Location: gestionTorneosVista.php?torneoId=" . $_GET['torneoId'] . "");
 } else { ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -13,7 +18,7 @@ if (isset($_POST['submit'])) {
 
     <body>
         <main>
-            <form action="#" method="post">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <table>
                     <tr>
                         <td>Jugador A</td>

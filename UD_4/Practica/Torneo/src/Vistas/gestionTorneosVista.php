@@ -1,11 +1,13 @@
 <?php
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
     require("../Negocio/torneosReglasNegocio.php");
     $partidosBL = new PartidosReglasNegocio();
 
-    $torneosBL = new TorneosReglasNegocio();
-    $torneosBL->insertarTorneo($_POST['fecha'], $_POST['nombre']);
-    $partidosBL->insertarPartido('Cuartos');
+    if (isset($_POST['submit'])) {
+        $torneosBL = new TorneosReglasNegocio();
+        $torneosBL->insertarTorneo($_POST['fecha'], $_POST['nombre']);
+        $partidosBL->insertarPartido('Cuartos');
+    }
 
     $datosPartidos = $partidosBL->datosPartido();
 ?>
@@ -54,7 +56,7 @@ if (isset($_POST['submit'])) {
                         <td>" . $partido->getGanador() . "</td>
                         " ./*Todo esto funcionaria si se da solo a editar, pero al crearse después del post. :s*/ "
                         <td><a href='resultadoPartidoVista.php?torneoId=" . $_GET['torneoId'] . "&partidoId=" . $id . ">Editar</a></td>
-                        <td><a href='eliminarTorneoVista.php?id=" . $id . "'>Borrar</a></td>
+                        <td><a href='eliminarPartidoVista.php?partidoId=" . $id . "'>Borrar</a></td>
                    </tr>";
                 }
                 ?>
@@ -66,28 +68,26 @@ if (isset($_POST['submit'])) {
 
     </html>
 
-<?php } else { ?>
-    <!DOCTYPE html>
+<?php }; ?>
+<!DOCTYPE html>
 
-    <html lang="en">
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Crear torneo</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear torneo</title>
+</head>
 
-    <body>
-        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre">
-            <label for="fecha">Fecha</label>
-            <input type="date" name="fecha">
-            <input type="submit" name="submit" value="Crear torneo">
-        </form>
-    </body>
+<body>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre">
+        <label for="fecha">Fecha</label>
+        <input type="date" name="fecha">
+        <input type="submit" name="submit" value="Crear torneo">
+    </form>
+</body>
 
-    </html>
-
-<?php };
+</html>

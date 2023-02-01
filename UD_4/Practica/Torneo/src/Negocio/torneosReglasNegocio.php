@@ -194,4 +194,11 @@ class PartidosReglasNegocio
             }
         }
     }
+
+    function eliminarPartido($id)
+    {
+        $oPartidosReglasNegocio = new PartidosAccesoDatos();
+        $eliminarPartido = $oPartidosReglasNegocio->eliminarPartido($id);
+        return $eliminarPartido;
+    }
 }

@@ -49,4 +49,14 @@ class PartidosAccesoDatos
 
         return $res;
     }
+
+    function eliminarPartido($id)
+    {
+        $conexion = $this->conexion();
+        $consulta = mysqli_prepare($conexion, "DELETE FROM T_Partido WHERE partidoId = ?;");
+        $consulta->bind_param("s", $id);
+        $res = $consulta->execute();
+
+        return $res;
+    }
 }

@@ -209,4 +209,19 @@ class PartidosReglasNegocio
         $eliminarPartido = $oPartidosReglasNegocio->eliminarPartido($id);
         return $eliminarPartido;
     }
+
+    function seleccionarGanador($partidoId, $jugadorId)
+    {
+        $oPartidosReglasNegocio = new PartidosAccesoDatos();
+        $eliminarPartido = $oPartidosReglasNegocio->seleccionarGanador($partidoId, $jugadorId);
+        return $eliminarPartido;
+    }
+
+    function listaJugadores()
+    {
+        require_once("../Infraestructura/jugadoresAccesoDatos.php");
+        $jugadoresDAL = new JugadoresAccesoDatos();
+        $listaJugadores = $jugadoresDAL->listaJugadores();
+        return $listaJugadores;
+    }
 }

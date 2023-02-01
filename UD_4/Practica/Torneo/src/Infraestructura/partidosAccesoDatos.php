@@ -51,8 +51,14 @@ class PartidosAccesoDatos
         return $res;
     }
 
-    function insertarPartido(){
+    function seleccionarGanador($partidoId, $jugadorId)
+    {
+        $conexion = $this->conexion();
+        $consulta = mysqli_prepare($conexion, "UPDATE T_Partido SET ganador = ? WHERE partidoId = ?;)");
+        $consulta->bind_param("ss", $partidoId, $jugadorId);
+        $res = $consulta->execute();
 
+        return $res;
     }
 
     function eliminarPartido($id)

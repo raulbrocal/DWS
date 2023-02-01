@@ -1,12 +1,19 @@
 <?php
 // $_GET torneoId partidoId
+require_once("../Negocio/torneosReglasNegocio.php");
+$partidosBL = new PartidosReglasNegocio();
 if (isset($_POST['submit'])) {
-    // TODO comprobar si se está modificando o se quiere insertar otro partido
-    require("../Negocio/torneosReglasNegocio.php");
-    $partidosBL = new PartidosReglasNegocio();
-    $partidosBL->crearPartidos($_POST['ronda']);
+
+    if ($_POST['ganador'] == 'null') {
+        $partidosBL->crearPartidos($_POST['ronda']);
+    } else {
+        $partidosBL->seleccionarGanador($_GET['partidoId'], $jugadorId);
+    }
+
     header("Location: gestionTorneosVista.php?torneoId=" . $_GET['torneoId'] . "");
-} else { ?>
+} else {
+    $listaJugadores = $partidosBL->listaJugadores();
+?>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -53,6 +60,7 @@ if (isset($_POST['submit'])) {
                         </td>
                         <td>
                             <select name="ganador" id="id_ganador">
+                                <option value="null">Pendiente</option>
                                 <option value="jugadorA">jugadorA</option>
                                 <option value="jugadorB">jugadorB</option>
                             </select>
@@ -66,4 +74,4 @@ if (isset($_POST['submit'])) {
 
     </html>
 
-<?php }; ?>
+<?php };

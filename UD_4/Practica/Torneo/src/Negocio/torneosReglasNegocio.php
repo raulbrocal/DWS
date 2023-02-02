@@ -184,6 +184,7 @@ class PartidosReglasNegocio
 
         $jugadoresDAL = new JugadoresAccesoDatos();
         $listaJugadores = $jugadoresDAL->listaJugadores();
+        shuffle($listaJugadores);
 
         $oPartidosReglasNegocio = new PartidosAccesoDatos();
 

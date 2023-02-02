@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+require("../Negocio/torneosReglasNegocio.php");
+$partidosBL = new PartidosReglasNegocio();
+$datosPartidos = $partidosBL->datosPartido($_GET['torneoId']);
+?>
 <html lang="en">
 
 <head>
@@ -20,21 +24,53 @@
 
             <div class="ronda">
                 <p>Cuartos</p>
-                <?php for ($i = 0; $i < 8; $i++) { ?>
-                    <div class="octavos">
-                        <table class="participantes">
+                <?php foreach ($datosPartidos as $partido) {
+                    echo "<div class='octavos'>
+                        <table class='participantes'>
                             <tr>
-                                <td><input class="local" type="button" value="Local"></td>
+                                <td><input class='local' type='button' value=" . $partido->getJugadorA() . "></td>
                             </tr>
                             <tr>
-                                <td><input class="visitante" type="button" value="Visitante"></td>
+                                <td><input class='visitante' type='button' value=" . $partido->getJugadorB() . "></td>
                             </tr>
                         </table>
-                    </div>
-                <?php } ?>
+                    </div>";
+                } ?>
             </div>
 
-            <div class="ronda">
+        </div>
+</body>
+
+</html>
+
+<!-- <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de torneos</title>
+</head>
+
+<body>
+    <h1>Listado de torneos</h1>
+    <?php
+    require("../Negocio/torneosReglasNegocio.php");
+
+    $torneosBL = new TorneosReglasNegocio();
+    $datosTorneos = $torneosBL->listaTorneos();
+
+    foreach ($datosTorneos as $torneo) {
+        echo "<div>";
+        print($torneo->getID());
+        echo "</div>";
+    }
+    ?>
+</body>
+
+</html>
+
+<div class="ronda">
                 <p>Semifinal</p>
                 <?php for ($i = 0; $i < 4; $i++) { ?>
                     <div class="cuartos">
@@ -71,37 +107,4 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-    </div>
-</body>
-
-</html>
-
-/*<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado de torneos</title>
-</head>
-
-<body>
-    <h1>Listado de torneos</h1>
-    <?php
-    require("../Negocio/torneosReglasNegocio.php");
-
-    $torneosBL = new TorneosReglasNegocio();
-    $datosTorneos = $torneosBL->listaTorneos();
-
-    foreach ($datosTorneos as $torneo) {
-        echo "<div>";
-        print($torneo->getID());
-        echo "</div>";
-    }
-    ?>
-</body>
-
-</html>
-*/
+        </div> -->

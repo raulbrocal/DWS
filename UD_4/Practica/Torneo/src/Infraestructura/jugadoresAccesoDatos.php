@@ -24,7 +24,6 @@ class JugadoresAccesoDatos
         while ($myrow = $result->fetch_assoc()) {
             array_push($listaJugadores, $myrow);
         }
-        shuffle($listaJugadores);
         return $listaJugadores;
     }
 }

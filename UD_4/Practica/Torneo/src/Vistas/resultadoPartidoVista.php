@@ -1,5 +1,5 @@
 <?php
-// $_GET torneoId partidoId
+// $_GET torneoId partidoId 697508000
 require_once("../Negocio/torneosReglasNegocio.php");
 $partidosBL = new PartidosReglasNegocio();
 if (isset($_POST['submit'])) {
@@ -37,18 +37,22 @@ if (isset($_POST['submit'])) {
                     <tr>
                         <td>
                             <select name="jugadorA" id="id_jugadorA">
-                                <option value="javascript">JavaScript</option>
-                                <option value="php">PHP</option>
-                                <option value="java">Java</option>
-                                <option value="golang">Golang</option>
+                                <?php
+                                for ($i = 0; $i < count($listaJugadores); $i++) {
+                                    $jugador = implode($listaJugadores[$i]);
+                                    echo "<option value=" . $jugador . ">" . $jugador . "<option>";
+                                }
+                                ?>
                             </select>
                         </td>
                         <td>
-                            <select name="jugadorB" id="id_jugadorB">
-                                <option value="javascript">JavaScript</option>
-                                <option value="php">PHP</option>
-                                <option value="java">Java</option>
-                                <option value="golang">Golang</option>
+                        <select name="jugadorB" id="id_jugadorB">
+                                <?php
+                                for ($i = 0; $i < count($listaJugadores); $i++) {
+                                    $jugador = implode($listaJugadores[$i]);
+                                    echo "<option value=" . $jugador . ">" . $jugador . "<option>";
+                                }
+                                ?>
                             </select>
                         </td>
                         <td>

@@ -3,8 +3,9 @@
 require_once("../Negocio/torneosReglasNegocio.php");
 $partidosBL = new PartidosReglasNegocio();
 if (isset($_POST['submit'])) {
+    var_dump('casa');
 
-    if ($_POST['ganador'] == 'null') {
+    if ($_POST['ganador'] === 'null') {
         $partidosBL->crearPartidos($_POST['ronda']);
     } else {
         $partidosBL->seleccionarGanador($_GET['partidoId'], $jugadorId);
@@ -26,7 +27,7 @@ if (isset($_POST['submit'])) {
 
     <body>
         <main>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                 <table>
                     <tr>
                         <td>Jugador A</td>

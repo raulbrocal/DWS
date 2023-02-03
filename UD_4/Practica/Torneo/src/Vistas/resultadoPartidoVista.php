@@ -8,14 +8,7 @@ if (!isset($_SESSION['usuario'])) {
 require_once("../Negocio/torneosReglasNegocio.php");
 $partidosBL = new PartidosReglasNegocio();
 
-if (isset($_POST['submit'])) {
-    if (!empty(($_POST['ganador']))) {
-        $partidosBL->seleccionarGanador($_GET['partidoId'], $_POST['ganador']);
-    } else {
-        $partidosBL->crearPartidos($_POST['ronda']);
-    }
-    header("Location: gestionTorneosVista.php?torneoId=" . $_GET['torneoId'] . "");
-} elseif (isset($_GET['partidoId'])) {
+if (isset($_GET['partidoId'])) {
     $partido = $partidosBL->obtenerPartido($_GET['partidoId']);
     $jugadorA = $partidosBL->obtenerNombreJugador($partido['jugadorA']);
     $jugadorB = $partidosBL->obtenerNombreJugador($partido['jugadorB']);

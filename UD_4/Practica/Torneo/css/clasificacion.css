@@ -10,15 +10,21 @@
 }
 
 .menu {
-    background-color: black;
+    background-color: aqua;
     width: 100%;
     height: 10%;
-    color: aqua;
+    color: black;
+    text-align: left;
+}
+
+.titulo{
+    font-size: 4rem;
     text-align: center;
+    padding-top: 0.75%;
 }
 
 .clasificacion {
-    background-color: red;
+    background-color: rgba(189, 157, 14, 0.699);
     height: 90%;
     width: 100%;
     float: left;
@@ -33,7 +39,7 @@
 
 .octavos {
     width: 100%;
-    height: 12%;
+    height: 22.5%;
     align-self: center;
     position: relative;
 }

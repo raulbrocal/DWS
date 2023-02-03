@@ -25,7 +25,7 @@ $datosPartidos = $partidosBL->datosPartidosTorneo($_GET['torneoId']);
 
         <div class="menu">
             <p class="titulo">Torneo de tenis de mesa.</p>
-            <a href="listaTorneosVistaJugador.php"> Volver </a>
+            <a href="listaTorneosVistaAdministrador.php"> Volver </a>
             <br>
             <a href="logoutVista.php"> Cerrar sesión </a>
         </div>
@@ -33,7 +33,7 @@ $datosPartidos = $partidosBL->datosPartidosTorneo($_GET['torneoId']);
         <div class="clasificacion">
 
             <div class="ronda">
-                <p>Cuartos</p>
+                <h1>Cuartos</h1>
                 <?php foreach ($datosPartidos as $partido) {
                     echo "<div class='octavos'>
                         <table class='participantes'>

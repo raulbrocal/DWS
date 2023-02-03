@@ -226,11 +226,11 @@ class PartidosReglasNegocio
         return $eliminarPartido;
     }
 
-    function seleccionarGanador($partidoId, $jugadorId)
+    function seleccionarGanador($jugadorId, $partidoId)
     {
         $oPartidosReglasNegocio = new PartidosAccesoDatos();
-        $eliminarPartido = $oPartidosReglasNegocio->seleccionarGanador($partidoId, $jugadorId);
-        return $eliminarPartido;
+        $seleccionarGanador = $oPartidosReglasNegocio->seleccionarGanador($jugadorId, $partidoId);
+        return $seleccionarGanador;
     }
 
     function listaJugadores()

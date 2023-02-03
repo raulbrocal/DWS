@@ -26,6 +26,7 @@ $datosPartidos = $partidosBL->datosPartidosTorneo($_GET['torneoId']);
         <div class="menu">
             <p class="titulo">Torneo de tenis de mesa.</p>
             <a href="listaTorneosVistaJugador.php"> Volver </a>
+            <br>
             <a href="logoutVista.php"> Cerrar sesión </a>
         </div>
 

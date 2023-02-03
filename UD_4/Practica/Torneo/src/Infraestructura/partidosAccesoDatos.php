@@ -41,7 +41,8 @@ class PartidosAccesoDatos
         return $partidos;
     }
 
-    function obtenerPartido($partidoId){
+    function obtenerPartido($partidoId)
+    {
         $conexion = $this->conexion();
         $consulta = mysqli_prepare($conexion, "SELECT partidoId, ronda, jugadorA, jugadorB FROM T_Partido WHERE partidoId = ?;");
         $consulta->bind_param("s", $partidoId);
@@ -64,11 +65,11 @@ class PartidosAccesoDatos
         return $res;
     }
 
-    function seleccionarGanador($partidoId, $jugadorId)
+    function seleccionarGanador($jugadorId, $partidoId)
     {
         $conexion = $this->conexion();
-        $consulta = mysqli_prepare($conexion, "UPDATE T_Partido SET ganador = ? WHERE partidoId = ?;)");
-        $consulta->bind_param("ss", $partidoId, $jugadorId);
+        $consulta = mysqli_prepare($conexion, "UPDATE T_Partido SET ganador = ? WHERE partidoId = ?;");
+        $consulta->bind_param("ss", $jugadorId, $partidoId);
         $res = $consulta->execute();
 
         return $res;

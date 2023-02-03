@@ -38,7 +38,9 @@ if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
             <h1>Gestionador de Torneos</h1>
             <div class="informacion">
                 <a href="listaTorneosVistaAdministrador.php"> Volver </a>
+                <br>
                 <a href="logoutVista.php"> Cerrar sesión </a>
+                <br>
                 <a href="resultadoPartidoVista.php">Nuevo partido</a>
                 <p>Número de registros: <?php $nPartidos = $partidosBL->numPartidos();
                                         echo $nPartidos; ?></p>
@@ -57,13 +59,16 @@ if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
                 <?php
                 $enlace = $_SERVER['QUERY_STRING'];
                 foreach ($datosPartidos as $partido) {
+
+                    $ganador = $partido->getGanador();
+
                     $id = $partido->getID();
                     echo "<tr>
                         <td>" . $id . "</td>
                         <td>" . $partido->obtenerNombreJugador($partido->getJugadorA()) . "</td>
                         <td>" . $partido->obtenerNombreJugador($partido->getJugadorB()) . "</td>
                         <td>" . $partido->getRonda() . "</td>
-                        <td>" . $partido->getGanador() . "</td>
+                        <td>" . $ganador . "</td>
                         <td><a href='resultadoPartidoVista.php?torneoId=" . $torneoId . "&partidoId=" . $id . "'>Editar</a></td>
                         <td><a href='eliminarPartidoVista.php?torneoId=" . $torneoId . "&partidoId=" . $id . "'>Borrar</a></td>
                    </tr>";

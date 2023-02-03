@@ -219,6 +219,13 @@ class PartidosReglasNegocio
         }
     }
 
+    function insertarPartido($ronda, $torneoId, $jugadorA, $jugadorB)
+    {
+        $partidosDAL = new PartidosAccesoDatos();
+        $res = $partidosDAL->crearPartidos($ronda, $torneoId, $jugadorA, $jugadorB);
+        return $res;
+    }
+
     function eliminarPartido($id)
     {
         $oPartidosReglasNegocio = new PartidosAccesoDatos();

@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
     </head>
 
     <body>
-        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+        <form action="añadirPartido.php?torneoId=<?php print($_GET['torneoId']); ?>" method="POST">
             <table>
                 <tr>
                     <td>Jugador A</td>
@@ -101,8 +101,9 @@ if (isset($_POST['submit'])) {
                         <select name="jugadorA" id="id_jugadorA">
                             <?php
                             for ($i = 0; $i < count($listaJugadores); $i++) {
-                                $jugador = $partidosBL->obtenerNombreJugador(implode($listaJugadores[$i]));
-                                echo "<option value=" . $jugador . ">" . $jugador . "<option>";
+                                $nombreJugador = $partidosBL->obtenerNombreJugador(implode($listaJugadores[$i]));
+                                $jugadorId = implode($listaJugadores[$i]);
+                                echo "<option value=" . $jugadorId . ">" . $nombreJugador . "<option>";
                             }
                             ?>
                         </select>
@@ -111,8 +112,9 @@ if (isset($_POST['submit'])) {
                         <select name="jugadorB" id="id_jugadorB">
                             <?php
                             for ($i = 0; $i < count($listaJugadores); $i++) {
-                                $jugador = $partidosBL->obtenerNombreJugador(implode($listaJugadores[$i]));
-                                echo "<option value=" . $jugador . ">" . $jugador . "<option>";
+                                $nombreJugador = $partidosBL->obtenerNombreJugador(implode($listaJugadores[$i]));
+                                $jugadorId = implode($listaJugadores[$i]);
+                                echo "<option value=" . $jugadorId . ">" . $nombreJugador . "<option>";
                             }
                             ?>
                         </select>

@@ -34,8 +34,6 @@ require("../Negocio/torneosReglasNegocio.php");
                 <th>Estado</th>
                 <th>Jugadores</th>
                 <th>Campeón</th>
-                <th></th>
-                <th></th>
             </tr>
             <?php
 
@@ -43,7 +41,7 @@ require("../Negocio/torneosReglasNegocio.php");
             $datosTorneos = $torneosBL->listaTorneos();
             foreach ($datosTorneos as $torneo) {
                 $id = $torneo->getID();
-                echo "<tr onclick=window.location.href='torneosVista.php?ID=" . $id . "'>
+                echo "<tr onclick=window.location.href='torneosVista.php?torneoId=" . $id . "'>
                         <td>" . $id . "</td>
                         <td>" . $torneo->getNombreTorneo() . "</td>
                         <td>" . $torneo->getFecha() . "</td>

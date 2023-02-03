@@ -40,17 +40,17 @@ if (isset($_POST['submit'])) {
                             <select name="jugadorA" id="id_jugadorA">
                                 <?php
                                 for ($i = 0; $i < count($listaJugadores); $i++) {
-                                    $jugador = implode($listaJugadores[$i]);
+                                    $jugador = $partidosBL->obtenerNombreJugador(implode($listaJugadores[$i]));
                                     echo "<option value=" . $jugador . ">" . $jugador . "<option>";
                                 }
                                 ?>
                             </select>
                         </td>
                         <td>
-                        <select name="jugadorB" id="id_jugadorB">
+                            <select name="jugadorB" id="id_jugadorB">
                                 <?php
                                 for ($i = 0; $i < count($listaJugadores); $i++) {
-                                    $jugador = implode($listaJugadores[$i]);
+                                    $jugador = $partidosBL->obtenerNombreJugador(implode($listaJugadores[$i]));
                                     echo "<option value=" . $jugador . ">" . $jugador . "<option>";
                                 }
                                 ?>

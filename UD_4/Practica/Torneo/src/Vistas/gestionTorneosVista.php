@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
-    require("../Negocio/torneosReglasNegocio.php");
+    require_once("../Negocio/torneosReglasNegocio.php");
     $partidosBL = new PartidosReglasNegocio();
 
     if (isset($_POST['submit'])) {
@@ -54,8 +54,8 @@ if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
                     $id = $partido->getID();
                     echo "<tr>
                         <td>" . $id . "</td>
-                        <td>" . $partido->getJugadorA() . "</td>
-                        <td>" . $partido->getJugadorB() . "</td>
+                        <td>" . $partido->obtenerNombreJugador($partido->getJugadorA()) . "</td>
+                        <td>" . $partido->obtenerNombreJugador($partido->getJugadorB()) . "</td>
                         <td>" . $partido->getRonda() . "</td>
                         <td>" . $partido->getGanador() . "</td>
                         <td><a href='resultadoPartidoVista.php?torneoId=" . $torneoId . "&partidoId=" . $id . "'>Editar</a></td>

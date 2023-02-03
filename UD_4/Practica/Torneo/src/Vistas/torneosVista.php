@@ -28,10 +28,10 @@ $datosPartidos = $partidosBL->datosPartido($_GET['torneoId']);
                     echo "<div class='octavos'>
                         <table class='participantes'>
                             <tr>
-                                <td><input class='local' type='button' value=" . $partido->getJugadorA() . "></td>
+                                <td><input class='local' type='button' value=" . $partido->obtenerNombreJugador($partido->getJugadorA()) . "></td>
                             </tr>
                             <tr>
-                                <td><input class='visitante' type='button' value=" . $partido->getJugadorB() . "></td>
+                                <td><input class='visitante' type='button' value=" . $partido->obtenerNombreJugador($partido->getJugadorB()) . "></td>
                             </tr>
                         </table>
                     </div>";

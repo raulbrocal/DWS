@@ -166,6 +166,14 @@ class PartidosReglasNegocio
         return $datosPartido;
     }
 
+    function obtenerNombreJugador($jugadorId)
+    {
+        require_once("../Infraestructura/jugadoresAccesoDatos.php");
+        $oPartidosReglasNegocio = new JugadoresAccesoDatos();
+        $nombre = $oPartidosReglasNegocio->obtenerNombre($jugadorId);
+        return $nombre;
+    }
+
     function numPartidos()
     {
         $oPartidosReglasNegocio = new PartidosAccesoDatos();

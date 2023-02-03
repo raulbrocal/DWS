@@ -181,10 +181,10 @@ class PartidosReglasNegocio
         return $nombre;
     }
 
-    function numPartidos()
+    function numPartidos($torneoId)
     {
         $oPartidosReglasNegocio = new PartidosAccesoDatos();
-        $numPartidos = $oPartidosReglasNegocio->obtenerNumPartidos();
+        $numPartidos = $oPartidosReglasNegocio->obtenerNumPartidos($torneoId);
         return implode($numPartidos);
     }
 

@@ -42,7 +42,7 @@ if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
                 <a href="logoutVista.php"> Cerrar sesión </a>
                 <br>
                 <a href="resultadoPartidoVista.php">Nuevo partido</a>
-                <p>Número de registros: <?php $nPartidos = $partidosBL->numPartidos();
+                <p>Número de registros: <?php $nPartidos = $partidosBL->numPartidos($_GET['torneoId']);
                                         echo $nPartidos; ?></p>
             </div>
             <br>

@@ -14,10 +14,11 @@ class PartidosAccesoDatos
         return $conexion;
     }
 
-    function obtenerNumPartidos()
+    function obtenerNumPartidos($torneoId)
     {
         $conexion = $this->conexion();
-        $consulta = mysqli_prepare($conexion, "SELECT COUNT(partidoId) FROM T_Partido;");
+        $consulta = mysqli_prepare($conexion, "SELECT COUNT(partidoId) FROM T_Partido WHERE torneoId = ?;");
+        $consulta->bind_param("s", $torneoId);
         $consulta->execute();
         $result = $consulta->get_result();
         $partidos = array();

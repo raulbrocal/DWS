@@ -38,24 +38,11 @@ CREATE TABLE T_Torneo (
         REFERENCES T_Jugador (jugadorId),
     CONSTRAINT T_Partido_ibfk_3 FOREIGN KEY (torneoId)
         REFERENCES T_Torneo (ID)
+        ON DELETE CASCADE
 );
 
-SELECT 
-    *
-FROM
-    T_Partido;
-
-SELECT 
-    *
-FROM
-    T_Torneo;
-
-SELECT 
-    *
-FROM
-    T_Jugador;
-
 -- Ejecutar test.php
+-- Insertar jugadores
 
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Javi Abandono', 'javi');
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Sergio Serrano', 'sergio');
@@ -65,13 +52,3 @@ INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Stewart Jordi', 'stewar
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Adrián Castillo', 'castillo');
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Fernando Alonso', 'fernando');
 INSERT INTO T_Jugador (nombreCompleto, usuario) VALUES ('Jaume Altazona', 'jaume');
-
-INSERT INTO T_Torneo (nombreTorneo, fecha, numJugadores) VALUES 
-('Torneo IES Son Ferrer','2023-03-25', '8');
-INSERT INTO T_Torneo (nombreTorneo, estado, numJugadores, campeon) VALUES 
-('Torneo 2021', 'Finalizado', '8', 'Carlos Sogorb');
-INSERT INTO T_Torneo (nombreTorneo, fecha, estado, numJugadores, campeon) VALUES 
-('Torneo navidad 2022','2022-12-22', 'Finalizado', '8', 'Carlos Acedo');
-
-INSERT INTO T_Partido (ronda, torneoId, jugadorA, jugadorB) VALUES ('Cuartos', '1','1', '2');
-INSERT INTO T_Partido (ronda, jugadorA, jugadorB, ganador) VALUES ('Cuartos', '3', '4', '3');

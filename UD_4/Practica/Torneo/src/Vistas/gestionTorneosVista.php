@@ -59,8 +59,11 @@ if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
                 <?php
                 $enlace = $_SERVER['QUERY_STRING'];
                 foreach ($datosPartidos as $partido) {
-
                     $ganador = $partido->getGanador();
+
+                    if (is_int($ganador)) {
+                        $ganador = $partido->obtenerNombreJugador($ganador);
+                    }
 
                     $id = $partido->getID();
                     echo "<tr>

@@ -1,4 +1,8 @@
 <?php
+session_start(); // reanudamos la sesión
+if (!isset($_SESSION['usuario'])) {
+    header("Location: loginVista.php");
+}
 // $_GET torneoId partidoId 697508000
 require_once("../Negocio/torneosReglasNegocio.php");
 $partidosBL = new PartidosReglasNegocio();

@@ -1,8 +1,15 @@
 <?php
+
+session_start(); // reanudamos la sesión
+if (!isset($_SESSION['usuario'])) {
+    header("Location: loginVista.php");
+}
+
 require("../Negocio/torneosReglasNegocio.php");
 $partidosBL = new PartidosReglasNegocio();
 $datosPartidos = $partidosBL->datosPartidosTorneo($_GET['torneoId']);
 ?>
+
 <html lang="en">
 
 <head>
@@ -18,6 +25,8 @@ $datosPartidos = $partidosBL->datosPartidosTorneo($_GET['torneoId']);
 
         <div class="menu">
             <p class="titulo">Torneo de tenis de mesa.</p>
+            <a href="listaTorneosVistaJugador.php"> Volver </a>
+            <a href="logoutVista.php"> Cerrar sesión </a>
         </div>
 
         <div class="clasificacion">

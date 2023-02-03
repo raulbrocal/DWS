@@ -1,4 +1,8 @@
 <?php
+session_start(); // reanudamos la sesión
+if (!isset($_SESSION['usuario'])) {
+    header("Location: loginVista.php");
+}
 if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
     require_once("../Negocio/torneosReglasNegocio.php");
     $partidosBL = new PartidosReglasNegocio();
@@ -33,6 +37,8 @@ if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
         <div class="contenedor">
             <h1>Gestionador de Torneos</h1>
             <div class="informacion">
+                <a href="listaTorneosVistaAdministrador.php"> Volver </a>
+                <a href="logoutVista.php"> Cerrar sesión </a>
                 <a href="resultadoPartidoVista.php">Nuevo partido</a>
                 <p>Número de registros: <?php $nPartidos = $partidosBL->numPartidos();
                                         echo $nPartidos; ?></p>

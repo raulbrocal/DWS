@@ -16,7 +16,6 @@ if (isset($_POST['submit'])) {
     }
     header("Location: gestionTorneosVista.php?torneoId=" . $_GET['torneoId'] . "");
 } elseif (isset($_GET['partidoId'])) {
-    var_dump(isset($_POST['submit']));
     $partido = $partidosBL->obtenerPartido($_GET['partidoId']);
     $jugadorA = $partidosBL->obtenerNombreJugador($partido['jugadorA']);
     $jugadorB = $partidosBL->obtenerNombreJugador($partido['jugadorB']);
@@ -29,12 +28,14 @@ if (isset($_POST['submit'])) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Resultado</title>
+        <link rel="stylesheet" href="../../css/resultadoPartidoVista.css">
     </head>
 
     <body>
         <a href="listaTorneosVistaAdministrador.php"> Volver </a>
         <br>
         <a href="logoutVista.php"> Cerrar sesión </a>
+        <h1>SELECCIONA UN GANADOR</h1>
         <form action="insertarGanador.php" method="POST">
             <table>
                 <tr>
@@ -61,9 +62,11 @@ if (isset($_POST['submit'])) {
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="hidden" name="url" value="gestionTorneosVista.php?torneoId=<?php print($_GET['torneoId']) ?>"></td>
-                    <td><input type="hidden" name="partidoId" value="<?php print($partido['partidoId']) ?>"></td>
-                    <td><input type="submit" value="Enviar"></td>
+                    <td colspan="4">
+                        <input type="hidden" name="url" value="gestionTorneosVista.php?torneoId=<?php print($_GET['torneoId']) ?>">
+                        <input type="hidden" name="partidoId" value="<?php print($partido['partidoId']) ?>">
+                        <input type="submit" value="Enviar">
+                    </td>
                 </tr>
             </table>
         </form>
@@ -81,6 +84,7 @@ if (isset($_POST['submit'])) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Resultado</title>
+        <link rel="stylesheet" href="../../css/resultadoPartidoVista.css">
     </head>
 
     <body>

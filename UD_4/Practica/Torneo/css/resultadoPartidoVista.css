@@ -1,0 +1,23 @@
+body {
+    background-color: thistle;
+    align-items: center;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+table{
+    width: 50%;
+}
+
+td{
+    padding: 1%;
+}
+
+h1{
+    text-align: center;
+}

@@ -4,15 +4,62 @@ require_once("../Negocio/torneosReglasNegocio.php");
 $partidosBL = new PartidosReglasNegocio();
 if (isset($_POST['submit'])) {
     var_dump('casa');
-
-    if ($_POST['ganador'] === 'null') {
-        $partidosBL->crearPartidos($_POST['ronda']);
+    if (!empty(($_POST['ganador']))) {
+        $partidosBL->seleccionarGanador($_GET['partidoId'], $_POST['ganador']);
     } else {
-        $partidosBL->seleccionarGanador($_GET['partidoId'], $jugadorId);
+        $partidosBL->crearPartidos($_POST['ronda']);
     }
-
     header("Location: gestionTorneosVista.php?torneoId=" . $_GET['torneoId'] . "");
-} else {
+} elseif (isset($_GET['partidoId'])) {
+    $partido = $partidosBL->obtenerPartido($_GET['partidoId']);
+    $jugadorA = $partidosBL->obtenerNombreJugador($partido['jugadorA']);
+    $jugadorB = $partidosBL->obtenerNombreJugador($partido['jugadorB']);
+?>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resultado</title>
+    </head>
+
+    <body>
+        <main>
+            <form action="<?php echo $_SERVER["REQUEST_URI"] ?>" method="POST">
+                <table>
+                    <tr>
+                        <td>Jugador A</td>
+                        <td>Jugador B</td>
+                        <td>Ronda</td>
+                        <td><label for='id_ganador'>Ganador</label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <?php print($jugadorA) ?>
+                        </td>
+                        <td>
+                            <?php print($jugadorB) ?>
+                        </td>
+                        <td>
+                            <?php print($partido['ronda']) ?>
+                        </td>
+                        <td>
+                            <select name='ganador' id='id_ganador'>
+                                <option value='<?php print($partido['jugadorA']) ?>'><?php print($jugadorA) ?></option>
+                                <option value='<?php print($partido['jugadorB']) ?>'><?php print($jugadorB) ?></option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" value="Guardar" />
+            </form>
+        </main>
+    </body>
+
+    </html>
+<?php } else {
     $listaJugadores = $partidosBL->listaJugadores();
 ?>
     <!DOCTYPE html>
@@ -27,7 +74,7 @@ if (isset($_POST['submit'])) {
 
     <body>
         <main>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+            <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
                 <table>
                     <tr>
                         <td>Jugador A</td>
@@ -72,7 +119,7 @@ if (isset($_POST['submit'])) {
                         </td>
                     </tr>
                 </table>
-                <input type="submit" value="Guardar" />
+                <input type="submit" value="Guardar">
             </form>
         </main>
     </body>

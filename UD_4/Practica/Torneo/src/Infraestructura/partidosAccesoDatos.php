@@ -27,7 +27,7 @@ class PartidosAccesoDatos
         return $partidos;
     }
 
-    function obtenerPartidos($torneoId)
+    function obtenerPartidosTorneo($torneoId)
     {
         $conexion = $this->conexion();
         $consulta = mysqli_prepare($conexion, "SELECT partidoId, jugadorA, jugadorB, ronda, ganador FROM T_Partido WHERE torneoId = ?;");
@@ -39,6 +39,19 @@ class PartidosAccesoDatos
             array_push($partidos, $myrow);
         }
         return $partidos;
+    }
+
+    function obtenerPartido($partidoId){
+        $conexion = $this->conexion();
+        $consulta = mysqli_prepare($conexion, "SELECT partidoId, ronda, jugadorA, jugadorB FROM T_Partido WHERE partidoId = ?;");
+        $consulta->bind_param("s", $partidoId);
+        $consulta->execute();
+        $result = $consulta->get_result();
+        $partido = array();
+        while ($myrow = $result->fetch_assoc()) {
+            $partido = $myrow;
+        }
+        return $partido;
     }
 
     function crearPartidos($ronda, $torneoId, $jugadorA, $jugadorB)

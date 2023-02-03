@@ -1,7 +1,7 @@
 <?php
 require("../Negocio/torneosReglasNegocio.php");
 $partidosBL = new PartidosReglasNegocio();
-$datosPartidos = $partidosBL->datosPartido($_GET['torneoId']);
+$datosPartidos = $partidosBL->datosPartidosTorneo($_GET['torneoId']);
 ?>
 <html lang="en">
 

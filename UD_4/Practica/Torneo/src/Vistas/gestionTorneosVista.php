@@ -12,7 +12,7 @@ if (isset($_POST['submit']) || isset($_GET['torneoId'])) {
         $torneoId = $_GET['torneoId'];
     }
 
-    $datosPartidos = $partidosBL->datosPartido($torneoId);
+    $datosPartidos = $partidosBL->datosPartidosTorneo($torneoId);
 
 ?>
 

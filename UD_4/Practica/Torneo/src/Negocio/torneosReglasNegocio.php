@@ -150,10 +150,10 @@ class PartidosReglasNegocio
         $this->_Ganador = $ganador;
     }
 
-    function datosPartido($torneoId)
+    function datosPartidosTorneo($torneoId)
     {
         $partidosDAL = new PartidosAccesoDatos();
-        $rs = $partidosDAL->obtenerPartidos($torneoId);
+        $rs = $partidosDAL->obtenerPartidosTorneo($torneoId);
 
         $datosPartido =  array();
 
@@ -163,6 +163,13 @@ class PartidosReglasNegocio
             array_push($datosPartido, $oPartidosReglasNegocio);
         }
 
+        return $datosPartido;
+    }
+
+    function obtenerPartido($partidoId)
+    {
+        $partidosDAL = new PartidosAccesoDatos();
+        $datosPartido = $partidosDAL->obtenerPartido($partidoId);
         return $datosPartido;
     }
 

@@ -24,3 +24,7 @@ function test_limpiar()
 
 
 test_limpiar();
+
+// Acceso + Vista 40% y Negocio 60%.
+// Nos dará un modelo de datos e interpretar relaciones.
+// Revisar ejercicios o prácticas (num aleatorios no salen)

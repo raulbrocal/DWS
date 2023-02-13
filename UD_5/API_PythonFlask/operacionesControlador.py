@@ -30,15 +30,15 @@ def triangulo(base, altura):
 
 @app.route("/factorial/<int:numero>/")
 def factorial(numero):
-    if (numero == 0):
-        return generar_respuesta_json(1, "calcular_factorial")
-    elif (numero > 0):
-        result = 1
-        for i in range(2, numero+1):
-            result = result * i
-        return generar_respuesta_json(result, "calcular_factorial")
+    result = calcular_factorial(numero)
+    return generar_respuesta_json(result, "calcular_factorial")
+
+
+def calcular_factorial(x):
+    if (x == 0):
+        return 1
     else:
-        raise ValueError('El valor de x ha de ser >=0.')
+        return x*calcular_factorial(x-1)
 
 
 if __name__ == "__main__":
